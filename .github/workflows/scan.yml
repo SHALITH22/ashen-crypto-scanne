@@ -1,0 +1,83 @@
+name: Scan
+
+on:
+  schedule:
+    # Every 20 minutes, offset from :00/:20/:40 - GitHub's own docs warn
+    # on-the-hour schedules hit peak load and are frequently delayed or
+    # dropped. Widened from 15 to 20 minutes when scan_all (~530 pairs,
+    # every USDT perpetual) replaced the 100-pair top-volume list - a full
+    # scan now takes ~18 minutes, which no longer fit inside 15. The wider
+    # coin coverage is what actually fixed near-zero alert delivery (a
+    # 100-pair scan found ~1-4 setups worth logging per run; 530 pairs
+    # found 89, 7 of which cleared every quality gate) - worth the slower
+    # cadence rather than shrinking coverage back down.
+    # NOTE: this cadence needs the repo to be public - a private repo only
+    # gets 2,000 free Actions minutes/month, and a full scan run takes several
+    # minutes, so this would blow through that budget in days. Public
+    # repos get unlimited free minutes. (No secrets live in the code - the
+    # bot token/chat id are GitHub encrypted secrets referenced via env:
+    # below, never committed - so making this public doesn't expose them.)
+    - cron: "3,23,43 * * * *"  # every 20 minutes, UTC
+  workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write   # needed to commit journal.jsonl back to the repo
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    environment: Telegram   # secrets were saved as environment secrets under this name
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run scanner
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Cloudflare Worker relay for the ~371 long-tail pairs not on
+          # Binance.US (binance.com itself 451s every GitHub Actions
+          # request - see scanner/data.py module docstring). Both optional:
+          # missing BINANCE_PROXY_URL just means long-tail pairs get
+          # "no_data" errors (same as before this feature existed), not a
+          # failed run. Set both as repo secrets - Settings -> Secrets and
+          # variables -> Actions -> New repository secret.
+          BINANCE_PROXY_URL: ${{ secrets.BINANCE_PROXY_URL }}
+          BINANCE_PROXY_SECRET: ${{ secrets.BINANCE_PROXY_SECRET }}
+        run: python main.py
+
+      - name: Check journal outcomes
+        run: python journal_check.py
+
+      - name: Commit journal updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # journal.jsonl/failed_trades.jsonl are append-only and multiple
+          # runs (15-min schedule + manual triggers) can genuinely overlap -
+          # git's default line-based merge treats "both sides appended
+          # different new rows" as a hard conflict and fails the whole step,
+          # silently losing that run's journal writes. This content-aware
+          # driver (scripts/merge_journal.py, wired via .gitattributes)
+          # merges by (symbol, timeframe, detector, logged_at) instead, so
+          # a normal overlapping-run race resolves automatically.
+          git config merge.journal-merge.name "journal.jsonl/failed_trades.jsonl content-aware merge"
+          git config merge.journal-merge.driver "python scripts/merge_journal.py %O %A %B"
+          touch journal.jsonl failed_trades.jsonl
+          git add journal.jsonl failed_trades.jsonl scan_health.json
+          git diff --cached --quiet || git commit -m "Update journal [skip ci]"
+          # Retry a few times in case another run's push lands in the
+          # narrow window between our pull and our push.
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done

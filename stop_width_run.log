@@ -1,0 +1,62 @@
+Fetching BTC/ETH trend reference per timeframe...
+Simulating up to 101 pairs x 9 timeframes, ema_stack/bullish + qqe_cross/bullish only (8 workers, horizon=60, target: 4000 trades)...
+  [20/909] 211 trades (29s)
+  [40/909] 416 trades (47s)
+  [60/909] 653 trades (72s)
+  [80/909] 891 trades (92s)
+  [100/909] 1105 trades (114s)
+  [120/909] 1304 trades (133s)
+  [140/909] 1498 trades (156s)
+  [160/909] 1699 trades (177s)
+  [180/909] 1899 trades (196s)
+  [200/909] 2088 trades (217s)
+  [220/909] 2293 trades (239s)
+  [240/909] 2485 trades (262s)
+  [260/909] 2687 trades (286s)
+  [280/909] 2893 trades (307s)
+  [300/909] 3092 trades (335s)
+  [320/909] 3318 trades (358s)
+  [340/909] 3499 trades (379s)
+  [360/909] 3694 trades (402s)
+  [380/909] 3910 trades (422s)
+  reached 4011 trades, stopping early
+
+Done: 4011 trades from 389/909 series in 448s
+
+
+=== ema_stack/bullish (n_opportunities=1217) ===
+variant                     
+baseline (current, m=1.0)   n=1202  win_rate= 40.3%  avg_rr= 1.70  expectancy=+0.089R
+rescaled x1.2 (stop+target) n=1185  win_rate= 40.6%  avg_rr= 1.70  expectancy=+0.096R
+stop_only x1.2 (target fixed)n=1196  win_rate= 45.0%  avg_rr= 1.42  expectancy=+0.087R
+rescaled x1.5 (stop+target) n=1147  win_rate= 40.2%  avg_rr= 1.70  expectancy=+0.085R
+stop_only x1.5 (target fixed)n=1185  win_rate= 51.1%  avg_rr= 1.13  expectancy=+0.089R
+rescaled x2.0 (stop+target) n=1045  win_rate= 39.6%  avg_rr= 1.70  expectancy=+0.070R
+stop_only x2.0 (target fixed)n=1165  win_rate= 58.3%  avg_rr= 0.85  expectancy=+0.078R
+rescaled x3.0 (stop+target) n=801   win_rate= 41.8%  avg_rr= 1.70  expectancy=+0.129R
+stop_only x3.0 (target fixed)n=1085  win_rate= 69.8%  avg_rr= 0.57  expectancy=+0.093R
+
+=== qqe_cross/bullish (n_opportunities=2794) ===
+variant                     
+baseline (current, m=1.0)   n=2739  win_rate= 36.4%  avg_rr= 1.70  expectancy=-0.018R
+rescaled x1.2 (stop+target) n=2694  win_rate= 36.3%  avg_rr= 1.70  expectancy=-0.020R
+stop_only x1.2 (target fixed)n=2724  win_rate= 40.5%  avg_rr= 1.42  expectancy=-0.021R
+rescaled x1.5 (stop+target) n=2599  win_rate= 36.8%  avg_rr= 1.70  expectancy=-0.007R
+stop_only x1.5 (target fixed)n=2693  win_rate= 46.3%  avg_rr= 1.13  expectancy=-0.013R
+rescaled x2.0 (stop+target) n=2324  win_rate= 36.7%  avg_rr= 1.70  expectancy=-0.008R
+stop_only x2.0 (target fixed)n=2629  win_rate= 54.0%  avg_rr= 0.85  expectancy=-0.001R
+rescaled x3.0 (stop+target) n=1725  win_rate= 36.1%  avg_rr= 1.70  expectancy=-0.025R
+stop_only x3.0 (target fixed)n=2467  win_rate= 65.7%  avg_rr= 0.57  expectancy=+0.029R
+
+=== Combined (ema_stack + qqe_cross pooled) ===
+baseline (current, m=1.0)   n=3941  win_rate= 37.6%  avg_rr= 1.70  expectancy=+0.015R
+rescaled x1.2 (stop+target) n=3879  win_rate= 37.6%  avg_rr= 1.70  expectancy=+0.016R
+stop_only x1.2 (target fixed)n=3920  win_rate= 41.9%  avg_rr= 1.42  expectancy=+0.012R
+rescaled x1.5 (stop+target) n=3746  win_rate= 37.8%  avg_rr= 1.70  expectancy=+0.021R
+stop_only x1.5 (target fixed)n=3878  win_rate= 47.7%  avg_rr= 1.13  expectancy=+0.018R
+rescaled x2.0 (stop+target) n=3369  win_rate= 37.6%  avg_rr= 1.70  expectancy=+0.016R
+stop_only x2.0 (target fixed)n=3794  win_rate= 55.3%  avg_rr= 0.85  expectancy=+0.023R
+rescaled x3.0 (stop+target) n=2526  win_rate= 37.9%  avg_rr= 1.70  expectancy=+0.024R
+stop_only x3.0 (target fixed)n=3552  win_rate= 66.9%  avg_rr= 0.57  expectancy=+0.048R
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\stop_width_results.json

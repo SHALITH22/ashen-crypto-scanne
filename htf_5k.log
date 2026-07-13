@@ -1,0 +1,14 @@
+Fetching BTC/ETH trend reference per timeframe...
+Simulating up to 102 symbols (all their timeframes fetched together for HTF checks) (8 workers, target: 5000 trades)...
+  [10/102] 1941 trades (205s)
+  [20/102] 3756 trades (291s)
+  reached 5136 trades, stopping early
+
+Done: 5136 trades from 28/102 symbols in 589s
+
+=== HTF agreement requirement ===
+HTF agrees (current requirement)n=3230  win_rate= 40.7%  avg_rr= 1.86  expectancy=+0.165R
+HTF conflicts (currently blocked)n=1810  win_rate= 27.5%  avg_rr= 1.93  expectancy=-0.196R
+All trades combined (no HTF filter)n=5040  win_rate= 35.9%  avg_rr= 1.89  expectancy=+0.037R
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\htf_agreement_results.json

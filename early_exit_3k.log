@@ -1,0 +1,25 @@
+Fetching BTC/ETH trend reference per timeframe...
+Simulating up to 102 pairs x 9 timeframes (8 workers, target: 3000 trades)...
+  [20/918] 445 trades (29s)
+  [40/918] 925 trades (50s)
+  [60/918] 1440 trades (88s)
+  [80/918] 1889 trades (124s)
+  [100/918] 2291 trades (165s)
+  [120/918] 2814 trades (206s)
+  reached 3002 trades, stopping early
+
+Done: 3002 trades from 129/918 series in 251s
+
+=== Baseline (wait for full stop/target), n=2609 ===
+win_rate=37.4%  avg_rr=1.79  expectancy=+0.046R
+
+MAE threshold      winners cut short    losses reduced    net expectancy   vs baseline
+--------------------------------------------------------------------------------------
+0.4                              385              1182           -0.032R       -0.079R  <-- WORSE
+0.5                              293              1091           -0.031R       -0.077R  <-- WORSE
+0.6                              216               940           -0.038R       -0.085R  <-- WORSE
+0.7                              146               783           -0.036R       -0.083R  <-- WORSE
+0.8                               92               570           -0.037R       -0.083R  <-- WORSE
+0.9                               44               318           -0.023R       -0.069R  <-- WORSE
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\early_exit_results.json

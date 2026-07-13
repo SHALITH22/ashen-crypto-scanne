@@ -1,0 +1,48 @@
+Simulating up to 103 pairs x 9 timeframes (8 worker processes, target: 2000-10000 trades)...
+  [10/927] 1067 trades so far (15s elapsed)
+  [20/927] 2452 trades so far (23s elapsed)
+  [30/927] 3687 trades so far (34s elapsed)
+  [40/927] 5040 trades so far (45s elapsed)
+  [50/927] 6428 trades so far (57s elapsed)
+  [60/927] 7776 trades so far (68s elapsed)
+  [70/927] 9009 trades so far (77s elapsed)
+  reached 10003 trades (>= --max-trades 10000), stopping early - cancelling remaining jobs
+
+Done: 10003 simulated trades from 77/927 pair/timeframe series in 99s
+
+Order/stop/target integrity check: 10003/10003 trades correct.
+
+8462 decided (win/loss), 1541 expired (no clean resolution)
+
+detector/direction               n  win_rate  avg_rr  avg_pct
+-------------------------------------------------------------
+ema_stack/bullish             1337     37.9%    1.70     0.07
+ema_stack/bearish             1232     35.0%    1.70     0.02  <-- proven losing (< breakeven)
+stochrsi/bullish               866     32.8%    1.70    -0.23  <-- proven losing (< breakeven)
+stochrsi/bearish               757     31.0%    1.70     0.24  <-- proven losing (< breakeven)
+rising_wedge/bearish           688     32.1%    1.88     0.31  <-- proven losing (< breakeven)
+sr_break/bearish               581     33.4%    1.70     0.15  <-- proven losing (< breakeven)
+sr_break/bullish               521     36.5%    1.70    -0.04  <-- proven losing (< breakeven)
+qqe_cross/bullish              426     41.3%    1.70     0.16
+qqe_cross/bearish              410     25.6%    1.70     0.44  <-- proven losing (< breakeven)
+volume_spike/bullish           403     36.5%    1.70     0.04  <-- proven losing (< breakeven)
+volume_spike/bearish           353     30.9%    1.70     0.21  <-- proven losing (< breakeven)
+ascending_triangle/bullish     175     35.4%    1.76    -0.13  <-- proven losing (< breakeven)
+descending_triangle/bearish    172     36.0%    1.73    -0.00  <-- proven losing (< breakeven)
+engulfing/bearish              153     35.3%    1.70     0.03  <-- proven losing (< breakeven)
+ema_cross/bullish              141     30.5%    1.70    -0.25  <-- proven losing (< breakeven)
+ema_cross/bearish              107     40.2%    1.70     0.18
+engulfing/bullish               48     20.8%    1.70    -0.70  <-- proven losing (< breakeven)
+shooting_star/bearish           24     29.2%    1.70    -0.10  <-- proven losing (< breakeven)
+double_bottom/bullish           13     30.8%    1.70    -0.60
+bull_flag/bullish               12     66.7%    1.17     3.43
+double_top/bearish               9     33.3%    1.70    -0.48
+bear_flag/bearish                9     44.4%    1.34    -0.31
+inverse_head_and_shoulders/bullish     6     33.3%    1.70    -0.93
+bear_pennant/bearish             6     50.0%    1.13    -5.17
+rsi_divergence/bearish           4     50.0%    1.70    -1.53
+bull_pennant/bullish             4     50.0%    1.56     0.48
+hammer/bullish                   4     50.0%    1.70    -0.62
+head_and_shoulders/bearish       1      0.0%    1.70     2.20
+
+Full detail (all 10003 trades + summary) written to D:\Education\CRYPTO\binance-scanner\realistic_backtest_results.json

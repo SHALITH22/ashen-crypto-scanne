@@ -1,0 +1,19 @@
+Fetching BTC/ETH trend reference per timeframe...
+Fetching funding rate history per pair (shared across all its timeframes)...
+Simulating up to 102 pairs x 9 timeframes (8 workers, target: 3000 trades)...
+  [20/918] 460 trades (65s)
+  [40/918] 925 trades (109s)
+  [60/918] 1418 trades (150s)
+  [80/918] 1891 trades (191s)
+  [100/918] 2306 trades (236s)
+  [120/918] 2824 trades (276s)
+  reached 3004 trades, stopping early
+
+Done: 3004 trades from 128/918 series in 316s
+
+=== Funding rate classification (all proven+BTC/ETH-filtered trades) ===
+against_crowd                      n=92    win_rate= 37.0%  avg_rr= 1.85  expectancy=+0.052R
+neutral                            n=2355  win_rate= 37.3%  avg_rr= 1.79  expectancy=+0.040R
+with_crowd                         n=166   win_rate= 44.0%  avg_rr= 1.81  expectancy=+0.234R
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\funding_rate_results.json

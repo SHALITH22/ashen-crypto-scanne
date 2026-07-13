@@ -1,0 +1,46 @@
+name: Backtest
+
+on:
+  schedule:
+    # Offset from :00 - GitHub's own docs warn that exactly-on-the-hour
+    # schedules hit peak load and are frequently delayed or dropped.
+    - cron: "23 2 * * 0"  # weekly, Sunday 02:23 UTC - keeps detector weights current
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # needed to commit backtest_results.json back to the repo
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run backtest (pairs/timeframes from settings.yaml)
+        run: python backtest.py
+
+      - name: Commit updated backtest results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backtest_results.json
+          git diff --cached --quiet || git commit -m "Refresh backtest results [skip ci]"
+          # scan.yml commits every 15 minutes, so origin/main has almost
+          # certainly moved by the time this (much longer) backtest run
+          # finishes - a bare push with no pull first would fail outright.
+          # backtest_results.json is never touched by scan.yml, so this
+          # never has a real content conflict, just needs to catch up.
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done

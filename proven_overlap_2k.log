@@ -1,0 +1,41 @@
+Fetching BTC/ETH trend reference per timeframe...
+Simulating up to 102 pairs x 9 timeframes (8 workers, target: 2000 trades)...
+  [20/918] 474 trades (63s)
+  [40/918] 920 trades (103s)
+  [60/918] 1423 trades (140s)
+  [80/918] 1907 trades (183s)
+  reached 2000 trades, stopping early
+
+Done: 2000 trades from 85/918 series in 214s
+
+=== Single proven detector vs multiple overlapping ===
+Exactly 1 proven detector                    n=1521  win_rate= 36.9%  avg_rr= 1.77  expectancy=+0.022R
+2+ proven detectors overlapping              n=224   win_rate= 41.1%  avg_rr= 1.65  expectancy=+0.089R
+
+=== By overlap count ===
+proven_count=1                               n=1521  win_rate= 36.9%  avg_rr= 1.77  expectancy=+0.022R
+proven_count=2                               n=215   win_rate= 40.0%  avg_rr= 1.65  expectancy=+0.061R
+proven_count=3                               n=9     (too few to trust)
+
+=== Which specific pairs overlap most, and how they perform ===
+ema_stack + rising_wedge                     n=76    win_rate= 35.5%  avg_rr= 1.64  expectancy=-0.061R
+descending_triangle + ema_stack              n=42    win_rate= 31.0%  avg_rr= 1.63  expectancy=-0.186R
+double_bottom + ema_stack                    n=34    win_rate= 44.1%  avg_rr= 1.70  expectancy=+0.191R
+ascending_triangle + ema_stack               n=18    win_rate= 27.8%  avg_rr= 1.82  expectancy=-0.217R
+double_top + ema_stack                       n=17    win_rate= 70.6%  avg_rr= 1.70  expectancy=+0.906R
+double_top + rising_wedge                    n=10    (too few to trust)
+bear_flag + ema_stack                        n=4     (too few to trust)
+double_top + ema_stack + rising_wedge        n=4     (too few to trust)
+ema_stack + inverse_head_and_shoulders       n=3     (too few to trust)
+bull_flag + ema_stack                        n=3     (too few to trust)
+ema_stack + head_and_shoulders + rising_wedgen=2     (too few to trust)
+ema_stack + head_and_shoulders               n=2     (too few to trust)
+bull_pennant + ema_stack                     n=2     (too few to trust)
+head_and_shoulders + rising_wedge            n=2     (too few to trust)
+bear_pennant + ema_stack                     n=1     (too few to trust)
+double_bottom + ema_stack + inverse_head_and_shouldersn=1     (too few to trust)
+bull_flag + double_bottom + ema_stack        n=1     (too few to trust)
+descending_triangle + double_top + ema_stack n=1     (too few to trust)
+double_bottom + inverse_head_and_shoulders   n=1     (too few to trust)
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\proven_overlap_results.json

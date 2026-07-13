@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+signals_output.json
+venv/
+# backtest_results.json and journal.jsonl are intentionally tracked -
+# the scan/backtest GitHub Actions workflows commit them back so the
+# scanner has persistent state (detector weights, forward track record)
+# across ephemeral cloud runs.

@@ -1,0 +1,3688 @@
+{
+  "generated_at": "2026-07-12T16:03:22.786065+00:00",
+  "total_pairs": 528,
+  "fast_pairs": 100,
+  "long_tail_pairs": 428,
+  "pairs_with_errors": 367,
+  "used_pair_discovery_fallback": true,
+  "pair_discovery_method": "static_fallback",
+  "proxy_stats": {
+    "configured": true,
+    "attempts": 1284,
+    "successes": 0,
+    "last_status": 403,
+    "last_error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR"
+  },
+  "errors": {
+    "0GUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000000MOGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000000BOBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000BONKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000CATUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000CHEEMSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000FLOKIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000LUNCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000PEPEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000RATSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000SATSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000SHIBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1000XECUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "1MBABYDOGEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "2ZUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "4USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ACTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ACEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ACUUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ACXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AERGOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AEROUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AGLDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AEVOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AGTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AIGENSYNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AIOTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AIOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AINUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AKTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ALCHUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AKEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ALLOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ALLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ALTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "APRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARKMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARPAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ARXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ATHUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ATUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ASRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AUCTIONUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AVAAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AVAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AWEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "AZTECUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "B2USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BABYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BANANAS31USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BANANAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BANKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BANUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BARDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BASEDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BASUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BEAMXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BEATUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BELUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BERAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BILLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BIGTIMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BIOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BLESSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BIRBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BLUAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BOMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BREVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BROCCOLI714USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BROCCOLIF3BUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BSBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BSVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BTCDOMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BTRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BULLAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BTWUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "BUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "C98USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CARVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CAPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CATIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CETUSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CFGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CFXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CGPTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CHILLGUYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CHIPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CHRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CKBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CLANKERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CLOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "COAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "COOKIEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "COLLECTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "COWUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CROSSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CTKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CTRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CVCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CVXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CYBERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "CYSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DATAIPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DEEPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DEXEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DODOXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DOGSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DOLOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DRIFTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DYDXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "DYMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EDENUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EDGEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EDUUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ELSAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ENSOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EPICUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ERAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ESPORTSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ESPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ETHFIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ETHWUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EULUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "EVAAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FFUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FHEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FIDAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FIGHTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FLOCKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FLUIDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FOGOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FOLKSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FORMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "FUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GENIUSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GIGGLEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GMTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GMXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GOATUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GPSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GRAMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GRASSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GRIFFAINUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GUAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GUNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "GWEIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HAEDALUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HANAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HEIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HEMIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HFTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HIVEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HMSTRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HOLOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HOMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HOTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HUMAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "HYPERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ICNTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "IDOLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "IDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "INITUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "INUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "INXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "IOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "IRYSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "JCTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "JELLYJELLYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "JOEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "JSTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KAIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KASUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KATUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KERNELUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KGENUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KITEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KMNOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "KOMAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LABUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LIGHTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LINEAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LISTAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LITUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LQTYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LUMIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LUNA2USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "LYNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MAGMAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MANTAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MANTRAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MAVIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MEGAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MAVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MELANIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MEMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MERLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "METUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MINAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MIRAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MITOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MMTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MOCAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MONUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MOVEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MORPHOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MOVRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MTLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MUBARAKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "MYXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NAORISUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NEWTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NIGHTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NILUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NOMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NOTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "NXPCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "OGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "OPENUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "OPGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ONUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "OPNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ORDERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ORDIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PARTIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "OUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PHAROSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PEOPLEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PENDLEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PHAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PIPPINUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PIEVERSEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PIXELUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PLAYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PLUMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PORTALUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "POWERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "POWRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PROMPTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PRLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PROVEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PTBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PUMPBTCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PUNDIXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "PYTHUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "QUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RAVEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RAYSOLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RECALLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "REDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RESOLVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "REUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "REZUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RIFUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RIVERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ROBOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RONINUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RPLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RSRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "RUNEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SAFEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SAGAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SAPIENUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SAHARAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SCRTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SCRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SENTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SFPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SHELLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SIGNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SIRENUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SKRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SKYAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SLXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SOLVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SOMIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SONICUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SOONUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SOPHUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SPACEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SPKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SPORTFUNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SQDUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SSVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STABLEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STARUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STBLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STEEMUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STRKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "STXUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SUPERUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SUNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SWARMSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SXTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SYNUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "SYRUPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TACUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TAIKOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TAGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TAKEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TAOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "THEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TNSRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TOWNSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TRADOORUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TRBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TREEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TRIAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TRUSTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TRUTHUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TSTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TURTLEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "TUTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "UAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "UBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "UMAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "USTCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "USUALUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "USUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VANAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VANRYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VELODROMEUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VELVETUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VICUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "WALUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "VVVUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "WCTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "WETUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "WOOUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "WUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XANUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XAIUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XAUTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XMRUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XNYUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XPINUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XPLUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XVGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "XVSUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "YBUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "YGGUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZAMAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZBTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZEREBROUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZETAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZESTUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZKCUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZKPUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZKUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZORAUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "ZROUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "\u5e01\u5b89\u4eba\u751fUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "\u9f99\u867eUSDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ],
+    "\u6211\u8e0f\u9a6c\u6765\u4e86USDT": [
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      }
+    ]
+  }
+}

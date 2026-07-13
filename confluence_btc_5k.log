@@ -1,0 +1,30 @@
+Fetching BTC/ETH trend reference per timeframe...
+Simulating up to 102 pairs x 9 timeframes for proven detectors only (8 workers, target: 5000 trades)...
+  [20/918] 1148 trades (30s)
+  [40/918] 2234 trades (55s)
+  [60/918] 3379 trades (88s)
+  [80/918] 4445 trades (147s)
+  reached 5026 trades, stopping early
+
+Done: 5026 trades from 91/918 series in 201s
+
+=== Confluence strength (proven detectors only) ===
+strength=2.0                            n=2859  win_rate= 34.7%  avg_rr= 1.74  expectancy=-0.048R
+strength=3.0                            n=1134  win_rate= 37.6%  avg_rr= 1.73  expectancy=+0.026R
+strength=4.0                            n=319   win_rate= 32.3%  avg_rr= 1.67  expectancy=-0.138R
+strength=5.0                            n=51    win_rate= 39.2%  avg_rr= 1.78  expectancy=+0.092R
+strength=6.0                            n=6     (too few to trust)
+
+=== BTC trend alignment ===
+BTC agrees with trade direction         n=2592  win_rate= 34.3%  avg_rr= 1.71  expectancy=-0.068R
+BTC disagrees with trade direction      n=1777  win_rate= 36.8%  avg_rr= 1.76  expectancy=+0.018R
+
+=== ETH trend alignment ===
+ETH agrees with trade direction         n=2600  win_rate= 35.2%  avg_rr= 1.72  expectancy=-0.043R
+ETH disagrees with trade direction      n=1769  win_rate= 35.6%  avg_rr= 1.76  expectancy=-0.019R
+
+=== BTC+ETH both agree vs both disagree ===
+Both BTC and ETH agree                  n=2295  win_rate= 34.8%  avg_rr= 1.72  expectancy=-0.055R
+Both BTC and ETH disagree               n=1472  win_rate= 36.5%  avg_rr= 1.77  expectancy=+0.011R
+
+Full detail written to D:\Education\CRYPTO\binance-scanner\confluence_btc_results.json

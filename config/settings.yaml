@@ -1,0 +1,475 @@
+# ============================================
+# Binance Multi-Timeframe Pattern Scanner Config
+# Edit this file to change behavior - no code changes needed
+# ============================================
+
+# --- Jayantha strategy (replaces the old generic multi-pattern detector
+# set entirely - see scanner/jayantha_detectors.py) ---
+# B2B ("buy near the moving average, sell away from it"): enter on
+# pullbacks/rallies to a rising/falling MA inside an established trend,
+# only once a closed candle actually confirms the bounce/rejection -
+# never on an approaching level or a wick-only touch.
+jayantha:
+  enabled: true
+
+  b2b:
+    # MA periods maintained internally by the detector (independent of
+    # indicators.ema_periods below, which only the retired old detector
+    # set used).
+    ma_periods: [20, 50, 100, 200]
+    entry_ma_period: 50       # pullback/rally target (the MA price must reach)
+    trend_ma_period: 200      # trend filter only (price must stay on the trend side of this)
+    stop_ma_period: 100       # stop sits just beyond THIS MA, not trend_ma_period -
+                               # trend_ma_period is deliberately too far from a 50-MA
+                               # pullback entry to produce a sane risk:reward
+    pullback_tolerance_pct: 1.5   # how close to entry_ma_period counts as "touched"
+    min_pullback_depth_pct: 2.0   # reject shallow, noise-level pullbacks
+
+  confirmation:
+    min_close_beyond_level_pct: 0.2   # close must clear the MA by at least this much
+    fakeout_detection_candles: 5
+    require_closed_candle: true
+    # Confirmation score (0-1) below this discards the setup entirely -
+    # a wick-only touch or barely-there close never reaches the journal
+    # or Telegram, matching the "confirmation before conviction" rule.
+    min_confirmation_to_fire: 0.3
+    # Only above this does the setup earn the extra jayantha_confirmation
+    # confluence signal (a genuinely clean, well-confirmed close).
+    min_confirmation_bonus: 0.65
+
+# Pairs to scan.
+# pairs_mode: top_volume_lightweight -> DEFAULT as of 2026-07-12. Ranks a
+#   live ticker/24hr call against a pre-built static universe file
+#   (crypto_universe.json) instead of requiring live exchangeInfo
+#   discovery. Added because binance.com hard-blocks GitHub Actions' IPs
+#   ENTIRELY (confirmed - see scanner/data.py module docstring), and
+#   exchangeInfo/ticker discovery deliberately never falls back to
+#   Binance.US (a discovery source needs the real global catalog, not a
+#   smaller/different one - see get_all_usdt_pairs' docstring). Without
+#   this, scan_all/top_volume silently returned [] on every GitHub Actions
+#   run for 24+ hours before anyone noticed (scan_health.json's
+#   total_pairs was the first thing to actually surface it).
+#   crypto_universe.json must be refreshed periodically from a network
+#   that can actually reach binance.com - see scripts/refresh_universe.py.
+# pairs_mode: top_volume -> recomputed fresh from a LIVE exchangeInfo call
+#   (works locally/non-blocked networks, returns [] on GitHub Actions).
+# pairs_mode: static     -> always use the `pairs` list below verbatim.
+# scan_all: true          -> ignore pairs_mode, fetch every USDT perpetual
+#   via live exchangeInfo (~530 pairs; same GitHub Actions block as above).
+scan_all: false
+pairs_mode: top_volume_lightweight
+top_n_pairs: 157
+
+# Long-tail coverage: the ~371 real Binance USDT perpetuals NOT on
+# Binance.US (crypto_universe.json minus the `pairs:` list below), scanned
+# via a Cloudflare Worker proxy (BINANCE_PROXY_URL env var, set in
+# .github/workflows/scan.yml) instead of binance.com/Binance.US directly.
+# Reduced timeframes here (not the full `timeframes:` list further down)
+# to stay inside the proxy's free-tier request budget: at 20-min cadence,
+# ~371 pairs x 2 timeframes ~= 80k requests/day, under Cloudflare Workers'
+# 100k/day free cap.
+#
+# DISABLED 2026-07-12: tested end-to-end via a deployed Cloudflare Worker
+# (binance-fapi-proxy.s17001360.workers.dev) with the correct secret -
+# 0/1284 requests succeeded, every single one rejected with a CloudFront-
+# branded 403 (see scanner.data.get_proxy_stats, written to
+# scan_health.json's proxy_stats field: {"attempts": 1284, "successes": 0,
+# "last_status": 403}). Root-path and disallowed-path requests to the SAME
+# Worker succeeded fine, proving the Worker itself was reachable and
+# correctly deployed - only requests that trigger the Worker's OWN
+# outbound fetch to fapi.binance.com failed, and identically from two
+# completely different networks (this session's sandbox AND GitHub
+# Actions' Azure IPs). This points to Binance's own CDN (also fronted by
+# CloudFront) blocklisting Cloudflare Workers' shared egress IP range
+# outright, the same way it already blocks GitHub Actions' - not
+# something fixable in our code. Left in place (not deleted) in case
+# Binance's blocklist ever changes; re-enable by setting enabled: true.
+long_tail:
+  enabled: false
+  timeframes:
+    - 4h
+    - 1d
+
+# Last-resort fallback only - used if even the lightweight ticker/24hr call
+# fails (e.g. a genuine full binance.com outage, not just the GitHub
+# Actions IP block that top_volume_lightweight already routes around).
+# CURATED + EXPANDED 2026-07-12: restricted to all 157 symbols also listed
+# on Binance.US (get_klines' fallback exchange when binance.com is blocked
+# - see scanner/data.py module docstring), not just the top 100 by volume.
+# The long-tail proxy (see long_tail above) was meant to cover the
+# remaining ~371 pairs but hit a hard wall (Binance blocklisting the
+# proxy's own IPs) - this is the practical ceiling for a free, always-on
+# GitHub-Actions-hosted scan: every pair below is verified reachable.
+# See scripts/refresh_universe.py to regenerate (performs the same
+# Binance.US intersection, now without the top-100 cutoff).
+pairs:
+  - ETHUSDT
+  - BTCUSDT
+  - SOLUSDT
+  - TUSDT
+  - ZECUSDT
+  - XRPUSDT
+  - HYPEUSDT
+  - DOGEUSDT
+  - BNBUSDT
+  - WLDUSDT
+  - ADAUSDT
+  - AAVEUSDT
+  - ARBUSDT
+  - UNIUSDT
+  - SUIUSDT
+  - AVAXUSDT
+  - NEARUSDT
+  - ENAUSDT
+  - LINKUSDT
+  - SKLUSDT
+  - XLMUSDT
+  - VIRTUALUSDT
+  - BCHUSDT
+  - FILUSDT
+  - DOTUSDT
+  - TLMUSDT
+  - TRUMPUSDT
+  - ONDOUSDT
+  - LTCUSDT
+  - HBARUSDT
+  - ASTERUSDT
+  - PUMPUSDT
+  - TIAUSDT
+  - INJUSDT
+  - MOODENGUSDT
+  - TRXUSDT
+  - LDOUSDT
+  - KAITOUSDT
+  - FARTCOINUSDT
+  - OPUSDT
+  - PENGUUSDT
+  - ETCUSDT
+  - JTOUSDT
+  - FETUSDT
+  - ANKRUSDT
+  - APTUSDT
+  - WLFIUSDT
+  - SKYUSDT
+  - THETAUSDT
+  - ICPUSDT
+  - DASHUSDT
+  - EGLDUSDT
+  - EIGENUSDT
+  - PAXGUSDT
+  - WIFUSDT
+  - CRVUSDT
+  - OGNUSDT
+  - CHZUSDT
+  - JUPUSDT
+  - ATOMUSDT
+  - BLURUSDT
+  - SNXUSDT
+  - GALAUSDT
+  - TURBOUSDT
+  - ALGOUSDT
+  - POLUSDT
+  - SEIUSDT
+  - CAKEUSDT
+  - RENDERUSDT
+  - APEUSDT
+  - YFIUSDT
+  - IOTAUSDT
+  - VETUSDT
+  - ZENUSDT
+  - USELESSUSDT
+  - AXSUSDT
+  - AXLUSDT
+  - SANDUSDT
+  - MANAUSDT
+  - BICOUSDT
+  - AUSDT
+  - NEIROUSDT
+  - SPXUSDT
+  - RAREUSDT
+  - RVNUSDT
+  - ZILUSDT
+  - SUSDT
+  - PNUTUSDT
+  - ENSUSDT
+  - COMPUSDT
+  - MASKUSDT
+  - AVNTUSDT
+  - API3USDT
+  - ENJUSDT
+  - ALICEUSDT
+  - STORJUSDT
+  - QNTUSDT
+  - IMXUSDT
+  - MEUSDT
+  - CELOUSDT
+  - POPCATUSDT
+  - 1INCHUSDT
+  - DUSKUSDT
+  - WAXPUSDT
+  - BANDUSDT
+  - GRTUSDT
+  - BRETTUSDT
+  - SUSHIUSDT
+  - ORCAUSDT
+  - NMRUSDT
+  - LPTUSDT
+  - METISUSDT
+  - XTZUSDT
+  - ROSEUSDT
+  - GUSDT
+  - NEOUSDT
+  - SLPUSDT
+  - PROMUSDT
+  - LAYERUSDT
+  - ANIMEUSDT
+  - ACHUSDT
+  - AIXBTUSDT
+  - RLCUSDT
+  - FLUXUSDT
+  - ONTUSDT
+  - ASTRUSDT
+  - QTUMUSDT
+  - GASUSDT
+  - KAVAUSDT
+  - IOTXUSDT
+  - DOODUSDT
+  - KSMUSDT
+  - MAGICUSDT
+  - IOSTUSDT
+  - FLOWUSDT
+  - ONEUSDT
+  - BATUSDT
+  - ONGUSDT
+  - GTCUSDT
+  - GLMUSDT
+  - VTHOUSDT
+  - CTSIUSDT
+  - TWTUSDT
+  - COTIUSDT
+  - POLYXUSDT
+  - SANTOSUSDT
+  - TOSHIUSDT
+  - KNCUSDT
+  - ZRXUSDT
+  - BMTUSDT
+  - LSKUSDT
+  - MEWUSDT
+  - ILVUSDT
+  - BNTUSDT
+  - ALPINEUSDT
+  - DIAUSDT
+  - CELRUSDT
+
+# Timeframes to analyze (Binance kline intervals)
+timeframes:
+  - 15m
+  - 1h
+  - 2h
+  - 4h
+  - 6h
+  - 8h
+  - 1d
+  - 1w
+  - 1M
+
+# How many candles to fetch per timeframe (max 1000)
+candle_limit: 300
+
+# How many pairs (main.py) / open journal entries (journal_check.py) to
+# fetch concurrently. Each pair's own timeframes are still fetched
+# sequentially - this parallelizes across pairs/entries, not within one.
+# Needed to fit a full 100-pair x 9-timeframe scan inside a 15-minute
+# schedule (~13 min serially vs a few minutes at this concurrency).
+# get_klines already retries with backoff on 429s, so raising this is safe
+# up to a point, but too high risks harsher rate-limiting from Binance.
+scan_concurrency: 8
+
+# --- Indicator settings ---
+indicators:
+  ema_periods: [20, 50, 200]
+  stochrsi:
+    rsi_length: 14
+    stoch_length: 14
+    k: 3
+    d: 3
+  volume_ma_period: 20
+
+# --- Signal thresholds ---
+signals:
+  stochrsi_oversold: 20
+  stochrsi_overbought: 80
+  # Only fire StochRSI signal when %K is already reversing out of the extreme
+  # (fewer but higher-quality signals). Set false for the old behavior.
+  stochrsi_require_turn: true
+  # Volume spike = current volume vs volume MA
+  volume_spike_multiplier: 2.0
+  # Support/resistance touch tolerance (percent)
+  sr_tolerance_pct: 0.5
+  # Minimum touches to consider a level valid
+  sr_min_touches: 3
+  # How many trailing candles the pivot/pattern detectors look across
+  # (double top/bottom, head & shoulders, triangles, wedges)
+  pattern_lookback: 150
+  # How close two peaks/troughs must be (percent) to count as "equal" for
+  # double top/bottom and head & shoulders shoulder-matching
+  pattern_tolerance_pct: 1.5
+  # Minimum head-to-neckline depth (percent) for head & shoulders / inverse -
+  # rejects shallow, noise-level "shoulders" that technically match but aren't real
+  hs_min_depth_pct: 1.0
+  # --- Flag/pennant continuation pattern ---
+  flag_pole_window: 10       # candles used to measure the "pole" move
+  flag_window: 8             # candles used to measure the consolidation after the pole
+  flag_min_pole_pct: 5.0     # minimum pole move (percent) to qualify as a real pole
+  flag_max_pole_pct: 50.0    # maximum pole move (percent) - beyond this it's a listing crash/pump, not a flagpole
+  flag_max_range_ratio: 0.5  # consolidation range must be <= this fraction of the pole's range
+  # --- Candlestick patterns ---
+  candle_trend_lookback: 5   # candles back used to confirm prior trend for hammer/shooting star
+  # --- RSI divergence ---
+  divergence_min_price_pct: 0.5  # min price swing size (percent) between the two pivots compared
+  divergence_min_rsi_diff: 3.0   # min RSI difference (points) between the two pivots to count as real divergence
+  divergence_require_extreme: true  # only count divergence at an oversold/overbought RSI extreme (textbook usage)
+  rsi_oversold: 30
+  rsi_overbought: 70
+
+# --- Weighted confluence ---
+# Weights each detector's contribution to `strength` by its backtested edge
+# over the direction baseline (from backtest_results.json), instead of
+# counting every signal equally - e.g. ascending_triangle (real edge) counts
+# for more than engulfing (no edge) or rsi_divergence (below baseline).
+confluence:
+  use_backtest_weights: true
+  min_signals: 30       # backtested sample size needed before a detector's weight is trusted
+  horizon: h10           # which backtest horizon (h5/h10/h20) the weight is computed from
+  weight_scale: 5.0       # how strongly win-rate edge translates into weight
+  weight_clamp: [0.2, 2.5]
+
+# --- Risk management ---
+# Chart patterns (double top/bottom, H&S, triangle/wedge, flag/pennant)
+# compute stop/target from their own geometry (invalidation level / measured
+# move). Everything else falls back to these ATR-based levels.
+risk:
+  atr_multiplier: 1.5      # stop distance for non-structural signals, in ATR units
+  reward_risk_ratio: 2.0   # target distance = stop distance * this ratio
+  # ATR scales with candle size - on 1w/1M timeframes a fixed multiplier can
+  # put the stop 30-40% away, which isn't a usable plan. Cap it (percent of price).
+  # Confirmed against two real leveraged trades (EPICUSDT 1w, TACUSDT 1d):
+  # both got stopped out within ~0.5% of the exact calculated stop price - the
+  # math is correct - but an 8% stop at 10-20x leverage produces an 80-160%
+  # margin loss on one ordinary, expected stop-out. Halved to keep a single
+  # stop-out survivable at the leverage levels actually being used; this only
+  # affects generic ATR-based signals (structural patterns compute their own
+  # geometry-based stop, uncapped, since that's tied to real chart structure).
+  max_stop_pct: 4.0
+  # Reject any candidate whose stop is closer than this (percent of price) -
+  # a real stop this tight can get triggered by ordinary bid-ask spread or
+  # slippage alone, something a candle-based backtest can't see (win rate
+  # stayed flat 27-31% across every stop-width bucket including <0.2%,
+  # because the backtest assumes a perfect fill with no execution
+  # friction). Applies to every candidate, structural or generic - this is
+  # about real-world tradeability, not detector edge.
+  min_stop_pct: 0.5
+  # A structural pattern's stop and target come from independent geometry
+  # (e.g. a flag's stop is the whole consolidation, its target is just the
+  # pole height) - nothing guarantees a favorable ratio. Reject any risk
+  # plan whose reward:risk falls below this rather than showing a setup
+  # that risks more than it could gain.
+  min_risk_reward: 1.0
+  # Replace the geometric/ATR target with the detector's real historical
+  # average move (from backtest_results.json) when available, so the
+  # reported scenario reflects what price has actually tended to do -
+  # skipped if that average move is smaller than this (percent), since a
+  # near-zero empirical move isn't a meaningful target either.
+  min_calibrated_move_pct: 0.3
+  # Take profit at this fraction of the full geometric/calibrated target
+  # instead of waiting for 100% of it. Confirmed via a 6000+ trade backtest
+  # (win_rate_levers_backtest.py) that 0.85 is a small, genuine improvement
+  # (higher win rate AND higher expectancy than 1.0) - lower fractions
+  # raise win rate further but give back more expectancy than they gain,
+  # so this isn't a "chase win rate" knob, it's the one point on that
+  # curve that's actually better on both axes.
+  target_fraction: 0.85
+  # A detector/direction is refused as a trade basis once its EXPECTANCY
+  # (win_rate * (1 + avg R:R) - 1, i.e. real profit/loss in units of risk)
+  # goes below this, using the live journal once it has min_reliable_n
+  # decided trades, falling back to realistic_backtest.py's large-scale
+  # historical simulation otherwise - both respect the actual stop/target,
+  # unlike backtest_results.json's naive N-candle forward return, which can
+  # look like edge while actually losing money once a realistic stop is
+  # respected. Expectancy (not a flat win-rate bar) matters because R:R
+  # varies hugely by detector - e.g. a structural pattern with a 15:1 R:R
+  # only needs a ~6% win rate to profit, so comparing every detector
+  # against one flat win-rate threshold would blacklist the system's best
+  # performers alongside its worst (this happened once already - a flat
+  # 0.35 win-rate bar blacklisted ascending_triangle/bullish, a detector
+  # profitable at a 29.3% win rate against its own ~6.3% breakeven).
+  # 0.0 = breakeven; only negative-expectancy detectors are blocked.
+  min_detector_expectancy: 0.0
+  min_reliable_n: 10
+  # Professional rule: risk a fixed small % of account equity per trade,
+  # sized off the actual stop distance - never a guess, never scaled by
+  # conviction. Set account_size to your real trading account value (in
+  # quote currency, e.g. USDT) to see suggested position sizes in alerts;
+  # leave null to omit sizing entirely (we never guess your account size).
+  # Set to 10,000 USDT / 1% risk per trade - the safeguard being that even
+  # a run of 100 consecutive losing trades stays theoretically survivable,
+  # since each one only ever risks 1% of current equity, never a fixed
+  # notional amount that ignores drawdown.
+  account_size: 10000
+  account_risk_pct: 1.0
+
+# --- Live signal journal ---
+# Logs every setup meeting min_confluence to journal.jsonl, then
+# journal_check.py resolves outcomes against real price - a forward-tested
+# track record, not just a retrospective backtest.
+journal:
+  enabled: true
+  # Confirmed via a 6000+ trade backtest (win_rate_levers_backtest.py):
+  # giving a trade more time to resolve is a small, genuine, free
+  # improvement - both win rate (30.6% -> 33.0%) and expectancy
+  # (+0.440R -> +0.480R) improved monotonically from 20 to 60 candles,
+  # meaning "expired" setups more often just needed more room than the
+  # pattern was actually broken.
+  horizon_candles: 60  # if neither stop nor target is hit within this many candles, mark "expired"
+  # How many of a detector's most recent decided (win/loss) trades to show
+  # as its "recent form" in alerts - surfaces a current losing streak so
+  # you don't act on a detector's backtested average as if it still applies.
+  form_lookback: 5
+  # Minimum wall-clock hours after a symbol/timeframe/detector setup
+  # resolves (win/loss/expired) before it's allowed to open a fresh entry
+  # again. Without this, a persistent condition (e.g. ema_stack holding
+  # through an uptrend) re-opens the instant it resolves, which looked
+  # live as the same pair/detector alerting every scan cycle back-to-back
+  # (e.g. ARBUSDT qqe_cross, ETHUSDT ema_stack firing every ~8-20 min).
+  reopen_cooldown_hours: 6.0
+
+# --- Output ---
+output:
+  # console, json, or both
+  mode: both
+  json_path: signals_output.json
+  # Only report setups with at least this many confluent signals
+  min_confluence: 2
+
+# --- Multi-timeframe confluence ---
+mtf:
+  # If true, the console only shows setups whose higher timeframes do not
+  # conflict (JSON output keeps everything, annotated with htf_agrees/htf_note)
+  require_agreement: true
+
+# --- Notifications ---
+notify:
+  telegram:
+    enabled: false          # disabled until the Jayantha strategy's own live journal has
+                             # accumulated enough resolved trades to trust - flip to true once
+                             # TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID are set as repo secrets
+    min_strength: 3         # only alert on setups at least this strong
+    only_htf_agreeing: true # skip setups whose higher timeframes conflict
+    # All timeframes are eligible for alerts (no allowlist). Scans run
+    # frequently (see .github/workflows/scan.yml) so even fast timeframes
+    # get caught and read close to when they actually fire.
+    # timeframes: [4h, 8h, 1d, 1w, 1M]   # uncomment to restrict again
+    # A setup only fires its full alert once (see main.py's new_keys dedup).
+    # While it stays open, send a short "still open" ping at most this often
+    # - not a repeat of the full message, just enough to say it's still live.
+    reminder_cooldown_hours: 4.0

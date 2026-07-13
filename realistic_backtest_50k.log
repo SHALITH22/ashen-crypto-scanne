@@ -1,0 +1,79 @@
+Simulating up to 104 pairs x 9 timeframes (8 worker processes, target: 1000-50000 trades)...
+  [10/936] 1068 trades so far (16s elapsed)
+  [20/936] 2455 trades so far (25s elapsed)
+  [30/936] 3688 trades so far (35s elapsed)
+  [40/936] 5051 trades so far (44s elapsed)
+  [50/936] 6440 trades so far (59s elapsed)
+  [60/936] 7819 trades so far (69s elapsed)
+  [70/936] 9020 trades so far (80s elapsed)
+  [80/936] 10483 trades so far (91s elapsed)
+  [90/936] 11928 trades so far (102s elapsed)
+  [100/936] 13319 trades so far (113s elapsed)
+  [110/936] 14693 trades so far (123s elapsed)
+  [120/936] 16104 trades so far (134s elapsed)
+  [130/936] 17548 trades so far (145s elapsed)
+  [140/936] 18837 trades so far (157s elapsed)
+  [150/936] 20260 trades so far (167s elapsed)
+  [160/936] 21571 trades so far (179s elapsed)
+  [170/936] 22922 trades so far (189s elapsed)
+  [180/936] 24201 trades so far (200s elapsed)
+  [190/936] 25685 trades so far (211s elapsed)
+  [200/936] 26845 trades so far (220s elapsed)
+  [210/936] 28331 trades so far (230s elapsed)
+  [220/936] 29763 trades so far (244s elapsed)
+  [230/936] 31076 trades so far (255s elapsed)
+  [240/936] 32226 trades so far (263s elapsed)
+  [250/936] 33596 trades so far (273s elapsed)
+  [260/936] 34902 trades so far (284s elapsed)
+  [270/936] 36199 trades so far (293s elapsed)
+  [280/936] 37619 trades so far (305s elapsed)
+  [290/936] 39014 trades so far (317s elapsed)
+  [300/936] 40244 trades so far (327s elapsed)
+  [310/936] 41448 trades so far (337s elapsed)
+  [320/936] 42918 trades so far (348s elapsed)
+  [330/936] 44280 trades so far (358s elapsed)
+  [340/936] 45408 trades so far (367s elapsed)
+  [350/936] 46791 trades so far (377s elapsed)
+  [360/936] 48295 trades so far (389s elapsed)
+  [370/936] 49576 trades so far (399s elapsed)
+  reached 50109 trades (>= --max-trades 50000), stopping early - cancelling remaining jobs
+
+Done: 50109 simulated trades from 375/936 pair/timeframe series in 421s
+
+Order/stop/target integrity check: 50109/50109 trades correct.
+
+43557 decided (win/loss), 6552 expired (no clean resolution)
+
+detector/direction               n  win_rate  avg_rr  avg_pct
+-------------------------------------------------------------
+ema_stack/bearish             7087     35.2%    1.70     0.14  <-- proven losing (< breakeven)
+ema_stack/bullish             6490     35.1%    1.70    -0.17  <-- proven losing (< breakeven)
+stochrsi/bullish              4384     32.8%    1.70    -0.32  <-- proven losing (< breakeven)
+stochrsi/bearish              3948     32.3%    1.70     0.37  <-- proven losing (< breakeven)
+rising_wedge/bearish          3710     32.3%    2.14     0.34
+sr_break/bullish              2750     35.5%    1.70    -0.08  <-- proven losing (< breakeven)
+sr_break/bearish              2673     33.6%    1.70     0.29  <-- proven losing (< breakeven)
+qqe_cross/bullish             2313     36.6%    1.70    -0.04  <-- proven losing (< breakeven)
+volume_spike/bullish          2235     36.2%    1.70     0.02  <-- proven losing (< breakeven)
+qqe_cross/bearish             1999     31.5%    1.70     0.37  <-- proven losing (< breakeven)
+volume_spike/bearish          1607     31.0%    1.70     0.34  <-- proven losing (< breakeven)
+ema_cross/bullish              810     37.9%    1.70     0.15
+engulfing/bearish              726     33.1%    1.70     0.33  <-- proven losing (< breakeven)
+descending_triangle/bearish    601     35.3%    2.01    -0.04
+ascending_triangle/bullish     547     35.5%    2.10    -0.02
+ema_cross/bearish              523     33.3%    1.70     0.47  <-- proven losing (< breakeven)
+engulfing/bullish              351     31.6%    1.70    -0.33  <-- proven losing (< breakeven)
+bear_flag/bearish              192     40.1%    1.41     0.79  <-- proven losing (< breakeven)
+double_bottom/bullish          117     33.3%    1.70    -0.37  <-- proven losing (< breakeven)
+bull_flag/bullish              116     45.7%    1.35     0.41
+shooting_star/bearish          104     26.0%    1.70     0.71  <-- proven losing (< breakeven)
+double_top/bearish              72     26.4%    1.70     0.77  <-- proven losing (< breakeven)
+bear_pennant/bearish            52     55.8%    1.32    -2.03
+rsi_divergence/bearish          51     41.2%    1.70    -0.55
+hammer/bullish                  32     34.4%    1.70    -0.75  <-- proven losing (< breakeven)
+bull_pennant/bullish            25     16.0%    1.39    -4.59  <-- proven losing (< breakeven)
+inverse_head_and_shoulders/bullish    21     23.8%    1.70    -1.42  <-- proven losing (< breakeven)
+head_and_shoulders/bearish      12     41.7%    1.70    -0.27
+rsi_divergence/bullish           9     22.2%    1.70    -1.34
+
+Full detail (all 50109 trades + summary) written to D:\Education\CRYPTO\binance-scanner\realistic_backtest_results.json
