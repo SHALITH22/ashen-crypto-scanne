@@ -1,5 +1,12 @@
 name: Scan
 
+# Re-committed 2026-07-14 to force GitHub's workflow indexer to discover
+# this file - workflows added in the very first push to a brand-new empty
+# repo sometimes never get registered (confirmed here: this file never
+# appeared in the Actions "Filter by Workflow" list, and manual dispatch
+# returned "This workflow does not exist" despite correct syntax, Actions
+# being fully allowed, and the file being present on the default branch).
+# A follow-up commit that actually touches the file resolves it.
 on:
   schedule:
     # Every 20 minutes, offset from :00/:20/:40 - GitHub's own docs warn

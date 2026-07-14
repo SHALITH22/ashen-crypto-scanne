@@ -1,5 +1,8 @@
 name: Backtest
 
+# Re-committed 2026-07-14 alongside scan.yml to force GitHub's workflow
+# indexer to discover both files - see scan.yml's comment for the full
+# explanation.
 on:
   schedule:
     # Offset from :00 - GitHub's own docs warn that exactly-on-the-hour
