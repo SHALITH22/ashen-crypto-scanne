@@ -7,3 +7,7 @@ venv/
 # the scan/backtest GitHub Actions workflows commit them back so the
 # scanner has persistent state (detector weights, forward track record)
 # across ephemeral cloud runs.
+
+# Session handoff docs contain internal strategy discussion/disputes -
+# kept local-only (D:\Education\...), never pushed to this public repo.
+HANDOFF_*.md
