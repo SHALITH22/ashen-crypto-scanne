@@ -41,11 +41,21 @@ def _append(entry: dict, path: Path = JOURNAL_PATH) -> None:
 def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
                 reopen_cooldown_hours: float = 6.0) -> list[dict]:
     """
-    Log every setup meeting min_confluence. Skips symbol/timeframe/pattern
-    combos that already have an unresolved ("open") journal entry - without
-    this, a persistent state signal (e.g. ema_stack, which fires on every
-    run while the trend holds) would spam a fresh row every single scan
-    instead of one row per real occurrence.
+    Log every independently-qualifying risk plan (see
+    risk.setup_risk_plans) - one row per (symbol, timeframe, strategy) that
+    fired, not gated by a combined confluence score. That min_confluence
+    gate only ever made sense for the old 16-detector "vote" system; the
+    five live strategies (jayantha_b2b + four Ashen detectors) are each
+    judged purely on their own signal now, so a strategy firing alone gets
+    logged just as readily as one with other strategies agreeing alongside
+    it - otherwise a real, tracked-nowhere-else strategy's setup would
+    silently vanish exactly like the pre-fix "one winner per timeframe"
+    behavior this replaces.
+
+    Skips symbol/timeframe/pattern combos that already have an unresolved
+    ("open") journal entry - without this, a persistent state signal (e.g.
+    ema_stack, which fires on every run while the trend holds) would spam a
+    fresh row every single scan instead of one row per real occurrence.
 
     Also skips combos whose most recent entry (any status) resolved within
     reopen_cooldown_hours. Without this, a persistent signal that JUST
@@ -63,7 +73,6 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
     to only Telegram-alert on first occurrence instead of re-sending the
     same open setup every scan.
     """
-    min_conf = cfg["output"]["min_confluence"]
     existing = _load(path)
     open_keys = {(e["symbol"], e["timeframe"], e["based_on"]) for e in existing if e["status"] == "open"}
     now_dt = datetime.now(timezone.utc).replace(tzinfo=None)
@@ -81,45 +90,43 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
     logged = []
     for res in report["results"]:
         for tf, data in res["timeframes"].items():
-            if data["strength"] < min_conf or not data.get("risk"):
-                continue
-            r = data["risk"]
-            key = (res["symbol"], tf, r["based_on"])
-            if key in open_keys:
-                continue
-            last_resolved = last_resolved_at.get(key)
-            if last_resolved is not None:
-                cooldown_elapsed = (now_dt - last_resolved).total_seconds() / 3600
-                if cooldown_elapsed < reopen_cooldown_hours:
+            for r in data.get("risk_plans", []):
+                key = (res["symbol"], tf, r["based_on"])
+                if key in open_keys:
                     continue
-            entry = {
-                "id": next_id,
-                "logged_at": now,
-                "symbol": res["symbol"],
-                "timeframe": tf,
-                "bias": data["bias"],
-                "strength": data["strength"],
-                "entry": r["entry"],
-                "stop": r["stop"],
-                "target": r["target"],
-                "based_on": r["based_on"],
-                "signals": [s["name"] for s in data["signals"]],
-                "status": "open",
-                "checked_at": None,
-                "outcome_price": None,
-                "outcome_pct": None,
-                # Set True only once this specific setup actually goes out as
-                # a Telegram alert (main.py calls mark_notified after
-                # notify_report) - logging happens at a lower confluence bar
-                # than alerting does, so not every journal row was ever sent.
-                # Reminders must only fire for setups the user was actually told about.
-                "notified": False,
-                "last_reminded_at": None,
-            }
-            _append(entry, path)
-            open_keys.add(key)
-            next_id += 1
-            logged.append(entry)
+                last_resolved = last_resolved_at.get(key)
+                if last_resolved is not None:
+                    cooldown_elapsed = (now_dt - last_resolved).total_seconds() / 3600
+                    if cooldown_elapsed < reopen_cooldown_hours:
+                        continue
+                entry = {
+                    "id": next_id,
+                    "logged_at": now,
+                    "symbol": res["symbol"],
+                    "timeframe": tf,
+                    "bias": r["direction"],
+                    "strength": data["strength"],
+                    "entry": r["entry"],
+                    "stop": r["stop"],
+                    "target": r["target"],
+                    "based_on": r["based_on"],
+                    "signals": [s["name"] for s in data["signals"]],
+                    "status": "open",
+                    "checked_at": None,
+                    "outcome_price": None,
+                    "outcome_pct": None,
+                    # Set True only once this specific plan actually goes out as
+                    # a Telegram alert (main.py calls mark_notified after
+                    # notify_report) - logging happens independently of alerting,
+                    # so not every journal row was ever sent.
+                    # Reminders must only fire for setups the user was actually told about.
+                    "notified": False,
+                    "last_reminded_at": None,
+                }
+                _append(entry, path)
+                open_keys.add(key)
+                next_id += 1
+                logged.append(entry)
     return logged
 
 

@@ -314,3 +314,86 @@ def setup_risk_plan(signals: list[dict], bias: str, close: float,
         "target_basis": "historical avg move" if calibrated else "pattern/ATR estimate",
         "position": position_size(close, stop, account_size, account_risk_pct),
     }
+
+
+def setup_risk_plans(signals: list[dict], close: float,
+                     min_risk_reward: float = 1.0, avg_returns: dict | None = None,
+                     min_calibrated_move_pct: float = 0.3,
+                     account_size: float | None = None,
+                     account_risk_pct: float = 1.0,
+                     unreliable: set | None = None,
+                     market_disagrees_by_direction: dict | None = None,
+                     funding_ok_by_direction: dict | None = None,
+                     target_fraction: float = 1.0,
+                     min_stop_pct: float = 0.5) -> list[dict]:
+    """
+    One independent entry/stop/target plan per qualifying signal, instead of
+    setup_risk_plan's single "pick the tightest stop" winner. With five live
+    strategies (jayantha_b2b + four Ashen detectors) now capable of firing
+    together on the same symbol/timeframe, picking only one winner meant the
+    others' signals never reached the journal, Monitor, or Telegram at all -
+    contradicting the explicit requirement that every eligible strategy's
+    trades get tracked, not just one "best" pick. Each strategy is judged
+    purely on its own signal: two candidates in opposite directions on the
+    same symbol/timeframe both qualify independently if each clears its own
+    bar - there's no shared `bias` here to filter candidates against.
+
+    market_disagrees_by_direction / funding_ok_by_direction are
+    {"bullish": bool|None, "bearish": bool|None} - the market-leader-
+    disagreement and funding filters need to be evaluated per candidate's
+    OWN direction now, not once for a single shared bias, since two
+    candidates here can legitimately point opposite ways.
+
+    Same qualification bars as setup_risk_plan (own R:R clears
+    min_risk_reward, stop_pct clears min_stop_pct, not in `unreliable`,
+    MARKET_FILTER_NAMES members need market_disagrees True and funding_ok)
+    - see that function's docstring for why each bar exists. The only
+    difference is there's no "pick the tightest stop" step: every signal
+    that clears its own bar becomes its own plan.
+    """
+    unreliable = unreliable or set()
+    market_disagrees_by_direction = market_disagrees_by_direction or {}
+    funding_ok_by_direction = funding_ok_by_direction or {}
+    avg_returns = avg_returns or {}
+
+    def effective_target(s):
+        calibrated = calibrate_target(close, s["name"], s["direction"], avg_returns, min_calibrated_move_pct)
+        return calibrated if calibrated is not None else s["target"]
+
+    plans = []
+    for s in signals:
+        if (s["name"] not in STRUCTURAL_NAMES or "stop" not in s or "target" not in s
+                or s["name"] in CONFLUENCE_ONLY_NAMES):
+            continue
+        direction = s["direction"]
+        if (s["name"], direction) in unreliable:
+            continue
+        if s["name"] in MARKET_FILTER_NAMES:
+            if market_disagrees_by_direction.get(direction) is not True:
+                continue
+            if not funding_ok_by_direction.get(direction, True):
+                continue
+
+        risk = abs(close - s["stop"])
+        if risk <= 0:
+            continue
+        raw_target = effective_target(s)
+        rr = abs(raw_target - close) / risk
+        stop_pct = risk / close * 100 if close > 0 else 0
+        if rr < min_risk_reward or stop_pct < min_stop_pct:
+            continue
+
+        calibrated = (raw_target != s["target"])
+        target = close + (raw_target - close) * target_fraction
+        reward = abs(target - close)
+        plans.append({
+            "entry": round_sig(float(close), 6),
+            "stop": round_sig(float(s["stop"]), 6),
+            "target": round_sig(float(target), 6),
+            "risk_reward": round(float(reward / risk), 2) if risk > 0 else None,
+            "based_on": s["name"],
+            "direction": direction,
+            "target_basis": "historical avg move" if calibrated else "pattern/ATR estimate",
+            "position": position_size(close, s["stop"], account_size, account_risk_pct),
+        })
+    return plans

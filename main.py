@@ -43,7 +43,7 @@ from scanner.jayantha_detectors import run_jayantha_detectors
 from scanner.ashen_detectors import run_ashen_detectors
 from scanner.mtf import annotate_htf
 from scanner.notify import notify_report
-from scanner.risk import attach_atr_risk, setup_risk_plan, classify_funding
+from scanner.risk import attach_atr_risk, setup_risk_plans, classify_funding
 from scanner.journal import log_signals, detector_recent_form, mark_notified, detector_expectancy, detector_avg_return, detector_reliability
 from scanner.regime import regime_label
 
@@ -266,6 +266,14 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
                                       risk_cfg.get("atr_multiplier", 1.5),
                                       risk_cfg.get("reward_risk_ratio", 2.0),
                                       risk_cfg.get("max_stop_pct"))
+            # bias/strength are still computed as a descriptive summary of
+            # the raw signal mix on this timeframe (used for console context
+            # and as the HTF-agreement reference other timeframes' plans get
+            # checked against - see mtf.annotate_htf) - no longer used to
+            # gate which signals become tracked trades, since each of the
+            # five live strategies is now logged independently whenever IT
+            # fires (see setup_risk_plans below), not only when the combined
+            # signal mix clears a shared confluence bar.
             bias, strength = confluence_score(signals, weights)
             # Regime is descriptive context, not a hard filter - a choppy
             # reading doesn't block an alert, but tells you to size down /
@@ -275,40 +283,47 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
             # setup is more likely just beta (see risk.py's market_disagrees
             # docstring) - BTC/ETH themselves are the market leaders, so the
             # filter doesn't apply to trading them against themselves.
+            # Evaluated per direction (not once for a single shared bias)
+            # since independent strategies can now fire bullish AND bearish
+            # on the same symbol/timeframe - each needs its own verdict.
             btc_bull = None if is_market_leader else (btc_trend or {}).get(tf)
             eth_bull = None if is_market_leader else (eth_trend or {}).get(tf)
-            if is_market_leader:
-                market_disagrees = True
-            elif btc_bull is None or eth_bull is None:
-                market_disagrees = None
-            else:
-                trade_is_bullish = bias == "bullish"
-                market_disagrees = (btc_bull != trade_is_bullish) and (eth_bull != trade_is_bullish)
-            # Confirmed via funding_rate_backtest.py (8000+ trades): trading
-            # AGAINST an extreme funding reading loses money here - the
-            # opposite of the classic "fade the crowd" assumption - so only
-            # that specific bucket is excluded (see risk.classify_funding).
-            funding_ok = classify_funding(current_funding, bias) != "against_crowd"
-            risk = setup_risk_plan(signals, bias, close, risk_cfg.get("min_risk_reward", 1.0),
-                                   avg_returns, risk_cfg.get("min_calibrated_move_pct", 0.3),
-                                   risk_cfg.get("account_size"), risk_cfg.get("account_risk_pct", 1.0),
-                                   unreliable, market_disagrees, funding_ok,
-                                   risk_cfg.get("target_fraction", 1.0),
-                                   risk_cfg.get("min_stop_pct", 0.5))
-            if risk:
-                risk["recent_form"] = detector_recent_form(risk["based_on"], bias,
+            market_disagrees_by_direction = {}
+            funding_ok_by_direction = {}
+            for direction in ("bullish", "bearish"):
+                if is_market_leader:
+                    market_disagrees_by_direction[direction] = True
+                elif btc_bull is None or eth_bull is None:
+                    market_disagrees_by_direction[direction] = None
+                else:
+                    trade_is_bullish = direction == "bullish"
+                    market_disagrees_by_direction[direction] = (
+                        (btc_bull != trade_is_bullish) and (eth_bull != trade_is_bullish))
+                # Confirmed via funding_rate_backtest.py (8000+ trades): trading
+                # AGAINST an extreme funding reading loses money here - the
+                # opposite of the classic "fade the crowd" assumption - so only
+                # that specific bucket is excluded (see risk.classify_funding).
+                funding_ok_by_direction[direction] = classify_funding(current_funding, direction) != "against_crowd"
+            risk_plans = setup_risk_plans(signals, close, risk_cfg.get("min_risk_reward", 1.0),
+                                          avg_returns, risk_cfg.get("min_calibrated_move_pct", 0.3),
+                                          risk_cfg.get("account_size"), risk_cfg.get("account_risk_pct", 1.0),
+                                          unreliable, market_disagrees_by_direction, funding_ok_by_direction,
+                                          risk_cfg.get("target_fraction", 1.0),
+                                          risk_cfg.get("min_stop_pct", 0.5))
+            for plan in risk_plans:
+                plan["recent_form"] = detector_recent_form(plan["based_on"], plan["direction"],
                                                            cfg.get("journal", {}).get("form_lookback", 5))
                 # Real win probability for this exact detector/direction -
                 # pooled from backtest + live data the same way the
                 # blacklist is, not a black-box replica of any paid tool.
-                risk["win_probability"] = win_rates.get((risk["based_on"], bias))
+                plan["win_probability"] = win_rates.get((plan["based_on"], plan["direction"]))
             result["timeframes"][tf] = {
                 "close": close,
                 "bias": bias,
                 "strength": strength,
                 "regime": regime,
                 "signals": signals,
-                "risk": risk,
+                "risk_plans": risk_plans,
             }
     return result
 
@@ -383,7 +398,6 @@ def main():
         long_tail_pairs = sorted(full_universe - set(pairs))
 
     timeframes = cfg["timeframes"]
-    min_conf = cfg["output"]["min_confluence"]
     weights = load_detector_weights(cfg)
     risk_cfg = cfg.get("risk", {})
     # Detectors proven to lose money at the actual stop/target sizing used
@@ -478,28 +492,30 @@ def main():
             res["max_strength"] = max(d["strength"] for d in res["timeframes"].values())
             report["results"].append(res)
 
-            # console output for setups meeting min confluence
+            # console output: one block per independently-qualifying risk
+            # plan, not gated by the tf's combined strength - each of the
+            # five live strategies is shown whenever IT produced a plan.
             for tf, data in res["timeframes"].items():
-                if data["strength"] >= min_conf:
-                    if cfg.get("mtf", {}).get("require_agreement", False) and not data["htf_agrees"]:
+                for r in data["risk_plans"]:
+                    if cfg.get("mtf", {}).get("require_agreement", False) and not r["htf_agrees"]:
                         continue
-                    print(f"{symbol} [{tf}]  {data['bias'].upper()} (strength {data['strength']})  close={data['close']:.6g}  [HTF: {data['htf_note']}]  [regime: {data['regime']}]")
+                    print(f"{symbol} [{tf}]  {r['direction'].upper()} close={data['close']:.6g}  "
+                          f"[HTF: {r['htf_note']}]  [regime: {data['regime']}]")
                     for s in data["signals"]:
-                        print(f"    - {s['name']}: {s['detail']}")
-                    if data["risk"]:
-                        r = data["risk"]
-                        rr = f"{r['risk_reward']}:1" if r["risk_reward"] else "n/a"
-                        print(f"    risk: entry={r['entry']:.6g} stop={r['stop']:.6g} "
-                              f"target={r['target']:.6g} (R:R {rr}, based on {r['based_on']}, "
-                              f"target: {r['target_basis']})")
-                        if r.get("position"):
-                            p = r["position"]
-                            print(f"    position: risk {p['account_risk_pct']}% (${p['dollar_risk']}) "
-                                  f"-> {p['units']:g} units (~${p['position_value']})")
-                        if r.get("recent_form"):
-                            f = r["recent_form"]
-                            print(f"    recent form for {r['based_on']}/{data['bias']}: "
-                                  f"{f['wins']}W-{f['losses']}L (last {f['n']})")
+                        if s["name"] == r["based_on"] or s["direction"] == r["direction"]:
+                            print(f"    - {s['name']}: {s['detail']}")
+                    rr = f"{r['risk_reward']}:1" if r["risk_reward"] else "n/a"
+                    print(f"    risk: entry={r['entry']:.6g} stop={r['stop']:.6g} "
+                          f"target={r['target']:.6g} (R:R {rr}, based on {r['based_on']}, "
+                          f"target: {r['target_basis']})")
+                    if r.get("position"):
+                        p = r["position"]
+                        print(f"    position: risk {p['account_risk_pct']}% (${p['dollar_risk']}) "
+                              f"-> {p['units']:g} units (~${p['position_value']})")
+                    if r.get("recent_form"):
+                        f = r["recent_form"]
+                        print(f"    recent form for {r['based_on']}/{r['direction']}: "
+                              f"{f['wins']}W-{f['losses']}L (last {f['n']})")
                     print()
 
     report["results"].sort(key=lambda r: r["max_strength"], reverse=True)

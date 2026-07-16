@@ -83,13 +83,12 @@ for res in results:
     for tf, data in res["timeframes"].items():
         if data["strength"] < min_strength:
             continue
-        if only_agreeing and not data.get("htf_agrees", True):
-            continue
-        if not data.get("risk"):
-            continue
-        alert_count += 1
-        print(f"\n--- Message {alert_count} ---")
-        print(format_setup(res["symbol"], tf, data))
+        for plan in data.get("risk_plans", []):
+            if only_agreeing and not plan.get("htf_agrees", True):
+                continue
+            alert_count += 1
+            print(f"\n--- Message {alert_count} ---")
+            print(format_setup(res["symbol"], tf, plan, data["close"], data.get("regime")))
 
 print(f"\n{'=' * 70}")
 print(f"Pairs with any live Jayantha detection: {len(results)}")

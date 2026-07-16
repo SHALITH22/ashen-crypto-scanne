@@ -64,65 +64,75 @@ def send_telegram(text: str, env: dict | None = None) -> bool:
         return False
 
 
-def format_setup(symbol: str, tf: str, data: dict, generated_at: str | None = None) -> str:
-    lines = [f"<b>{escape(symbol)}</b> [{escape(tf)}] {escape(data['bias'].upper())} "
-             f"(strength {data['strength']})  close={data['close']:.6g}"]
+def format_setup(symbol: str, tf: str, plan: dict, close: float, regime: str | None,
+                 generated_at: str | None = None) -> str:
+    """
+    One message per independently-qualifying risk plan (see
+    risk.setup_risk_plans) - each of the five live strategies gets its own
+    alert when it fires, instead of one message per symbol/timeframe
+    bundling whichever strategies happened to agree. `plan` carries its own
+    direction/htf_agrees/htf_note/win_probability/recent_form now, rather
+    than these living on a shared per-timeframe `data` dict.
+    """
+    lines = [f"<b>{escape(symbol)}</b> [{escape(tf)}] {escape(plan['direction'].upper())} "
+             f"close={close:.6g}"]
     if generated_at:
         # Price moves between this scan and whenever you actually read the
         # message - this timestamp lets you judge how stale it might be by
         # the time you act, rather than assuming the quoted price is "now".
         lines.append(f"Scanned: {escape(generated_at)} SLT")
-    if "htf_note" in data:
-        lines.append(f"HTF: {escape(data['htf_note'])}")
-    if data.get("regime"):
-        lines.append(f"Regime: {escape(data['regime'])}"
-                     + (" - lower conviction, market is choppy right now" if data["regime"] == "choppy" else ""))
-    for s in data["signals"]:
-        lines.append(f"- {escape(s['name'])}: {escape(s['detail'])}")
-    if data.get("risk"):
-        r = data["risk"]
-        rr = f"{r['risk_reward']}:1" if r["risk_reward"] else "n/a"
-        lines.append(f"Risk: entry {r['entry']:.6g} / stop {r['stop']:.6g} / "
-                     f"target {r['target']:.6g} (R:R {rr}, based on {escape(r['based_on'])}, "
-                     f"target: {escape(r['target_basis'])})")
-        if r.get("win_probability") is not None:
-            # Real, measured win rate for this exact detector/direction
-            # (pooled from backtest + live data) - not a black-box "AI
-            # confidence score", the same number that decides whether this
-            # detector is even allowed to alert at all.
-            lines.append(f"Win probability: {r['win_probability']:.0%} "
-                         f"(measured, {escape(r['based_on'])}/{escape(data['bias'])})")
-        if r.get("position"):
-            p = r["position"]
-            lines.append(f"Position size: risk {p['account_risk_pct']}% (${p['dollar_risk']}) "
-                         f"-&gt; {p['units']:g} units (~${p['position_value']})")
-        if r.get("recent_form"):
-            f = r["recent_form"]
-            lines.append(f"Recent form for {escape(r['based_on'])}/{escape(data['bias'])}: "
-                         f"{f['wins']}W-{f['losses']}L (last {f['n']})")
+    if plan.get("htf_note"):
+        lines.append(f"HTF: {escape(plan['htf_note'])}")
+    if regime:
+        lines.append(f"Regime: {escape(regime)}"
+                     + (" - lower conviction, market is choppy right now" if regime == "choppy" else ""))
+    rr = f"{plan['risk_reward']}:1" if plan["risk_reward"] else "n/a"
+    lines.append(f"Strategy: {escape(plan['based_on'])}")
+    lines.append(f"Risk: entry {plan['entry']:.6g} / stop {plan['stop']:.6g} / "
+                 f"target {plan['target']:.6g} (R:R {rr}, "
+                 f"target: {escape(plan['target_basis'])})")
+    if plan.get("win_probability") is not None:
+        # Real, measured win rate for this exact detector/direction
+        # (pooled from backtest + live data) - not a black-box "AI
+        # confidence score", the same number that decides whether this
+        # detector is even allowed to alert at all.
+        lines.append(f"Win probability: {plan['win_probability']:.0%} "
+                     f"(measured, {escape(plan['based_on'])}/{escape(plan['direction'])})")
+    if plan.get("position"):
+        p = plan["position"]
+        lines.append(f"Position size: risk {p['account_risk_pct']}% (${p['dollar_risk']}) "
+                     f"-&gt; {p['units']:g} units (~${p['position_value']})")
+    if plan.get("recent_form"):
+        f = plan["recent_form"]
+        lines.append(f"Recent form for {escape(plan['based_on'])}/{escape(plan['direction'])}: "
+                     f"{f['wins']}W-{f['losses']}L (last {f['n']})")
     return "\n".join(lines)
 
 
 def notify_report(report: dict, cfg: dict, new_keys: set | None = None) -> tuple[int, set]:
     """
-    Send one message per qualifying setup. Returns (number sent, keys sent)
-    - the keys let the caller flag exactly which journal entries actually
-    went out as an alert (see journal.mark_notified), since reminders must
-    only fire for setups the user was actually told about.
+    Send one message per independently-qualifying risk plan (see
+    risk.setup_risk_plans) - each of the five live strategies that fired
+    gets its own alert, matching the journal's one-row-per-strategy
+    tracking, instead of bundling whichever strategies happened to agree
+    into a single per-symbol/timeframe message. Returns (number sent, keys
+    sent) - the keys let the caller flag exactly which journal entries
+    actually went out as an alert (see journal.mark_notified), since
+    reminders must only fire for setups the user was actually told about.
 
-    Two gates beyond the old strength/HTF-agreement check, each fixing a
-    specific way the old alerts were unusable in practice:
-      - Requires an actual risk plan (data["risk"]). Without this, a setup
-        with no candidate clearing min_risk_reward still fired an alert with
-        a bias and strength but no entry/stop/target - unreadable as a
-        trade, indistinguishable from a bug.
-      - `new_keys` (symbol, timeframe, based_on): when provided, only alerts
-        on setups that are genuinely new this run (per the journal's
-        open-entry tracking), instead of re-sending the same still-open
-        setup - with an unchanged plan - every single scan. Ongoing "still
-        open" updates are handled separately by a lightweight reminder
-        (see journal.get_due_reminders / notify_reminders), not a repeat
-        of the full alert.
+    A plan already only exists here because it cleared setup_risk_plans's
+    own qualification bars (R:R, stop width, blacklist, market/funding
+    filters) - unlike the old per-timeframe flow, there's no separate
+    "no risk plan" case to check for, since risk_plans only ever contains
+    tradeable candidates.
+
+    `new_keys` (symbol, timeframe, based_on): when provided, only alerts on
+    plans that are genuinely new this run (per the journal's open-entry
+    tracking), instead of re-sending the same still-open setup - with an
+    unchanged plan - every single scan. Ongoing "still open" updates are
+    handled separately by a lightweight reminder (see
+    journal.get_due_reminders / notify_reminders), not a repeat of the full
+    alert.
 
     An optional `timeframes` allowlist under notify.telegram can still
     restrict which timeframes alert, but by default (unset) every timeframe
@@ -145,21 +155,23 @@ def notify_report(report: dict, cfg: dict, new_keys: set | None = None) -> tuple
     sent_keys = set()
     for res in report["results"]:
         for tf, data in res["timeframes"].items():
-            if data["strength"] < min_strength:
+            # min_strength still uses the tf's combined signal-mix strength
+            # (confluence_score across ALL raw signals present, jayantha's
+            # bonus signals included) as a display-context bar for alerting
+            # specifically - unlike the journal, which now logs every
+            # independently-qualifying plan regardless of what else agreed.
+            if data["strength"] < min_strength or (allowed_tfs is not None and tf not in allowed_tfs):
                 continue
-            if only_agreeing and not data.get("htf_agrees", True):
-                continue
-            if allowed_tfs is not None and tf not in allowed_tfs:
-                continue
-            risk = data.get("risk")
-            if not risk:
-                continue  # no entry/stop/target cleared min R:R - not an actionable alert
-            key = (res["symbol"], tf, risk["based_on"])
-            if new_keys is not None and key not in new_keys:
-                continue  # already alerted on this open setup - avoid re-sending unchanged
-            if send_telegram(format_setup(res["symbol"], tf, data, scan_time), env):
-                sent += 1
-                sent_keys.add(key)
+            for plan in data.get("risk_plans", []):
+                if only_agreeing and not plan.get("htf_agrees", True):
+                    continue
+                key = (res["symbol"], tf, plan["based_on"])
+                if new_keys is not None and key not in new_keys:
+                    continue  # already alerted on this open setup - avoid re-sending unchanged
+                text = format_setup(res["symbol"], tf, plan, data["close"], data.get("regime"), scan_time)
+                if send_telegram(text, env):
+                    sent += 1
+                    sent_keys.add(key)
     return sent, sent_keys
 
 
