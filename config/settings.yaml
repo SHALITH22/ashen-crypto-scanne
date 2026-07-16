@@ -523,9 +523,14 @@ mtf:
 # --- Notifications ---
 notify:
   telegram:
-    enabled: false          # disabled until the Jayantha strategy's own live journal has
-                             # accumulated enough resolved trades to trust - flip to true once
-                             # TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID are set as repo secrets
+    enabled: true           # master switch is on, but notify._telegram_ready still holds every
+                             # actual send until min_resolved_trades below is met - matches the
+                             # same "prove it over N real trades before trusting it" discipline
+                             # used for the original binance-scanner, now automatic instead of a
+                             # manual flip. TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID are already set as
+                             # repo secrets (see .github/workflows/scan.yml's Telegram environment).
+    min_resolved_trades: 1000  # resolved (win/loss/expired) trades across ALL five strategies
+                                # combined, required before the first alert is ever sent
     min_strength: 3         # only alert on setups at least this strong
     only_htf_agreeing: true # skip setups whose higher timeframes conflict
     # All timeframes are eligible for alerts (no allowlist). Scans run

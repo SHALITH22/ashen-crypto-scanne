@@ -20,6 +20,8 @@ from pathlib import Path
 
 import requests
 
+from scanner.journal import total_resolved
+
 ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
 ENV_KEYS = ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID")
 
@@ -109,6 +111,41 @@ def format_setup(symbol: str, tf: str, plan: dict, close: float, regime: str | N
     return "\n".join(lines)
 
 
+def _telegram_ready(cfg: dict, verbose: bool = False) -> dict | None:
+    """
+    Shared gate for all three send functions: Telegram must be enabled AND
+    a real token/chat id configured AND the live journal must have
+    accumulated at least min_resolved_trades resolved (win/loss/expired)
+    outcomes across all five strategies combined, before any alert goes
+    out - the same "prove it over N real trades before trusting it"
+    discipline used for the original binance-scanner, now automated rather
+    than requiring a manual flip once the count is eyeballed. Counts every
+    strategy together (not per-strategy) since this gate is about trusting
+    the journal/risk-plan/notify pipeline end-to-end, not any one
+    strategy's individual edge - see journal.total_resolved. Returns the
+    loaded env dict once every gate passes, or None if any gate blocks
+    sending.
+    """
+    tg = cfg.get("notify", {}).get("telegram", {})
+    if not tg.get("enabled", False):
+        return None
+    env = load_env()
+    if not env.get("TELEGRAM_BOT_TOKEN"):
+        if verbose:
+            print("  [notify] telegram enabled but TELEGRAM_BOT_TOKEN not found in "
+                  "environment or .env - skipping")
+        return None
+    min_resolved = tg.get("min_resolved_trades", 1000)
+    resolved = total_resolved()
+    if resolved < min_resolved:
+        if verbose:
+            print(f"  [notify] telegram paused until {min_resolved} resolved trades "
+                  f"accumulate ({resolved}/{min_resolved} so far) - proving the live "
+                  f"strategies are profitable before alerting on them")
+        return None
+    return env
+
+
 def notify_report(report: dict, cfg: dict, new_keys: set | None = None) -> tuple[int, set]:
     """
     Send one message per independently-qualifying risk plan (see
@@ -139,12 +176,8 @@ def notify_report(report: dict, cfg: dict, new_keys: set | None = None) -> tuple
     that clears the other gates is eligible.
     """
     tg = cfg.get("notify", {}).get("telegram", {})
-    if not tg.get("enabled", False):
-        return 0, set()
-    env = load_env()
-    if not env.get("TELEGRAM_BOT_TOKEN"):
-        print("  [notify] telegram enabled but TELEGRAM_BOT_TOKEN not found in "
-              "environment or .env - skipping")
+    env = _telegram_ready(cfg, verbose=True)
+    if env is None:
         return 0, set()
     min_strength = tg.get("min_strength", 3)
     only_agreeing = tg.get("only_htf_agreeing", True)
@@ -199,11 +232,10 @@ def format_reminder(entry: dict) -> str:
 
 def notify_reminders(due: list[dict], cfg: dict) -> int:
     """Push a lightweight reminder for every open, already-notified entry past its reminder cooldown."""
-    tg = cfg.get("notify", {}).get("telegram", {})
-    if not tg.get("enabled", False) or not due:
+    if not due:
         return 0
-    env = load_env()
-    if not env.get("TELEGRAM_BOT_TOKEN"):
+    env = _telegram_ready(cfg)
+    if env is None:
         return 0
     sent = 0
     for entry in due:
@@ -214,11 +246,10 @@ def notify_reminders(due: list[dict], cfg: dict) -> int:
 
 def notify_outcomes(resolved: list[dict], cfg: dict) -> int:
     """Push a close-out message for every journal entry resolved this run."""
-    tg = cfg.get("notify", {}).get("telegram", {})
-    if not tg.get("enabled", False) or not resolved:
+    if not resolved:
         return 0
-    env = load_env()
-    if not env.get("TELEGRAM_BOT_TOKEN"):
+    env = _telegram_ready(cfg)
+    if env is None:
         return 0
     sent = 0
     for entry in resolved:

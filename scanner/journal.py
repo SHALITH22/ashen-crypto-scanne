@@ -390,6 +390,21 @@ def detector_recent_form(detector_name: str, direction: str, n: int = 5,
     return {"n": len(recent), "wins": wins, "losses": len(recent) - wins}
 
 
+def total_resolved(path: Path = JOURNAL_PATH) -> int:
+    """
+    Count of every resolved (win/loss/expired) entry across ALL strategies
+    combined - used to gate Telegram alerts until the live journal has
+    accumulated enough real decided trades to trust, matching the same
+    "prove it over N trades before alerting" discipline used for the
+    original binance-scanner (see notify.notify_report's min_resolved_trades
+    check). Deliberately counts every strategy together, not per-strategy -
+    the gate is about trusting the PIPELINE (journal/risk-plan/notify
+    plumbing) is working correctly end-to-end, not about any one
+    strategy's individual edge.
+    """
+    return sum(1 for e in _load(path) if e["status"] in ("win", "loss", "expired"))
+
+
 def summarize(path: Path = JOURNAL_PATH) -> dict:
     """Win rate and average return per detector, from resolved journal entries only."""
     entries = [e for e in _load(path) if e["status"] in ("win", "loss", "expired")]
