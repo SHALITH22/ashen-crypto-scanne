@@ -31,6 +31,12 @@ there's no exchange-defined "session close", so VWAP here is computed
 over a rolling window of the LTF's own candles (config `vwap_window`),
 which is the standard practical adaptation for a market with no natural
 session boundary.
+
+Ashen frames THIS strategy (not MA Cross) as an "over 80% accuracy"
+setup in the video (~[39:54]), explicitly caveated there that this is
+his own trading experience, not a guaranteed number, and tells
+viewers to test it themselves before trusting it - not encoded as a
+number here, just noted for context.
 """
 
 import pandas as pd

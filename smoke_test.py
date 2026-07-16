@@ -91,11 +91,13 @@ def crafted_b2b_df(direction="bullish", n_trend=400, n_pullback=12,
 def crafted_marubozu_df(direction="bullish", n=250, seed=17):
     """
     Marubozu only looks at the single last CLOSED candle, so this is the
-    simplest possible crafted fixture: any trending/noisy series underneath,
-    then a last candle explicitly shaped to have a near-full body and
-    negligible wicks in the requested direction.
+    simplest possible crafted fixture: a flat/noisy base series (trend=0
+    - deliberately NOT drifting, so the close stays near the 100/200 SMA
+    and doesn't trip ashen_marubozu's extension filter), then a last
+    candle explicitly shaped to have a near-full body and negligible
+    wicks in the requested direction.
     """
-    df = synthetic_df(n=n, seed=seed, trend=0.0005 if direction == "bullish" else -0.0005)
+    df = synthetic_df(n=n, seed=seed, trend=0.0)
     last_close = df["close"].iloc[-2]
     if direction == "bullish":
         o, c = last_close, last_close * 1.02

@@ -65,11 +65,16 @@ ashen:
     reward_risk_ratio: 1.5
 
   marubozu:
-    # Single-candle, no MA/oscillator - near-zero-wick candle only.
+    # Single-candle pattern, but DOES use 100/200 SMA as an extension
+    # filter (reject an otherwise-valid Marubozu that's already run too
+    # far beyond either MA - see ashen_marubozu.py).
     enabled: true
     min_body_ratio: 0.85    # body must be at least this fraction of the full high-low range
     max_wick_ratio: 0.10    # each wick must be no more than this fraction of the range
     reward_risk_ratio: 1.2  # deliberately lower than the 1.5 used elsewhere - Ashen's own stated target
+    stop_buffer_pct: 0.1    # stop sits this % beyond the candle's OPEN (its start point), not its wick
+    extension_ma_periods: [100, 200]
+    max_extension_multiplier: 5.0  # "too extended" = distance to an MA exceeds this many candle-ranges
 
   vwap_breakout:
     # The only Ashen strategy needing two nested timeframes (HTF for

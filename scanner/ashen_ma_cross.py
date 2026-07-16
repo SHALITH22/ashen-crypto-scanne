@@ -5,18 +5,22 @@ Philosophy: trade in the direction of a 20/200 SMA cross (20 above 200 =
 bullish regime, 20 below 200 = bearish regime), triggered by a single
 "dominant" candle - one visibly larger than every other candle in the
 recent lookback window, closing near its extreme (little to no
-opposing wick). Ashen frames this as an ~80% "accuracy" setup in the
-video, explicitly caveated there that short losing streaks (2-3 in a
-row) are normal variance, not a broken strategy - not encoded as a
-number here, just noted for context.
+opposing wick).
 
-Ashen's exact rule: price above both SMAs with 20 SMA above 200 SMA,
-then a big bullish candle (dwarfing recent candles, closing near its
-high) - entry above that candle's high, stop below its low. Mirrored
-for bearish (price below both SMAs, 20 below 200, big bearish candle,
-entry below its low, stop above its high). Standard 1:1.5 target here
-(same as Jayantha's and Ashen's other videos), unlike the deliberately
-lower 1:1.2 used in the Marubozu strategy (see ashen_marubozu.py).
+Ashen's exact rule (confirmed against the source video, interpretation
+A of two candidates - see ashen_marubozu.py's note on entry timing):
+price above both SMAs with 20 SMA above 200 SMA, then a big bullish
+candle (dwarfing recent candles, closing near its high) - enter
+immediately once that dominant candle closes, no next-candle breakout
+wait (unlike b2b_ashen). Entry above that candle's high, stop below
+its low. Mirrored for bearish (price below both SMAs, 20 below 200,
+big bearish candle, entry below its low, stop above its high).
+Standard 1:1.5 target here (same as Jayantha's and Ashen's other
+videos), unlike the deliberately lower 1:1.2 used in the Marubozu
+strategy (see ashen_marubozu.py). The "~80% accuracy" claim in this
+video series belongs to the VWAP Breakout strategy (Part 01, see
+ashen_vwap_breakout.py) - not this one; that quote was previously
+misattributed here.
 """
 
 import pandas as pd
