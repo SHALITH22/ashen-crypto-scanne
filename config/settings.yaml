@@ -37,6 +37,64 @@ jayantha:
     # confluence signal (a genuinely clean, well-confirmed close).
     min_confirmation_bonus: 0.65
 
+# --- Ashen strategy ("Trading with Ashen" video series) - runs ALONGSIDE
+# Jayantha's B2B, not instead of it (this is a second, independent trader's
+# rules, added as four more detectors feeding the same signals list). Each
+# has its own geometry-based stop/target - see scanner/ashen_*.py for the
+# exact rule per detector, cited from the source videos.
+ashen:
+  enabled: true
+
+  b2b:
+    # "Bulls-to-bears" counter-candle continuation - NOT the same setup as
+    # jayantha.b2b despite the shared name (see scanner/ashen_b2b.py).
+    enabled: true
+    min_run_length: 3       # same-colored candles required immediately before the counter-candle
+    lookback: 15            # how far back to count prior counter-candle occurrences in this run
+    max_occurrence: 2       # only the 1st/2nd counter-candle in a run is tradeable; 3rd+ rejected
+    reward_risk_ratio: 1.5
+
+  ma_cross:
+    # 20/200 SMA regime + a single dominant candle triggers entry.
+    enabled: true
+    fast_period: 20
+    slow_period: 200
+    dominance_lookback: 10       # candle must be bigger than every one of these preceding candles
+    dominance_multiplier: 1.5    # ...by at least this much (vs. the largest of them)
+    max_opposing_wick_ratio: 0.25  # opposing wick must be no more than this fraction of the candle's range
+    reward_risk_ratio: 1.5
+
+  marubozu:
+    # Single-candle, no MA/oscillator - near-zero-wick candle only.
+    enabled: true
+    min_body_ratio: 0.85    # body must be at least this fraction of the full high-low range
+    max_wick_ratio: 0.10    # each wick must be no more than this fraction of the range
+    reward_risk_ratio: 1.2  # deliberately lower than the 1.5 used elsewhere - Ashen's own stated target
+
+  vwap_breakout:
+    # The only Ashen strategy needing two nested timeframes (HTF for
+    # trend/structure, LTF for VWAP entry timing) - see htf_pairing below.
+    enabled: true
+    htf_swing_lookback: 20  # candles used to find the HTF swing high/low (structure level)
+    vwap_window: 96         # rolling candle window for the LTF's own VWAP (~24h on 15m candles)
+    atr_period: 14
+    atr_multiplier: 1.0     # stop = entry candle low/high -+ ATR * this
+    reward_risk_ratio: 1.5
+    # Higher-timeframe pairing per entry timeframe - Ashen's rule is this
+    # pairing must "flow continuously" (e.g. 1h+15m, daily+4h). A timeframe
+    # missing here (or whose paired HTF isn't itself in the scanned
+    # `timeframes` list below) simply never fires this one detector -
+    # every other Ashen/Jayantha detector is unaffected.
+    htf_pairing:
+      15m: 1h
+      1h: 4h
+      2h: 8h
+      4h: 1d
+      6h: 1d
+      8h: 1d
+      1d: 1w
+      1w: 1M
+
 # Pairs to scan.
 # pairs_mode: top_volume_lightweight -> DEFAULT as of 2026-07-12. Ranks a
 #   live ticker/24hr call against a pre-built static universe file

@@ -38,6 +38,9 @@ from scanner.indicators import enrich
 # source - see scanner/jayantha_detectors.py for why this is a drop-in
 # replacement that needs no other changes anywhere downstream.
 from scanner.jayantha_detectors import run_jayantha_detectors
+# Ashen strategy (a second, independent trader's rules) runs ALONGSIDE
+# Jayantha's, not instead of it - see scanner/ashen_detectors.py.
+from scanner.ashen_detectors import run_ashen_detectors
 from scanner.mtf import annotate_htf
 from scanner.notify import notify_report
 from scanner.risk import attach_atr_risk, setup_risk_plan, classify_funding
@@ -228,15 +231,33 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
     if not use_proxy:
         fr_df = get_funding_rate(symbol, limit=1)
         current_funding = float(fr_df["fundingRate"].iloc[-1]) if fr_df is not None and not fr_df.empty else None
+
+    # Fetched into a dict first (rather than processed inline per timeframe,
+    # as before Ashen's vwap_breakout was added) so that detector can look
+    # up its paired higher timeframe's data - per config's
+    # ashen.vwap_breakout.htf_pairing, that HTF is always itself one of this
+    # same `timeframes` list, so this avoids a duplicate fetch/API call for
+    # it. time.sleep(0.15) stays here, at the actual fetch step, not moved
+    # to the detection loop below (which makes no API calls at all).
+    dfs: dict[str, "pd.DataFrame"] = {}
     for tf in timeframes:
-        df = get_klines(symbol, tf, cfg["candle_limit"], use_proxy=use_proxy)
-        if df is None or len(df) < 60:
-            if df is None:
+        raw = get_klines(symbol, tf, cfg["candle_limit"], use_proxy=use_proxy)
+        if raw is None or len(raw) < 60:
+            if raw is None:
                 print(f"  [skip] {symbol} {tf}: no data (bad symbol or API error)")
                 result["errors"].append({"timeframe": tf, "reason": "no_data"})
+            time.sleep(0.15)  # be polite to the API
             continue
-        df = enrich(df, cfg)
-        signals = run_jayantha_detectors(df, cfg)
+        dfs[tf] = enrich(raw, cfg)
+        time.sleep(0.15)  # be polite to the API
+
+    htf_pairing = cfg.get("ashen", {}).get("vwap_breakout", {}).get("htf_pairing", {})
+    for tf in timeframes:
+        if tf not in dfs:
+            continue
+        df = dfs[tf]
+        htf_df = dfs.get(htf_pairing.get(tf))
+        signals = run_jayantha_detectors(df, cfg) + run_ashen_detectors(df, cfg, htf_df)
         if signals:
             close = live_price if live_price is not None else float(df["close"].iloc[-1])
             atr = float(df["atr"].iloc[-1])
@@ -289,7 +310,6 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
                 "signals": signals,
                 "risk": risk,
             }
-        time.sleep(0.15)  # be polite to the API
     return result
 
 

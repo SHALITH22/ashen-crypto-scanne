@@ -39,6 +39,13 @@ STRUCTURAL_NAMES = {
     # of their own), discarding jayantha_b2b's real, deliberately-computed
     # plan in favor of a fallback one every single time.
     "jayantha_b2b",
+    # Same reasoning applies to all four Ashen detectors (scanner/ashen_*.py)
+    # - each computes its own stop/target from its own pattern's geometry
+    # (counter-candle extreme, dominant-candle extreme, Marubozu extreme,
+    # entry-candle low/high +- ATR), never falls back to a generic ATR
+    # stop of its own accord, and none of them have a "bonus" confluence
+    # signal that could otherwise win the tie-break in their place.
+    "b2b_ashen", "ma_cross_ashen", "marubozu_ashen", "vwap_breakout_ashen",
 }
 
 EXTREME_FUNDING_THRESHOLD = 0.0005  # 0.05% per 8h funding interval - a commonly cited "hot" reading
@@ -174,14 +181,19 @@ CONFLUENCE_ONLY_NAMES = {"jayantha_trend", "jayantha_confirmation"}
 
 # The market-leader-disagreement and funding filters below were proven via
 # confluence_btc_backtest.py / funding_rate_backtest.py specifically on the
-# original detector set - never validated against jayantha_b2b, and likely
-# wrong for it: B2B setups are pullbacks *within* an established trend, and
-# an established trend typically already moves with BTC/ETH rather than
+# original detector set - never validated against jayantha_b2b or any of
+# the four Ashen detectors, and likely wrong for at least jayantha_b2b (see
+# below): B2B setups are pullbacks *within* an established trend, and an
+# established trend typically already moves with BTC/ETH rather than
 # against them, so blindly inheriting this filter would reject a large
-# share of otherwise-valid setups on an unproven basis. jayantha_b2b is
-# added to STRUCTURAL_NAMES (for stop/target selection) but deliberately
-# excluded here.
-MARKET_FILTER_NAMES = (STRUCTURAL_NAMES | {"ema_stack"}) - {"jayantha_b2b"}
+# share of otherwise-valid setups on an unproven basis. All five detectors
+# (jayantha_b2b + the four ashen_*) are added to STRUCTURAL_NAMES (for
+# stop/target selection) but deliberately excluded here until each gets
+# its own backtest confirming (or refuting) this specific filter.
+_UNPROVEN_MARKET_FILTER_EXCLUSIONS = {
+    "jayantha_b2b", "b2b_ashen", "ma_cross_ashen", "marubozu_ashen", "vwap_breakout_ashen",
+}
+MARKET_FILTER_NAMES = (STRUCTURAL_NAMES | {"ema_stack"}) - _UNPROVEN_MARKET_FILTER_EXCLUSIONS
 
 
 def setup_risk_plan(signals: list[dict], bias: str, close: float,
