@@ -186,12 +186,23 @@ CONFLUENCE_ONLY_NAMES = {"jayantha_trend", "jayantha_confirmation"}
 # below): B2B setups are pullbacks *within* an established trend, and an
 # established trend typically already moves with BTC/ETH rather than
 # against them, so blindly inheriting this filter would reject a large
-# share of otherwise-valid setups on an unproven basis. All five detectors
-# (jayantha_b2b + the four ashen_*) are added to STRUCTURAL_NAMES (for
-# stop/target selection) but deliberately excluded here until each gets
-# its own backtest confirming (or refuting) this specific filter.
+# share of otherwise-valid setups on an unproven basis. jayantha_b2b,
+# b2b_ashen, and marubozu_ashen are still excluded pending their own
+# backtest confirming (or refuting) this specific filter (marubozu_ashen
+# WAS tested - ashen_realistic_backtest.py - but came back genuinely mixed:
+# sometimes BTC/ETH agreement helps, sometimes it hurts, no consistent
+# signal like the two below).
+#
+# ma_cross_ashen and vwap_breakout_ashen were tested (ashen_realistic_
+# backtest.py, thousands of simulated trades) and DO show a clear, large-
+# sample edge trading against BTC/ETH's own trend - e.g.
+# vwap_breakout_ashen/bearish: +0.005R with-trend vs +0.13R against-trend
+# at n=768/374; ma_cross_ashen/bullish: -0.16R with-trend vs +0.33R
+# against-trend at n=57/24 - large enough, consistent enough across both
+# BTC and ETH cuts, to trust. Both raw strategies were only roughly
+# breakeven unfiltered; this filter is what turns them genuinely positive.
 _UNPROVEN_MARKET_FILTER_EXCLUSIONS = {
-    "jayantha_b2b", "b2b_ashen", "ma_cross_ashen", "marubozu_ashen", "vwap_breakout_ashen",
+    "jayantha_b2b", "b2b_ashen", "marubozu_ashen",
 }
 MARKET_FILTER_NAMES = (STRUCTURAL_NAMES | {"ema_stack"}) - _UNPROVEN_MARKET_FILTER_EXCLUSIONS
 
