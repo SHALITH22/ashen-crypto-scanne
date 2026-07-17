@@ -96,6 +96,14 @@ def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
             htf_df = enrich(htf_raw, cfg)
 
     risk_cfg = cfg.get("risk", {})
+    # Same per-strategy override main.py's live scan_pair() builds - without
+    # this, marubozu_ashen's deliberately smaller target (see
+    # ashen_marubozu.py) would be tested against the flat 1.0 floor sized
+    # for the other four strategies' bigger targets, silently generating
+    # ZERO marubozu candidates here instead of the actually-live population.
+    min_rr_overrides = risk_cfg.get("min_risk_reward_overrides")
+    min_risk_reward = ({**min_rr_overrides, "default": risk_cfg.get("min_risk_reward", 1.0)}
+                       if min_rr_overrides else risk_cfg.get("min_risk_reward", 1.0))
     trades = []
     blocked_until: dict[str, int] = {}
 
@@ -122,7 +130,7 @@ def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
         # beta filter - this measures RAW baseline performance, and
         # separately tags btc_agrees/eth_agrees below so that filter's
         # value can be tested afterward instead of assumed.
-        plans = setup_risk_plans(signals, close, risk_cfg.get("min_risk_reward", 1.0),
+        plans = setup_risk_plans(signals, close, min_risk_reward,
                                  market_disagrees_by_direction={"bullish": True, "bearish": True},
                                  funding_ok_by_direction={"bullish": True, "bearish": True},
                                  target_fraction=risk_cfg.get("target_fraction", 1.0))

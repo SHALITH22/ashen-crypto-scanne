@@ -327,8 +327,26 @@ def setup_risk_plan(signals: list[dict], bias: str, close: float,
     }
 
 
+def _resolve_min_rr(min_risk_reward: float | dict, name: str) -> float:
+    """
+    min_risk_reward accepts either a flat float (the same floor for every
+    strategy, backward compatible with every existing caller) or a dict
+    {"default": float, strategy_name: float, ...} for a per-strategy
+    override. Added specifically for marubozu_ashen (see
+    marubozu_rr_floor_backtest.py): its target is deliberately smaller than
+    the other four strategies' (backed by a 1600+ trade backtest showing a
+    real edge from banking profit earlier - bearish crosses from -0.003R to
+    +0.013R at the chosen ratio), so it needs its own, lower qualification
+    floor rather than being held to the same 1.0 bar sized for a bigger
+    target.
+    """
+    if isinstance(min_risk_reward, dict):
+        return min_risk_reward.get(name, min_risk_reward.get("default", 1.0))
+    return min_risk_reward
+
+
 def setup_risk_plans(signals: list[dict], close: float,
-                     min_risk_reward: float = 1.0, avg_returns: dict | None = None,
+                     min_risk_reward: float | dict = 1.0, avg_returns: dict | None = None,
                      min_calibrated_move_pct: float = 0.3,
                      account_size: float | None = None,
                      account_risk_pct: float = 1.0,
@@ -356,7 +374,8 @@ def setup_risk_plans(signals: list[dict], close: float,
     candidates here can legitimately point opposite ways.
 
     Same qualification bars as setup_risk_plan (own R:R clears
-    min_risk_reward, stop_pct clears min_stop_pct, not in `unreliable`,
+    min_risk_reward - see _resolve_min_rr for the per-strategy override
+    this can now carry, stop_pct clears min_stop_pct, not in `unreliable`,
     MARKET_FILTER_NAMES members need market_disagrees True and funding_ok)
     - see that function's docstring for why each bar exists. The only
     difference is there's no "pick the tightest stop" step: every signal
@@ -391,7 +410,7 @@ def setup_risk_plans(signals: list[dict], close: float,
         raw_target = effective_target(s)
         rr = abs(raw_target - close) / risk
         stop_pct = risk / close * 100 if close > 0 else 0
-        if rr < min_risk_reward or stop_pct < min_stop_pct:
+        if rr < _resolve_min_rr(min_risk_reward, s["name"]) or stop_pct < min_stop_pct:
             continue
 
         calibrated = (raw_target != s["target"])

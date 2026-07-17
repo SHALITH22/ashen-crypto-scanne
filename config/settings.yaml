@@ -71,7 +71,17 @@ ashen:
     enabled: true
     min_body_ratio: 0.85    # body must be at least this fraction of the full high-low range
     max_wick_ratio: 0.10    # each wick must be no more than this fraction of the range
-    reward_risk_ratio: 1.2  # deliberately lower than the 1.5 used elsewhere - Ashen's own stated target
+    # Ashen's own stated target was 1.2 (already deliberately lower than
+    # the 1.5 used elsewhere). Lowered further to 0.6 backed by
+    # marubozu_rr_floor_backtest.py (1600+ simulated trades): every
+    # smaller-target variant beat the 1.2 baseline in both directions,
+    # and bearish specifically crosses from -0.003R to +0.013R at this
+    # exact ratio - the strongest result in the whole sweep. Needs a
+    # matching per-strategy floor override below (risk.min_risk_reward_
+    # overrides) since this strategy's effective R:R, after the existing
+    # global 0.85 target_fraction trim, no longer clears the shared 1.0
+    # floor sized for the other four strategies' bigger targets.
+    reward_risk_ratio: 0.6
     stop_buffer_pct: 0.1    # stop sits this % beyond the candle's OPEN (its start point), not its wick
     extension_ma_periods: [100, 200]
     max_extension_multiplier: 5.0  # "too extended" = distance to an MA exceeds this many candle-ranges
@@ -438,6 +448,16 @@ risk:
   # plan whose reward:risk falls below this rather than showing a setup
   # that risks more than it could gain.
   min_risk_reward: 1.0
+  # Per-strategy override of the floor above - only marubozu_ashen needs
+  # one so far, since its target was deliberately shrunk (see
+  # ashen.marubozu.reward_risk_ratio) below what the shared 1.0 floor
+  # allows. 0.4 sits safely below marubozu's new effective R:R (~0.51,
+  # after the 0.85 target_fraction trim below) with margin for float
+  # rounding, while still rejecting anything degenerate. Leave unset (or
+  # remove a strategy's key) to fall back to the flat min_risk_reward
+  # above - see scanner/risk.py's _resolve_min_rr.
+  min_risk_reward_overrides:
+    marubozu_ashen: 0.4
   # Replace the geometric/ATR target with the detector's real historical
   # average move (from backtest_results.json) when available, so the
   # reported scenario reflects what price has actually tended to do -

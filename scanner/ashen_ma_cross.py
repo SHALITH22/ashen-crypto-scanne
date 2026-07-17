@@ -16,8 +16,9 @@ wait (unlike b2b_ashen). Entry above that candle's high, stop below
 its low. Mirrored for bearish (price below both SMAs, 20 below 200,
 big bearish candle, entry below its low, stop above its high).
 Standard 1:1.5 target here (same as Jayantha's and Ashen's other
-videos), unlike the deliberately lower 1:1.2 used in the Marubozu
-strategy (see ashen_marubozu.py). The "~80% accuracy" claim in this
+videos), unlike the much lower target tuned into the Marubozu strategy
+based on real backtest evidence (see ashen_marubozu.py's module
+docstring). The "~80% accuracy" claim in this
 video series belongs to the VWAP Breakout strategy (Part 01, see
 ashen_vwap_breakout.py) - not this one; that quote was previously
 misattributed here.

@@ -14,12 +14,26 @@ the Marubozu is confirmed (closed), enter the trade immediately - no
 next-candle breakout wait, unlike b2b_ashen. Stop sits a small buffer
 beyond the candle's own START point (its open), not its wick extreme
 (low for a long, high for a short) - though on a true Marubozu the two
-are close since wicks are negligible by definition. Target is 1.2x
-that risk projected the same direction ("1 candle = 1 risk unit"). He
-deliberately uses a LOWER reward:risk target here (1:1.2, not the
-usual 1:1.5) with the explicit math: at 1.2:1 you need fewer wins out
-of 100 trades to break even than at 1.5:1, so it's meant to bank
+are close since wicks are negligible by definition. Ashen's own stated
+target was 1.2x that risk ("1 candle = 1 risk unit"), deliberately LOWER
+than the usual 1:1.5 elsewhere, with the explicit math: at 1.2:1 you need
+fewer wins out of 100 trades to break even than at 1.5:1, meant to bank
 profit faster rather than chase a bigger move.
+
+Since then, tuned even lower (config default 0.6, not Ashen's original
+1.2) based on real evidence, not just following his stated number as-is:
+loss_analysis.py found marubozu_ashen losses have a POSITIVE average
+maximum-favorable-excursion (+8.4%) - they tend to get PARTWAY to target
+before reversing, unlike vwap_breakout_ashen (-12.8%, wrong almost
+immediately) - suggesting an earlier exit captures value these losses are
+currently giving back. Confirmed via a 1600+ trade backtest
+(marubozu_rr_floor_backtest.py): every smaller-target ratio tested beat
+1.2 in both directions, and bearish specifically crosses from -0.003R to
++0.013R at exactly 0.6 - the strongest point in the whole sweep. This
+needs a matching per-strategy min_risk_reward floor override (see
+config/settings.yaml's risk.min_risk_reward_overrides), since the
+resulting R:R no longer clears the shared 1.0 bar sized for the other
+four strategies' bigger targets.
 
 He also excludes an otherwise-valid Marubozu if it's already too
 "extended" beyond the 100/200-period moving averages (e.g. a bullish
@@ -33,7 +47,7 @@ import pandas as pd
 _DEFAULT_CFG = {
     "min_body_ratio": 0.85,   # body must be at least this fraction of the full high-low range
     "max_wick_ratio": 0.10,   # each wick must be no more than this fraction of the range
-    "reward_risk_ratio": 1.2,  # Ashen's stated target for this strategy specifically (not the global default)
+    "reward_risk_ratio": 0.6,  # tuned down from Ashen's own stated 1.2 - see module docstring for the backtest evidence
     "stop_buffer_pct": 0.1,   # stop sits this % beyond the candle's OPEN, not its wick extreme
     "extension_ma_periods": [100, 200],  # candle must not be too far beyond either of these SMAs
     "max_extension_multiplier": 5.0,     # "too far" = distance to an MA exceeds this many candle-ranges

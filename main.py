@@ -262,6 +262,15 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
             close = live_price if live_price is not None else float(df["close"].iloc[-1])
             atr = float(df["atr"].iloc[-1])
             risk_cfg = cfg.get("risk", {})
+            # A flat float unless config has min_risk_reward_overrides set,
+            # in which case _resolve_min_rr (risk.py) looks up a
+            # strategy-specific floor - added for marubozu_ashen, whose
+            # deliberately smaller target (see ashen_marubozu.py's
+            # reward_risk_ratio) would otherwise fail the same 1.0 bar
+            # sized for the other four strategies' bigger targets.
+            min_rr_overrides = risk_cfg.get("min_risk_reward_overrides")
+            min_risk_reward = ({**min_rr_overrides, "default": risk_cfg.get("min_risk_reward", 1.0)}
+                               if min_rr_overrides else risk_cfg.get("min_risk_reward", 1.0))
             signals = attach_atr_risk(signals, close, atr,
                                       risk_cfg.get("atr_multiplier", 1.5),
                                       risk_cfg.get("reward_risk_ratio", 2.0),
@@ -304,7 +313,7 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
                 # opposite of the classic "fade the crowd" assumption - so only
                 # that specific bucket is excluded (see risk.classify_funding).
                 funding_ok_by_direction[direction] = classify_funding(current_funding, direction) != "against_crowd"
-            risk_plans = setup_risk_plans(signals, close, risk_cfg.get("min_risk_reward", 1.0),
+            risk_plans = setup_risk_plans(signals, close, min_risk_reward,
                                           avg_returns, risk_cfg.get("min_calibrated_move_pct", 0.3),
                                           risk_cfg.get("account_size"), risk_cfg.get("account_risk_pct", 1.0),
                                           unreliable, market_disagrees_by_direction, funding_ok_by_direction,
