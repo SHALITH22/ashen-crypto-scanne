@@ -1,0 +1,65 @@
+name: Audit
+
+# Independently re-verifies every NEW journal.jsonl entry since the last
+# run against the actual real historical candles and the real detector
+# functions - catches a class of bug (e.g. a stop referencing the wrong
+# price) that only shows up by re-deriving the trade from scratch, not by
+# reading the code. See audit_trades.py's module docstring for the full
+# reasoning, including why "new entries only" is the deliberate scope.
+on:
+  schedule:
+    # Daily, offset from :00 (GitHub's own docs warn on-the-hour schedules
+    # are frequently delayed/dropped) - catches a regression within about a
+    # day rather than a full week. Not time-critical like scan.yml's live
+    # alerts, so no need for anything close to that 20-minute cadence.
+    - cron: "17 4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # needed to commit audit_results.jsonl/audit_state.json back to the repo
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run trade audit
+        env:
+          # Some newly-logged entries may be long-tail symbols not on
+          # Binance.US, unreachable from GitHub Actions without the proxy -
+          # same reasoning as scan.yml. Optional: a missing/failed proxy
+          # just means those specific entries fail their audit with
+          # "could not fetch candles", not a broken run. No Telegram
+          # secrets here - this job doesn't send alerts itself, the
+          # audit.html page is the alert surface.
+          BINANCE_PROXY_URL: ${{ secrets.BINANCE_PROXY_URL }}
+          BINANCE_PROXY_SECRET: ${{ secrets.BINANCE_PROXY_SECRET }}
+        run: python audit_trades.py
+
+      - name: Commit audit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # audit_results.jsonl/audit_state.json are never touched by
+          # scan.yml or backtest.yml, so - same reasoning as
+          # backtest.yml's commit step - this never has a real content
+          # conflict, just needs to catch up to whatever those more
+          # frequent jobs have pushed in the meantime.
+          touch audit_results.jsonl
+          git add audit_results.jsonl audit_state.json
+          git diff --cached --quiet || git commit -m "Update trade audit [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done

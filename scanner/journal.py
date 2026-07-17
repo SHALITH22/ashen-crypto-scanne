@@ -405,6 +405,23 @@ def total_resolved(path: Path = JOURNAL_PATH) -> int:
     return sum(1 for e in _load(path) if e["status"] in ("win", "loss", "expired"))
 
 
+def entries_since(logged_after: str | None, path: Path = JOURNAL_PATH) -> list[dict]:
+    """
+    Every entry with logged_at strictly after `logged_after` (an ISO
+    timestamp string), or all entries if `logged_after` is None. Used by
+    audit_trades.py to checkpoint on `logged_at` rather than `id` - `id` is
+    NOT a stable identity across runs, since scripts/merge_journal.py
+    renumbers every entry's id from scratch on every merge (a routine
+    occurrence at scan.yml's 20-minute cadence), while `logged_at` (a
+    microsecond timestamp, the same key the merge driver itself keys on)
+    never changes for a given entry once written.
+    """
+    entries = _load(path)
+    if logged_after is None:
+        return entries
+    return [e for e in entries if e["logged_at"] > logged_after]
+
+
 def summarize(path: Path = JOURNAL_PATH) -> dict:
     """Win rate and average return per detector, from resolved journal entries only."""
     entries = [e for e in _load(path) if e["status"] in ("win", "loss", "expired")]
