@@ -505,6 +505,18 @@ journal:
   # live as the same pair/detector alerting every scan cycle back-to-back
   # (e.g. ARBUSDT qqe_cross, ETHUSDT ema_stack firing every ~8-20 min).
   reopen_cooldown_hours: 6.0
+  # Caps how many OPEN entries a single symbol can have at once, across
+  # every timeframe and strategy combined - strategy_correlation_analysis.py
+  # found a real peak of 13 trades simultaneously open on one symbol
+  # (KAVAUSDT), meaning up to 13% of the account concurrently at risk on
+  # one coin's price action at 1% risk/trade - well beyond what "5
+  # strategies x 1% each" implies as a worst case, since a single strategy
+  # firing across several timeframes at once (15m, 1h, 2h, 4h...) stacks
+  # just as much as 5 different strategies agreeing would. 5 is a starting
+  # point (roughly "one open trade per live strategy per symbol"), not a
+  # backtested-optimal number - tune freely. Set to null to disable the cap
+  # entirely (restores the pre-cap behavior).
+  max_concurrent_per_symbol: 5
 
 # --- Output ---
 output:

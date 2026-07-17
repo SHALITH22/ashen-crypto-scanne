@@ -13,6 +13,7 @@ scheduled/cloud run.
 """
 
 import json
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
@@ -68,13 +69,27 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
     (they use their own blocked_until logic operating on horizon_candles,
     not wall-clock time) - it only governs the live journal.
 
+    Also caps how many OPEN entries a single symbol can have at once
+    (config journal.max_concurrent_per_symbol, across every timeframe and
+    strategy combined) - strategy_correlation_analysis.py found a real
+    peak of 13 trades simultaneously open on one symbol, meaning up to 13%
+    of the account concurrently at risk on a single coin's price action at
+    1% risk/trade, well beyond what the flat per-trade sizing model's
+    implicit diversification assumption accounts for. None if unset in
+    config, in which case this behaves exactly as before (no cap).
+
     Returns the list of entries newly appended this run (not just a count) -
     callers use this to know exactly which setups are genuinely new, e.g.
     to only Telegram-alert on first occurrence instead of re-sending the
     same open setup every scan.
     """
+    max_concurrent_per_symbol = cfg.get("journal", {}).get("max_concurrent_per_symbol")
     existing = _load(path)
     open_keys = {(e["symbol"], e["timeframe"], e["based_on"]) for e in existing if e["status"] == "open"}
+    open_count_by_symbol: dict[str, int] = defaultdict(int)
+    for e in existing:
+        if e["status"] == "open":
+            open_count_by_symbol[e["symbol"]] += 1
     now_dt = datetime.now(timezone.utc).replace(tzinfo=None)
     last_resolved_at: dict[tuple, datetime] = {}
     for e in existing:
@@ -88,6 +103,7 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
     now = now_dt.isoformat()
 
     logged = []
+    skipped_concurrency_cap = 0
     for res in report["results"]:
         for tf, data in res["timeframes"].items():
             for r in data.get("risk_plans", []):
@@ -99,6 +115,10 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
                     cooldown_elapsed = (now_dt - last_resolved).total_seconds() / 3600
                     if cooldown_elapsed < reopen_cooldown_hours:
                         continue
+                if (max_concurrent_per_symbol is not None
+                        and open_count_by_symbol[res["symbol"]] >= max_concurrent_per_symbol):
+                    skipped_concurrency_cap += 1
+                    continue
                 entry = {
                     "id": next_id,
                     "logged_at": now,
@@ -125,8 +145,12 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
                 }
                 _append(entry, path)
                 open_keys.add(key)
+                open_count_by_symbol[res["symbol"]] += 1
                 next_id += 1
                 logged.append(entry)
+    if skipped_concurrency_cap:
+        print(f"  [journal] skipped {skipped_concurrency_cap} setup(s) - symbol already at "
+              f"max_concurrent_per_symbol cap ({max_concurrent_per_symbol})")
     return logged
 
 
