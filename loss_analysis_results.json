@@ -1,0 +1,1754 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.188
+  },
+  {
+    "symbol": "LTCUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.752
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.183
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": -1.308
+  },
+  {
+    "symbol": "GRTUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.438
+  },
+  {
+    "symbol": "ZECUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": -0.246
+  },
+  {
+    "symbol": "ADAUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.323
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": -0.68
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": -0.181
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.35
+  },
+  {
+    "symbol": "POLUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": 0.129
+  },
+  {
+    "symbol": "ONTUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "mfe": -0.243
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "1h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.454
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "2h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.454
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.43
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.326
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.376
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.238
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.064
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.042
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.018
+  },
+  {
+    "symbol": "BNBUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.152
+  },
+  {
+    "symbol": "BNBUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.016
+  },
+  {
+    "symbol": "BNBUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.007
+  },
+  {
+    "symbol": "ARBUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.359
+  },
+  {
+    "symbol": "ARBUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.197
+  },
+  {
+    "symbol": "CRVUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.765
+  },
+  {
+    "symbol": "POLUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.631
+  },
+  {
+    "symbol": "ZILUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.239
+  },
+  {
+    "symbol": "ZILUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.699
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.549
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.875
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.709
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.358
+  },
+  {
+    "symbol": "1INCHUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 3.929
+  },
+  {
+    "symbol": "1INCHUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 4.954
+  },
+  {
+    "symbol": "XRPUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.361
+  },
+  {
+    "symbol": "AVAXUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.0
+  },
+  {
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.609
+  },
+  {
+    "symbol": "NEARUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.095
+  },
+  {
+    "symbol": "NEARUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.269
+  },
+  {
+    "symbol": "NEARUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.105
+  },
+  {
+    "symbol": "NEARUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.551
+  },
+  {
+    "symbol": "SOLUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.02
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.615
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.417
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.472
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.317
+  },
+  {
+    "symbol": "ONDOUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.146
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.104
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.313
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.325
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.643
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.278
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.505
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.302
+  },
+  {
+    "symbol": "GALAUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -3.192
+  },
+  {
+    "symbol": "GALAUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.847
+  },
+  {
+    "symbol": "GALAUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.097
+  },
+  {
+    "symbol": "GALAUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.336
+  },
+  {
+    "symbol": "SEIUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.013
+  },
+  {
+    "symbol": "SEIUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.078
+  },
+  {
+    "symbol": "DUSKUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.222
+  },
+  {
+    "symbol": "DUSKUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.164
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.676
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.183
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.026
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.014
+  },
+  {
+    "symbol": "ZECUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.136
+  },
+  {
+    "symbol": "ZECUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.062
+  },
+  {
+    "symbol": "UNIUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 2.128
+  },
+  {
+    "symbol": "UNIUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.485
+  },
+  {
+    "symbol": "UNIUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.092
+  },
+  {
+    "symbol": "AAVEUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 2.47
+  },
+  {
+    "symbol": "AAVEUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.536
+  },
+  {
+    "symbol": "SUIUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.607
+  },
+  {
+    "symbol": "SUIUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.394
+  },
+  {
+    "symbol": "SUIUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.126
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.191
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.103
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.021
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.666
+  },
+  {
+    "symbol": "LINKUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.883
+  },
+  {
+    "symbol": "LINKUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.266
+  },
+  {
+    "symbol": "LINKUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.011
+  },
+  {
+    "symbol": "LINKUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.005
+  },
+  {
+    "symbol": "XLMUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.32
+  },
+  {
+    "symbol": "BCHUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.987
+  },
+  {
+    "symbol": "DOTUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.109
+  },
+  {
+    "symbol": "HBARUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.627
+  },
+  {
+    "symbol": "HBARUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.629
+  },
+  {
+    "symbol": "ASTERUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.126
+  },
+  {
+    "symbol": "PUMPUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.304
+  },
+  {
+    "symbol": "PUMPUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.926
+  },
+  {
+    "symbol": "TIAUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.721
+  },
+  {
+    "symbol": "TIAUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.247
+  },
+  {
+    "symbol": "TRXUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.484
+  },
+  {
+    "symbol": "FARTCOINUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -3.28
+  },
+  {
+    "symbol": "FARTCOINUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.083
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.071
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.111
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.18
+  },
+  {
+    "symbol": "ETCUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.893
+  },
+  {
+    "symbol": "FETUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.511
+  },
+  {
+    "symbol": "FETUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.122
+  },
+  {
+    "symbol": "JTOUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.294
+  },
+  {
+    "symbol": "PAXGUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.185
+  },
+  {
+    "symbol": "PAXGUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.182
+  },
+  {
+    "symbol": "EIGENUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.195
+  },
+  {
+    "symbol": "OGNUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.097
+  },
+  {
+    "symbol": "OGNUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.551
+  },
+  {
+    "symbol": "ATOMUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.148
+  },
+  {
+    "symbol": "ATOMUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.029
+  },
+  {
+    "symbol": "ALGOUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.333
+  },
+  {
+    "symbol": "CAKEUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.256
+  },
+  {
+    "symbol": "CAKEUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.12
+  },
+  {
+    "symbol": "RENDERUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.96
+  },
+  {
+    "symbol": "RENDERUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -1.21
+  },
+  {
+    "symbol": "IOTAUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.858
+  },
+  {
+    "symbol": "IOTAUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.858
+  },
+  {
+    "symbol": "IOTAUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.555
+  },
+  {
+    "symbol": "IOTAUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.946
+  },
+  {
+    "symbol": "VETUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.11
+  },
+  {
+    "symbol": "ZENUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.097
+  },
+  {
+    "symbol": "ZENUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.045
+  },
+  {
+    "symbol": "ZENUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.218
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.641
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.083
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.817
+  },
+  {
+    "symbol": "RVNUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.561
+  },
+  {
+    "symbol": "RVNUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.085
+  },
+  {
+    "symbol": "RVNUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.99
+  },
+  {
+    "symbol": "AVNTUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.967
+  },
+  {
+    "symbol": "AVNTUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -2.826
+  },
+  {
+    "symbol": "GRTUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.02
+  },
+  {
+    "symbol": "ROSEUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -14.26
+  },
+  {
+    "symbol": "ROSEUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -6.374
+  },
+  {
+    "symbol": "ROSEUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -4.166
+  },
+  {
+    "symbol": "ACHUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 2.676
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 1.555
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.648
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.345
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.308
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": 0.21
+  },
+  {
+    "symbol": "VTHOUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "mfe": -0.225
+  },
+  {
+    "symbol": "LTCUSDT",
+    "timeframe": "1h",
+    "based_on": "b2b_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T19:38:56.567697",
+    "mfe": 0.191
+  },
+  {
+    "symbol": "POLUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T19:38:56.567697",
+    "mfe": 0.163
+  },
+  {
+    "symbol": "XLMUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T19:38:56.567697",
+    "mfe": 0.664
+  },
+  {
+    "symbol": "XLMUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T19:38:56.567697",
+    "mfe": 0.717
+  },
+  {
+    "symbol": "ATOMUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T19:38:56.567697",
+    "mfe": -0.143
+  },
+  {
+    "symbol": "APEUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.794
+  },
+  {
+    "symbol": "1INCHUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 3.929
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "4h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.973
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -1.176
+  },
+  {
+    "symbol": "FILUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.193
+  },
+  {
+    "symbol": "FILUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.211
+  },
+  {
+    "symbol": "KAITOUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.527
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 3.098
+  },
+  {
+    "symbol": "AAVEUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.466
+  },
+  {
+    "symbol": "DOTUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.859
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 3.307
+  },
+  {
+    "symbol": "TRXUSDT",
+    "timeframe": "4h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.507
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.621
+  },
+  {
+    "symbol": "ATOMUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": -0.392
+  },
+  {
+    "symbol": "CAKEUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.092
+  },
+  {
+    "symbol": "CAKEUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.501
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T20:36:36.819412",
+    "mfe": 0.697
+  },
+  {
+    "symbol": "ARBUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T21:46:20.390482",
+    "mfe": -0.483
+  },
+  {
+    "symbol": "VTHOUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T21:46:20.390482",
+    "mfe": 0.078
+  },
+  {
+    "symbol": "VTHOUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T21:46:20.390482",
+    "mfe": 0.091
+  },
+  {
+    "symbol": "DOTUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T21:46:20.390482",
+    "mfe": 0.23
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T21:46:20.390482",
+    "mfe": 2.717
+  },
+  {
+    "symbol": "HBARUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T23:06:23.024297",
+    "mfe": 0.313
+  },
+  {
+    "symbol": "LTCUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-16T23:06:23.024297",
+    "mfe": 0.964
+  },
+  {
+    "symbol": "VTHOUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-16T23:06:23.024297",
+    "mfe": -0.183
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": -0.618
+  },
+  {
+    "symbol": "DASHUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": 0.784
+  },
+  {
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": 0.505
+  },
+  {
+    "symbol": "UNIUSDT",
+    "timeframe": "2h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": 0.481
+  },
+  {
+    "symbol": "FILUSDT",
+    "timeframe": "6h",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": -0.504
+  },
+  {
+    "symbol": "KAVAUSDT",
+    "timeframe": "8h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "mfe": -1.021
+  },
+  {
+    "symbol": "VETUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T01:37:49.210242",
+    "mfe": 3.414
+  },
+  {
+    "symbol": "ETCUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bullish",
+    "logged_at": "2026-07-17T01:37:49.210242",
+    "mfe": -0.892
+  },
+  {
+    "symbol": "TRXUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T06:26:17.123269",
+    "mfe": 0.307
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T06:26:17.123269",
+    "mfe": 0.668
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "timeframe": "2h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T06:26:17.123269",
+    "mfe": 0.668
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 0.118
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "15m",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 0.507
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 0.985
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 0.516
+  },
+  {
+    "symbol": "DASHUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": -0.185
+  },
+  {
+    "symbol": "INJUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 1.667
+  },
+  {
+    "symbol": "OPUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 1.934
+  },
+  {
+    "symbol": "FETUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": -0.591
+  },
+  {
+    "symbol": "ICPUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": 0.147
+  },
+  {
+    "symbol": "ONTUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T08:58:16.848487",
+    "mfe": -4.883
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "2h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 0.511
+  },
+  {
+    "symbol": "AVNTUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 0.0
+  },
+  {
+    "symbol": "AVNTUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 2.594
+  },
+  {
+    "symbol": "TIAUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 0.708
+  },
+  {
+    "symbol": "KAITOUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": -6.058
+  },
+  {
+    "symbol": "CRVUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 2.768
+  },
+  {
+    "symbol": "QNTUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": -3.15
+  },
+  {
+    "symbol": "XTZUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "mfe": 1.435
+  },
+  {
+    "symbol": "LTCUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 0.792
+  },
+  {
+    "symbol": "PUMPUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 2.069
+  },
+  {
+    "symbol": "ALGOUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 0.059
+  },
+  {
+    "symbol": "CAKEUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": -0.321
+  },
+  {
+    "symbol": "GRTUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": -0.431
+  },
+  {
+    "symbol": "IOTAUSDT",
+    "timeframe": "1h",
+    "based_on": "ma_cross_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": -0.329
+  },
+  {
+    "symbol": "TRUMPUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 2.854
+  },
+  {
+    "symbol": "THETAUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": -1.862
+  },
+  {
+    "symbol": "AVNTUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 2.238
+  },
+  {
+    "symbol": "DUSKUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T14:09:56.776441",
+    "mfe": 1.454
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T15:51:39.886286",
+    "mfe": -0.234
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T15:51:39.886286",
+    "mfe": -0.215
+  },
+  {
+    "symbol": "SOLUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T15:51:39.886286",
+    "mfe": -0.479
+  },
+  {
+    "symbol": "DASHUSDT",
+    "timeframe": "1h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T15:51:39.886286",
+    "mfe": 0.107
+  },
+  {
+    "symbol": "GRTUSDT",
+    "timeframe": "15m",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "logged_at": "2026-07-17T15:51:39.886286",
+    "mfe": -0.284
+  }
+]
