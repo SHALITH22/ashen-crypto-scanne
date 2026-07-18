@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-18T07:10:21.795614+00:00",
+  "generated_at": "2026-07-18T08:25:51.378730+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
-  "pairs_with_errors": 105,
+  "pairs_with_errors": 115,
   "used_pair_discovery_fallback": true,
   "pair_discovery_method": "static_fallback_rotating",
-  "pair_rotation_slot": 1,
+  "pair_rotation_slot": 0,
   "pair_rotation_total_slots": 4,
   "proxy_stats": {
     "configured": false,
@@ -16,7 +16,7 @@
     "last_error": null
   },
   "errors": {
-    "DYDXUSDT": [
+    "1000000MOGUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -54,7 +54,7 @@
         "reason": "no_data"
       }
     ],
-    "DRIFTUSDT": [
+    "1000CATUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -92,7 +92,7 @@
         "reason": "no_data"
       }
     ],
-    "DOGSUSDT": [
+    "1000CHEEMSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -130,7 +130,7 @@
         "reason": "no_data"
       }
     ],
-    "DOLOUSDT": [
+    "1000LUNCUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -168,7 +168,7 @@
         "reason": "no_data"
       }
     ],
-    "DYMUSDT": [
+    "1000000BOBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -206,7 +206,7 @@
         "reason": "no_data"
       }
     ],
-    "EDENUSDT": [
+    "1000BONKUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -244,7 +244,7 @@
         "reason": "no_data"
       }
     ],
-    "EDGEUSDT": [
+    "0GUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -282,7 +282,7 @@
         "reason": "no_data"
       }
     ],
-    "EDUUSDT": [
+    "1000FLOKIUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -320,7 +320,7 @@
         "reason": "no_data"
       }
     ],
-    "ELSAUSDT": [
+    "1000PEPEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -358,7 +358,7 @@
         "reason": "no_data"
       }
     ],
-    "ENSOUSDT": [
+    "1000RATSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -396,7 +396,7 @@
         "reason": "no_data"
       }
     ],
-    "ERAUSDT": [
+    "1000SATSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -434,7 +434,7 @@
         "reason": "no_data"
       }
     ],
-    "ESPORTSUSDT": [
+    "1000SHIBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -472,7 +472,7 @@
         "reason": "no_data"
       }
     ],
-    "EPICUSDT": [
+    "1000XECUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -510,7 +510,7 @@
         "reason": "no_data"
       }
     ],
-    "ESPUSDT": [
+    "1MBABYDOGEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -548,7 +548,7 @@
         "reason": "no_data"
       }
     ],
-    "ETHFIUSDT": [
+    "2ZUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -586,7 +586,7 @@
         "reason": "no_data"
       }
     ],
-    "ETHWUSDT": [
+    "4USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -624,7 +624,7 @@
         "reason": "no_data"
       }
     ],
-    "EVAAUSDT": [
+    "ACEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -662,7 +662,7 @@
         "reason": "no_data"
       }
     ],
-    "EULUSDT": [
+    "ACUUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -700,7 +700,7 @@
         "reason": "no_data"
       }
     ],
-    "FFUSDT": [
+    "ACTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -738,7 +738,7 @@
         "reason": "no_data"
       }
     ],
-    "FHEUSDT": [
+    "ACXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -776,7 +776,7 @@
         "reason": "no_data"
       }
     ],
-    "FIDAUSDT": [
+    "AERGOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -814,7 +814,7 @@
         "reason": "no_data"
       }
     ],
-    "FIGHTUSDT": [
+    "AEROUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -852,7 +852,7 @@
         "reason": "no_data"
       }
     ],
-    "FLOCKUSDT": [
+    "AEVOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -890,7 +890,7 @@
         "reason": "no_data"
       }
     ],
-    "FLUIDUSDT": [
+    "AGTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -928,7 +928,7 @@
         "reason": "no_data"
       }
     ],
-    "FOGOUSDT": [
+    "AGLDUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -966,7 +966,7 @@
         "reason": "no_data"
       }
     ],
-    "FORMUSDT": [
+    "AIAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1004,7 +1004,7 @@
         "reason": "no_data"
       }
     ],
-    "FOLKSUSDT": [
+    "AIGENSYNUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1042,7 +1042,7 @@
         "reason": "no_data"
       }
     ],
-    "FUSDT": [
+    "AINUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1080,7 +1080,7 @@
         "reason": "no_data"
       }
     ],
-    "GENIUSUSDT": [
+    "AIOTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1118,7 +1118,7 @@
         "reason": "no_data"
       }
     ],
-    "GIGGLEUSDT": [
+    "AIOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1156,7 +1156,7 @@
         "reason": "no_data"
       }
     ],
-    "GMXUSDT": [
+    "AKEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1194,7 +1194,7 @@
         "reason": "no_data"
       }
     ],
-    "GMTUSDT": [
+    "ALCHUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1232,7 +1232,7 @@
         "reason": "no_data"
       }
     ],
-    "GOATUSDT": [
+    "AKTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1270,7 +1270,7 @@
         "reason": "no_data"
       }
     ],
-    "GPSUSDT": [
+    "ALLOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1308,7 +1308,7 @@
         "reason": "no_data"
       }
     ],
-    "GRAMUSDT": [
+    "ALLUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1346,7 +1346,7 @@
         "reason": "no_data"
       }
     ],
-    "GRASSUSDT": [
+    "ALTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1384,7 +1384,7 @@
         "reason": "no_data"
       }
     ],
-    "GRIFFAINUSDT": [
+    "APRUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1422,7 +1422,7 @@
         "reason": "no_data"
       }
     ],
-    "GUNUSDT": [
+    "ARIAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1460,7 +1460,7 @@
         "reason": "no_data"
       }
     ],
-    "GUAUSDT": [
+    "ARCUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1498,7 +1498,7 @@
         "reason": "no_data"
       }
     ],
-    "GWEIUSDT": [
+    "ARKMUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1536,7 +1536,7 @@
         "reason": "no_data"
       }
     ],
-    "HAEDALUSDT": [
+    "ARKUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1574,7 +1574,7 @@
         "reason": "no_data"
       }
     ],
-    "HANAUSDT": [
+    "ARPAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1612,7 +1612,7 @@
         "reason": "no_data"
       }
     ],
-    "HEIUSDT": [
+    "ARUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1650,7 +1650,7 @@
         "reason": "no_data"
       }
     ],
-    "HEMIUSDT": [
+    "ARXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1688,7 +1688,7 @@
         "reason": "no_data"
       }
     ],
-    "HFTUSDT": [
+    "ASRUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1726,7 +1726,7 @@
         "reason": "no_data"
       }
     ],
-    "HIVEUSDT": [
+    "ATHUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1764,7 +1764,7 @@
         "reason": "no_data"
       }
     ],
-    "HMSTRUSDT": [
+    "ATUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1802,7 +1802,7 @@
         "reason": "no_data"
       }
     ],
-    "HOLOUSDT": [
+    "AUCTIONUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1840,7 +1840,7 @@
         "reason": "no_data"
       }
     ],
-    "HOMEUSDT": [
+    "AVAAIUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1878,7 +1878,7 @@
         "reason": "no_data"
       }
     ],
-    "HOTUSDT": [
+    "AVAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1916,7 +1916,7 @@
         "reason": "no_data"
       }
     ],
-    "HUMAUSDT": [
+    "AWEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1954,7 +1954,7 @@
         "reason": "no_data"
       }
     ],
-    "HYPERUSDT": [
+    "AZTECUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1992,7 +1992,7 @@
         "reason": "no_data"
       }
     ],
-    "HUSDT": [
+    "B2USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2030,7 +2030,7 @@
         "reason": "no_data"
       }
     ],
-    "ICNTUSDT": [
+    "BABYUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2068,7 +2068,7 @@
         "reason": "no_data"
       }
     ],
-    "IDOLUSDT": [
+    "BANANAS31USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2106,7 +2106,7 @@
         "reason": "no_data"
       }
     ],
-    "IDUSDT": [
+    "BANANAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2144,7 +2144,7 @@
         "reason": "no_data"
       }
     ],
-    "INITUSDT": [
+    "BANKUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2182,7 +2182,7 @@
         "reason": "no_data"
       }
     ],
-    "INXUSDT": [
+    "BANUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2220,7 +2220,7 @@
         "reason": "no_data"
       }
     ],
-    "INUSDT": [
+    "BARDUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2258,7 +2258,7 @@
         "reason": "no_data"
       }
     ],
-    "IOUSDT": [
+    "BASEDUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2296,7 +2296,7 @@
         "reason": "no_data"
       }
     ],
-    "IRYSUSDT": [
+    "BASUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2334,7 +2334,7 @@
         "reason": "no_data"
       }
     ],
-    "JCTUSDT": [
+    "BBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2372,7 +2372,7 @@
         "reason": "no_data"
       }
     ],
-    "JELLYJELLYUSDT": [
+    "BEAMXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2410,7 +2410,7 @@
         "reason": "no_data"
       }
     ],
-    "JOEUSDT": [
+    "BEATUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2448,7 +2448,7 @@
         "reason": "no_data"
       }
     ],
-    "JSTUSDT": [
+    "BELUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2486,7 +2486,7 @@
         "reason": "no_data"
       }
     ],
-    "KAIAUSDT": [
+    "BERAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2524,7 +2524,7 @@
         "reason": "no_data"
       }
     ],
-    "KASUSDT": [
+    "BIGTIMEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2562,7 +2562,7 @@
         "reason": "no_data"
       }
     ],
-    "KATUSDT": [
+    "BILLUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2600,7 +2600,7 @@
         "reason": "no_data"
       }
     ],
-    "KERNELUSDT": [
+    "BIOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2638,7 +2638,7 @@
         "reason": "no_data"
       }
     ],
-    "KGENUSDT": [
+    "BIRBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2676,7 +2676,7 @@
         "reason": "no_data"
       }
     ],
-    "KITEUSDT": [
+    "BLESSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2714,7 +2714,7 @@
         "reason": "no_data"
       }
     ],
-    "KMNOUSDT": [
+    "BLUAIUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2752,7 +2752,7 @@
         "reason": "no_data"
       }
     ],
-    "KOMAUSDT": [
+    "BOMEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2790,7 +2790,7 @@
         "reason": "no_data"
       }
     ],
-    "LABUSDT": [
+    "BREVUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2828,7 +2828,7 @@
         "reason": "no_data"
       }
     ],
-    "LAUSDT": [
+    "BROCCOLI714USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2866,7 +2866,7 @@
         "reason": "no_data"
       }
     ],
-    "LIGHTUSDT": [
+    "BROCCOLIF3BUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2904,7 +2904,7 @@
         "reason": "no_data"
       }
     ],
-    "LINEAUSDT": [
+    "BRUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2942,7 +2942,7 @@
         "reason": "no_data"
       }
     ],
-    "LISTAUSDT": [
+    "BSBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2980,7 +2980,7 @@
         "reason": "no_data"
       }
     ],
-    "LITUSDT": [
+    "BSVUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3018,7 +3018,7 @@
         "reason": "no_data"
       }
     ],
-    "LQTYUSDT": [
+    "BTCDOMUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3056,7 +3056,7 @@
         "reason": "no_data"
       }
     ],
-    "LUMIAUSDT": [
+    "BTRUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3094,7 +3094,7 @@
         "reason": "no_data"
       }
     ],
-    "LUNA2USDT": [
+    "BTWUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3132,7 +3132,7 @@
         "reason": "no_data"
       }
     ],
-    "LYNUSDT": [
+    "BULLAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3170,7 +3170,7 @@
         "reason": "no_data"
       }
     ],
-    "MAGMAUSDT": [
+    "BUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3208,7 +3208,7 @@
         "reason": "no_data"
       }
     ],
-    "MANTAUSDT": [
+    "C98USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3246,7 +3246,7 @@
         "reason": "no_data"
       }
     ],
-    "MANTRAUSDT": [
+    "CAPUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3284,7 +3284,7 @@
         "reason": "no_data"
       }
     ],
-    "MAVUSDT": [
+    "CARVUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3322,7 +3322,7 @@
         "reason": "no_data"
       }
     ],
-    "MAVIAUSDT": [
+    "CATIUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3360,7 +3360,7 @@
         "reason": "no_data"
       }
     ],
-    "MEGAUSDT": [
+    "CCUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3398,7 +3398,7 @@
         "reason": "no_data"
       }
     ],
-    "MEMEUSDT": [
+    "CFGUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3436,7 +3436,7 @@
         "reason": "no_data"
       }
     ],
-    "MELANIAUSDT": [
+    "CETUSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3474,7 +3474,7 @@
         "reason": "no_data"
       }
     ],
-    "MERLUSDT": [
+    "CFXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3512,7 +3512,7 @@
         "reason": "no_data"
       }
     ],
-    "METUSDT": [
+    "CGPTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3550,7 +3550,7 @@
         "reason": "no_data"
       }
     ],
-    "MINAUSDT": [
+    "CHILLGUYUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3588,7 +3588,7 @@
         "reason": "no_data"
       }
     ],
-    "MITOUSDT": [
+    "CHRUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3626,7 +3626,7 @@
         "reason": "no_data"
       }
     ],
-    "MIRAUSDT": [
+    "CHIPUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3664,7 +3664,7 @@
         "reason": "no_data"
       }
     ],
-    "MMTUSDT": [
+    "CKBUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3702,7 +3702,7 @@
         "reason": "no_data"
       }
     ],
-    "MOCAUSDT": [
+    "CLANKERUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3740,7 +3740,7 @@
         "reason": "no_data"
       }
     ],
-    "MONUSDT": [
+    "COAIUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3778,7 +3778,7 @@
         "reason": "no_data"
       }
     ],
-    "MORPHOUSDT": [
+    "CLOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3816,7 +3816,7 @@
         "reason": "no_data"
       }
     ],
-    "MOVEUSDT": [
+    "COLLECTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3854,7 +3854,7 @@
         "reason": "no_data"
       }
     ],
-    "MOVRUSDT": [
+    "COOKIEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3892,7 +3892,7 @@
         "reason": "no_data"
       }
     ],
-    "MTLUSDT": [
+    "COWUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3930,7 +3930,7 @@
         "reason": "no_data"
       }
     ],
-    "MUSDT": [
+    "CROSSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3968,7 +3968,387 @@
         "reason": "no_data"
       }
     ],
-    "MUBARAKUSDT": [
+    "CTKUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CTRUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CVCUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CVXUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CYBERUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "CYSUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "DATAIPUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "DEEPUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "DEXEUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "DODOXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
