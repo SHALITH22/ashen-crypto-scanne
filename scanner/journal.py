@@ -235,6 +235,62 @@ def mark_reminded(reminded: list[dict], path: Path = JOURNAL_PATH) -> None:
     _save_all(entries, path)
 
 
+_TIMEFRAME_HOURS = {
+    "15m": 0.25, "1h": 1, "2h": 2, "4h": 4, "6h": 6, "8h": 8,
+    "1d": 24, "1w": 168, "1M": 720,
+}
+
+
+def _evaluate_early_exit(entry: dict, after: "pd.DataFrame", current_price: float,
+                         now: datetime) -> tuple[bool, str | None]:
+    """
+    Whether a still-open trade (didn't hit stop/target/horizon-expiry this
+    check) should be closed early instead of left to drag on. Two real,
+    price-action-based rules - not a time cutoff alone, which would just
+    mass-close everything indiscriminately given how young this journal's
+    open positions currently are (median under 2 days):
+
+    1. PROFIT LOCK: reached at least halfway to target at some point, but
+       has since given back more than half of that peak favorable move -
+       the setup worked, then stalled/reversed. Locks in what's left
+       rather than risk it round-tripping all the way to the stop while
+       waiting for a horizon_candles expiry that, on a 1w/1M timeframe, is
+       effectively never (60 candles = ~14 months / 5 years - no
+       practical backstop at all on slow timeframes).
+    2. NEVER DEVELOPED: essentially no favorable move at all, despite
+       being open at least 10 candles' worth of real elapsed time (not 60,
+       and using actual hours so a 1M trade doesn't get 5 years to prove
+       itself before this check even applies) - the setup's immediate
+       thesis clearly isn't playing out.
+
+    Both compute MFE from the same `after` candle slice check_open_entries
+    already fetched for the stop/target check - no extra API calls.
+    """
+    target_dist = abs(entry["target"] - entry["entry"])
+    if target_dist <= 0 or after.empty:
+        return False, None
+
+    if entry["bias"] == "bullish":
+        best = float(after["high"].max())
+        mfe = (best - entry["entry"]) / target_dist
+        current_progress = (current_price - entry["entry"]) / target_dist
+    else:
+        best = float(after["low"].min())
+        mfe = (entry["entry"] - best) / target_dist
+        current_progress = (entry["entry"] - current_price) / target_dist
+
+    if mfe >= 0.5 and current_progress <= mfe * 0.5:
+        return True, f"closed early - reached {mfe:.0%} of the way to target, then stalled/reversed - locked in the remaining gain instead of risking a full round-trip back to the stop"
+
+    hours_open = (now - datetime.fromisoformat(entry["logged_at"])).total_seconds() / 3600
+    tf_hours = _TIMEFRAME_HOURS.get(entry["timeframe"], 24)
+    min_hours_before_judging = max(6.0, tf_hours * 10)
+    if mfe < 0.15 and hours_open >= min_hours_before_judging:
+        return True, "closed early - setup never showed real momentum toward target within a reasonable window, not worth continuing to tie up a concurrent-trade slot"
+
+    return False, None
+
+
 def check_open_entries(path: Path = JOURNAL_PATH, horizon_candles: int = 20,
                        kline_limit: int = 500, concurrency: int = 8) -> list[dict]:
     """
@@ -297,11 +353,24 @@ def check_open_entries(path: Path = JOURNAL_PATH, horizon_candles: int = 20,
         if outcome is None and len(after) >= horizon_candles:
             outcome, outcome_price = "expired", float(after["close"].iloc[-1])
 
+        exit_reason = None
+        if outcome is None:
+            current_price = float(after["close"].iloc[-1])
+            should_close, reason = _evaluate_early_exit(e, after, current_price, datetime.fromisoformat(now))
+            if should_close:
+                favorable = ((current_price - e["entry"]) if e["bias"] == "bullish"
+                            else (e["entry"] - current_price)) > 0
+                outcome, outcome_price = ("win" if favorable else "loss"), current_price
+                exit_reason = reason
+
         if outcome:
             e["status"] = outcome
             e["checked_at"] = now
             e["outcome_price"] = outcome_price
             e["outcome_pct"] = round((outcome_price - e["entry"]) / e["entry"] * 100, 3)
+            if exit_reason:
+                e["closed_early"] = True
+                e["exit_reason"] = exit_reason
             resolved_entries.append(e)
 
     if resolved_entries:
