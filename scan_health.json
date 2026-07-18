@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T06:29:49.172981+00:00",
+  "generated_at": "2026-07-18T07:10:21.795614+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
@@ -54,7 +54,7 @@
         "reason": "no_data"
       }
     ],
-    "DOLOUSDT": [
+    "DRIFTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -130,7 +130,7 @@
         "reason": "no_data"
       }
     ],
-    "DRIFTUSDT": [
+    "DOLOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -244,7 +244,7 @@
         "reason": "no_data"
       }
     ],
-    "EDUUSDT": [
+    "EDGEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -282,7 +282,7 @@
         "reason": "no_data"
       }
     ],
-    "EDGEUSDT": [
+    "EDUUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -396,44 +396,6 @@
         "reason": "no_data"
       }
     ],
-    "EPICUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
     "ERAUSDT": [
       {
         "timeframe": "15m",
@@ -473,6 +435,44 @@
       }
     ],
     "ESPORTSUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "EPICUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -624,7 +624,7 @@
         "reason": "no_data"
       }
     ],
-    "EULUSDT": [
+    "EVAAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -662,7 +662,7 @@
         "reason": "no_data"
       }
     ],
-    "EVAAUSDT": [
+    "EULUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -966,7 +966,7 @@
         "reason": "no_data"
       }
     ],
-    "FOLKSUSDT": [
+    "FORMUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1004,7 +1004,7 @@
         "reason": "no_data"
       }
     ],
-    "FORMUSDT": [
+    "FOLKSUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1156,7 +1156,7 @@
         "reason": "no_data"
       }
     ],
-    "GMTUSDT": [
+    "GMXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1194,7 +1194,7 @@
         "reason": "no_data"
       }
     ],
-    "GMXUSDT": [
+    "GMTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1346,44 +1346,6 @@
         "reason": "no_data"
       }
     ],
-    "GRIFFAINUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
     "GRASSUSDT": [
       {
         "timeframe": "15m",
@@ -1422,7 +1384,7 @@
         "reason": "no_data"
       }
     ],
-    "GUAUSDT": [
+    "GRIFFAINUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1461,6 +1423,44 @@
       }
     ],
     "GUNUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "GUAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1688,6 +1688,44 @@
         "reason": "no_data"
       }
     ],
+    "HFTUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
     "HIVEUSDT": [
       {
         "timeframe": "15m",
@@ -1727,44 +1765,6 @@
       }
     ],
     "HMSTRUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
-    "HFTUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1878,44 +1878,6 @@
         "reason": "no_data"
       }
     ],
-    "HUMAUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
     "HOTUSDT": [
       {
         "timeframe": "15m",
@@ -1954,7 +1916,7 @@
         "reason": "no_data"
       }
     ],
-    "HUSDT": [
+    "HUMAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -1993,6 +1955,44 @@
       }
     ],
     "HYPERUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "HUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2182,7 +2182,7 @@
         "reason": "no_data"
       }
     ],
-    "INUSDT": [
+    "INXUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2220,7 +2220,7 @@
         "reason": "no_data"
       }
     ],
-    "INXUSDT": [
+    "INUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2790,7 +2790,7 @@
         "reason": "no_data"
       }
     ],
-    "LAUSDT": [
+    "LABUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -2828,7 +2828,7 @@
         "reason": "no_data"
       }
     ],
-    "LABUSDT": [
+    "LAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3056,7 +3056,7 @@
         "reason": "no_data"
       }
     ],
-    "LUNA2USDT": [
+    "LUMIAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3094,7 +3094,7 @@
         "reason": "no_data"
       }
     ],
-    "LUMIAUSDT": [
+    "LUNA2USDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3284,44 +3284,6 @@
         "reason": "no_data"
       }
     ],
-    "MAVIAUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
     "MAVUSDT": [
       {
         "timeframe": "15m",
@@ -3360,7 +3322,83 @@
         "reason": "no_data"
       }
     ],
+    "MAVIAUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
     "MEGAUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "2h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "4h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "6h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "8h",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1d",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1w",
+        "reason": "no_data"
+      },
+      {
+        "timeframe": "1M",
+        "reason": "no_data"
+      }
+    ],
+    "MEMEUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3474,44 +3512,6 @@
         "reason": "no_data"
       }
     ],
-    "MEMEUSDT": [
-      {
-        "timeframe": "15m",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "2h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "4h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "6h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "8h",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1d",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1w",
-        "reason": "no_data"
-      },
-      {
-        "timeframe": "1M",
-        "reason": "no_data"
-      }
-    ],
     "METUSDT": [
       {
         "timeframe": "15m",
@@ -3588,7 +3588,7 @@
         "reason": "no_data"
       }
     ],
-    "MIRAUSDT": [
+    "MITOUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3626,7 +3626,7 @@
         "reason": "no_data"
       }
     ],
-    "MITOUSDT": [
+    "MIRAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3702,7 +3702,7 @@
         "reason": "no_data"
       }
     ],
-    "MONUSDT": [
+    "MOCAUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3740,7 +3740,7 @@
         "reason": "no_data"
       }
     ],
-    "MOCAUSDT": [
+    "MONUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3930,7 +3930,7 @@
         "reason": "no_data"
       }
     ],
-    "MUBARAKUSDT": [
+    "MUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
@@ -3968,7 +3968,7 @@
         "reason": "no_data"
       }
     ],
-    "MUSDT": [
+    "MUBARAKUSDT": [
       {
         "timeframe": "15m",
         "reason": "no_data"
