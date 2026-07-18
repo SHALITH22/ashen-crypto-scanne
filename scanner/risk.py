@@ -113,6 +113,7 @@ def attach_atr_risk(signals: list[dict], close: float, atr: float, atr_mult: flo
     for s in signals:
         if "stop" in s and "target" in s:
             if _structural_levels_valid(s, close):
+                s["stop_source"] = "structural"
                 continue
             del s["stop"]
             del s["target"]
@@ -122,6 +123,19 @@ def attach_atr_risk(signals: list[dict], close: float, atr: float, atr_mult: flo
         elif s["direction"] == "bearish":
             s["stop"] = close + distance
             s["target"] = close - distance * reward_risk
+        # Reachable two ways: the signal never had structural levels at
+        # all, OR it did but attach_atr_risk just discarded them above
+        # because they didn't bracket `close` (a live-ticker price that
+        # can differ from the candle's own close the detector used
+        # internally) - either way, this stop was NOT the detector's own
+        # geometry. Tagged so audit_trades.py/trade_diagnostic_report.py
+        # can compare against the right baseline instead of assuming
+        # every STRUCTURAL_NAMES detector's journaled stop always equals
+        # its raw detect_signals() output - see those scripts' TODO on
+        # this once the mechanism above is confirmed as a real cause of
+        # the small "stop mismatch" audit failures seen for structural
+        # detectors like vwap_breakout_ashen.
+        s["stop_source"] = "atr_fallback"
     return signals
 
 
@@ -425,5 +439,13 @@ def setup_risk_plans(signals: list[dict], close: float,
             "direction": direction,
             "target_basis": "historical avg move" if calibrated else "pattern/ATR estimate",
             "position": position_size(close, s["stop"], account_size, account_risk_pct),
+            # "structural" if this stop is exactly the detector's own
+            # geometry, "atr_fallback" if attach_atr_risk discarded it and
+            # substituted a generic ATR-based one (see that function's
+            # comment) - carried through to the journal so audit_trades.py
+            # /trade_diagnostic_report.py can compare a re-verified trade
+            # against the RIGHT baseline instead of always assuming a
+            # STRUCTURAL_NAMES detector's raw output should match.
+            "stop_source": s.get("stop_source", "structural"),
         })
     return plans

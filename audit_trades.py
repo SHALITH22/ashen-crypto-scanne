@@ -169,6 +169,20 @@ def audit_entry(entry: dict, df: pd.DataFrame | None, htf_df: pd.DataFrame | Non
     result["recomputed_stop"] = match.get("stop")
     result["recomputed_target"] = match.get("target")
 
+    # If risk.attach_atr_risk discarded this signal's own structural stop
+    # and substituted a generic ATR-based one (see that function and
+    # setup_risk_plans' "stop_source" passthrough), the journaled stop was
+    # NEVER supposed to equal detect_signals()'s raw output - comparing
+    # them here was a real methodology gap (found while investigating a
+    # cluster of small "stop mismatch" failures on structural detectors
+    # like vwap_breakout_ashen), not a live trading rule violation. Older
+    # entries logged before this field existed default to "structural" and
+    # are still scored the old way.
+    if entry.get("stop_source") == "atr_fallback":
+        result["status"] = "pass"
+        result["reason"] = "detector fired with matching direction - stop was an ATR fallback, not the detector's own geometry, so not compared"
+        return result
+
     stored_stop = entry.get("stop")
     recomputed_stop = match.get("stop")
     if recomputed_stop is None or not stored_stop:
