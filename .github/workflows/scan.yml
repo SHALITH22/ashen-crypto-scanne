@@ -9,39 +9,25 @@ name: Scan
 # A follow-up commit that actually touches the file resolves it.
 on:
   schedule:
-    # Every 5 minutes, offset from :00/:05/:10... - explicit comma list
-    # (not a "2-59/5" range/step expression) because that's the exact
-    # syntax style already proven reliable here (the previous 20-minute
-    # cadence used "3,23,43 * * * *" and fired correctly for days) -
-    # switched to this after the range/step version went 20+ minutes with
-    # zero scheduled runs firing (confirmed via the Actions API), an
-    # unusually long gap even accounting for GitHub's documented
-    # scheduling delays. GitHub's own docs warn on-the-hour schedules hit
-    # peak load and are frequently delayed or dropped. Matches
-    # pair_rotation's 4-slice cycle (see
-    # scanner.data.get_rotating_pair_slice and main.py's
-    # top_volume_lightweight fallback): live pair-ranking is blocked on
-    # every GH Actions run in practice, so the static-list fallback now
-    # rotates a disjoint ~157-pair slice of the full ~528-pair universe
-    # each run instead of always scanning the same fixed subset - 4 slices
-    # x 5 minutes = every pair covered once per 20-minute cycle, same
-    # total latency as before, but spread across the whole universe
-    # instead of one fixed 157-pair list. Confirmed locally: a single run
-    # takes ~2-3 minutes end to end (see recent run durations in the
-    # Actions tab), comfortably inside a 5-minute slot.
-    # IMPORTANT: if crypto_universe.json grows past 4 x 157 = 628 pairs,
-    # get_rotating_pair_slice will silently start using 5 slices instead
-    # of 4 (ceil(len/157)), which no longer divides evenly into a 20-minute
-    # cycle at this 5-minute cadence - the comment in that function's
-    # docstring covers this; cron would need to move to every 4 minutes
-    # (5 x 4 = 20) at that point.
-    # NOTE: this cadence needs the repo to be public - a private repo only
-    # gets 2,000 free Actions minutes/month, and a full scan run takes several
-    # minutes, so this would blow through that budget in days. Public
-    # repos get unlimited free minutes. (No secrets live in the code - the
-    # bot token/chat id are GitHub encrypted secrets referenced via env:
-    # below, never committed - so making this public doesn't expose them.)
-    - cron: "2,7,12,17,22,27,32,37,42,47,52,57 * * * *"  # every 5 minutes, UTC, offset from :00
+    # Every 20 minutes, offset from :00/:20/:40 - GitHub's own docs warn
+    # on-the-hour schedules hit peak load and are frequently delayed or
+    # dropped.
+    #
+    # Reverted from a 5-minute cadence + full-universe pair rotation
+    # (2026-07-18) after a multi-hour investigation showed GitHub throttles
+    # scheduled (cron) triggers on this repo to an effective ~55-90 minute
+    # cadence regardless of configured interval - confirmed with 4 disposable
+    # canary workflows, each on a different 5-minute schedule/offset, all of
+    # which settled into the same ~55-90 minute real-world gap as this
+    # workflow rather than firing independently every 5 minutes. Splitting or
+    # tightening the schedule doesn't escape it; only workflow_dispatch
+    # (manual/API-triggered runs) has fired reliably on time. Back to the
+    # simple, proven setup: the static 157-pair Binance.US-reachable list
+    # (config/settings.yaml's `pairs:`), not the full ~528-pair universe
+    # rotation - most of the extra ~371 pairs aren't reachable from GitHub
+    # Actions without a working proxy anyway (confirmed: ~73% no_data on a
+    # rotated slice), so the added complexity wasn't earning its keep.
+    - cron: "3,23,43 * * * *"  # every 20 minutes, UTC
   workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab
 
 permissions:
