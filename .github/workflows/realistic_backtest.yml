@@ -1,0 +1,65 @@
+name: Realistic Backtest
+
+# Refreshes realistic_backtest_results.json (jayantha_b2b + the 4 Ashen
+# strategies) on a schedule instead of only when someone remembers to run
+# it by hand. This file directly feeds main.py's live auto-blacklist
+# (min_detector_expectancy) and win_probability display every single scan
+# - see main.py's combined_detector_expectancy usage - so keeping it fresh
+# matters for live decisions, not just reporting.
+#
+# Runs on GitHub Actions, which means get_top_pairs_by_volume() (used by
+# both scripts for live top-volume pair discovery) returns [] here, same
+# root cause as scan.yml's pair_discovery_fallback (binance.com blocks
+# GitHub Actions IPs for the discovery/ticker call, no proxy configured -
+# see scanner/data.py's module docstring and scan_health.json). Both
+# scripts already handle an empty top_pairs list gracefully (falls through
+# to the static cfg["pairs"] list alone, no crash) - and since LIVE trading
+# itself is currently only ever scanning that same static list for the
+# identical reason, backtesting exactly that list is actually the more
+# representative choice right now, not a degraded one.
+on:
+  schedule:
+    # Weekly, Sunday 03:15 UTC - an hour after backtest.yml's 02:23 slot so
+    # the two don't compete for the runner queue at the same moment.
+    - cron: "15 3 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # needed to commit realistic_backtest_results.json back to the repo
+
+jobs:
+  realistic-backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run jayantha_b2b realistic backtest
+        run: python jayantha_realistic_backtest.py
+
+      - name: Run Ashen strategies realistic backtest
+        run: python ashen_realistic_backtest.py
+
+      - name: Commit updated results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add realistic_backtest_results.json ashen_btc_agreement_results.json
+          git diff --cached --quiet || git commit -m "Refresh realistic backtest results [skip ci]"
+          # Same reasoning as backtest.yml's commit step - scan.yml commits
+          # far more often than this weekly job runs, so a plain push
+          # without pulling first would fail outright.
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done

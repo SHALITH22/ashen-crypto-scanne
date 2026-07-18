@@ -1,0 +1,51 @@
+name: VWAP Bearish Investigation
+
+# One-off scoping report: recomputes vwap_breakout_ashen's own entry-time
+# features (VWAP breakout margin, confirmation-candle margin, ATR%,
+# distance from the HTF structure level) for every resolved trade, wins
+# vs losses, to find which factor most separates a real breakout from a
+# fakeout. See vwap_bearish_investigation.py's module docstring.
+#
+# Runs on GitHub Actions (not locally) for the same reason
+# trade_diagnostic.yml does - these are small percentage-based features
+# and the cross-venue price noise documented in audit_trades.py could
+# swamp a genuinely small signal if computed from a different venue's
+# candles than the live scan used.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # needed to commit vwap_investigation.json back to the repo
+
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run VWAP breakout investigation
+        env:
+          BINANCE_PROXY_URL: ${{ secrets.BINANCE_PROXY_URL }}
+          BINANCE_PROXY_SECRET: ${{ secrets.BINANCE_PROXY_SECRET }}
+        run: python vwap_bearish_investigation.py --direction both
+
+      - name: Commit investigation results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add vwap_investigation.json
+          git diff --cached --quiet || git commit -m "Update VWAP breakout investigation [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
