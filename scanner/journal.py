@@ -84,12 +84,30 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
     same open setup every scan.
     """
     max_concurrent_per_symbol = cfg.get("journal", {}).get("max_concurrent_per_symbol")
+    # Global cap on TOTAL concurrent open risk across every symbol combined -
+    # max_concurrent_per_symbol only bounds risk on any ONE symbol, so
+    # nothing stopped the sum across all ~150+ symbols from growing
+    # unbounded. paper_trading.py's first real run surfaced exactly this:
+    # 380 trades open at once, ~489% of account equity locked in
+    # simultaneously, since every trade is independently sized at
+    # risk.account_risk_pct of equity with no awareness of how many other
+    # trades are already open. Expressed as a max TRADE COUNT (not a dollar
+    # figure) because every trade risks the same account_risk_pct of
+    # current equity regardless of symbol - N open trades at risk_pct% each
+    # is just N * risk_pct% of equity at risk, so the trade-count cap and
+    # the equity-percentage cap are the same constraint.
+    max_total_open_risk_pct = cfg.get("journal", {}).get("max_total_open_risk_pct")
+    account_risk_pct = cfg.get("risk", {}).get("account_risk_pct", 1.0)
+    max_total_open_trades = (int(max_total_open_risk_pct / account_risk_pct)
+                              if max_total_open_risk_pct is not None and account_risk_pct > 0 else None)
     existing = _load(path)
     open_keys = {(e["symbol"], e["timeframe"], e["based_on"]) for e in existing if e["status"] == "open"}
     open_count_by_symbol: dict[str, int] = defaultdict(int)
+    total_open_count = 0
     for e in existing:
         if e["status"] == "open":
             open_count_by_symbol[e["symbol"]] += 1
+            total_open_count += 1
     now_dt = datetime.now(timezone.utc).replace(tzinfo=None)
     last_resolved_at: dict[tuple, datetime] = {}
     for e in existing:
@@ -104,6 +122,7 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
 
     logged = []
     skipped_concurrency_cap = 0
+    skipped_total_risk_cap = 0
     for res in report["results"]:
         for tf, data in res["timeframes"].items():
             for r in data.get("risk_plans", []):
@@ -118,6 +137,10 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
                 if (max_concurrent_per_symbol is not None
                         and open_count_by_symbol[res["symbol"]] >= max_concurrent_per_symbol):
                     skipped_concurrency_cap += 1
+                    continue
+                if (max_total_open_trades is not None
+                        and total_open_count >= max_total_open_trades):
+                    skipped_total_risk_cap += 1
                     continue
                 entry = {
                     "id": next_id,
@@ -147,11 +170,16 @@ def log_signals(report: dict, cfg: dict, path: Path = JOURNAL_PATH,
                 _append(entry, path)
                 open_keys.add(key)
                 open_count_by_symbol[res["symbol"]] += 1
+                total_open_count += 1
                 next_id += 1
                 logged.append(entry)
     if skipped_concurrency_cap:
         print(f"  [journal] skipped {skipped_concurrency_cap} setup(s) - symbol already at "
               f"max_concurrent_per_symbol cap ({max_concurrent_per_symbol})")
+    if skipped_total_risk_cap:
+        print(f"  [journal] skipped {skipped_total_risk_cap} setup(s) - total open risk already at "
+              f"max_total_open_risk_pct cap ({max_total_open_risk_pct}% = {max_total_open_trades} trades "
+              f"at {account_risk_pct}% each)")
     return logged
 
 

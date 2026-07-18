@@ -537,6 +537,18 @@ journal:
   # backtested-optimal number - tune freely. Set to null to disable the cap
   # entirely (restores the pre-cap behavior).
   max_concurrent_per_symbol: 5
+  # Caps TOTAL open risk across every symbol combined, as a % of account
+  # equity - max_concurrent_per_symbol only bounds any ONE symbol, so
+  # nothing stopped the sum across all ~150+ scanned symbols from growing
+  # unbounded. paper_trading.py's first real run surfaced exactly this
+  # gap: 380 trades open simultaneously, ~489% of account equity locked
+  # in at once, since every trade is independently sized at
+  # risk.account_risk_pct with no awareness of how many others are
+  # already open. 20% is a standard "portfolio heat" ceiling (widely used
+  # risk-management convention, not backtested-optimal for this system
+  # specifically) - at risk.account_risk_pct=1.0 below, this caps at 20
+  # concurrent open trades account-wide. Set to null to disable.
+  max_total_open_risk_pct: 20
 
 # --- Output ---
 output:
