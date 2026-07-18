@@ -31,7 +31,7 @@ for _stream in (sys.stdout, sys.stderr):
 
 from scanner.data import (get_klines, get_all_usdt_pairs, get_top_pairs_by_volume,
                           get_top_pairs_by_volume_lightweight, get_current_price, get_funding_rate,
-                          get_proxy_stats)
+                          get_proxy_stats, get_rotating_pair_slice)
 from scanner.indicators import enrich
 # Jayantha strategy (B2B pullback entry + confirmation-before-conviction)
 # replaces the old generic multi-pattern detector set as the live signal
