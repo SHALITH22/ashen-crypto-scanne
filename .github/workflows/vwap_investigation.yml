@@ -1,17 +1,25 @@
 name: VWAP Bearish Investigation
 
-# One-off scoping report: recomputes vwap_breakout_ashen's own entry-time
-# features (VWAP breakout margin, confirmation-candle margin, ATR%,
-# distance from the HTF structure level) for every resolved trade, wins
-# vs losses, to find which factor most separates a real breakout from a
-# fakeout. See vwap_bearish_investigation.py's module docstring.
+# Recomputes vwap_breakout_ashen's own entry-time features (VWAP breakout
+# margin, confirmation-candle margin, ATR%, distance from the HTF
+# structure level) for every resolved trade, wins vs losses, to find which
+# factor most separates a real breakout from a fakeout. Feeds the
+# Monitor's Insights page - see vwap_bearish_investigation.py's module
+# docstring for the full reasoning.
 #
 # Runs on GitHub Actions (not locally) for the same reason
 # trade_diagnostic.yml does - these are small percentage-based features
 # and the cross-venue price noise documented in audit_trades.py could
 # swamp a genuinely small signal if computed from a different venue's
 # candles than the live scan used.
+#
+# Same no-checkpoint caveat as trade_diagnostic.yml - full recompute every
+# run, not incremental.
 on:
+  schedule:
+    # Daily, 05:15 UTC - offset from audit.yml (04:17) and trade_diagnostic.yml
+    # (04:45) so the three don't queue on the same runner slot.
+    - cron: "15 5 * * *"
   workflow_dispatch: {}
 
 permissions:

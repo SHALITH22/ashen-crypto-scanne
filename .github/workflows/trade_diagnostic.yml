@@ -1,16 +1,27 @@
 name: Trade Diagnostic
 
-# One-off, manually-triggered report: for every resolved (win/loss) journal
-# entry, re-verify rule-following (via audit_trades.py's recompute
-# mechanism), BTC/ETH agreement at entry (for the two gated strategies),
-# and the full MFE/MAE price path. See trade_diagnostic_report.py's module
-# docstring for the full reasoning.
+# For every resolved (win/loss) journal entry, re-verify rule-following
+# (via audit_trades.py's recompute mechanism), BTC/ETH agreement at entry
+# (for the two gated strategies), and the full MFE/MAE price path. Feeds
+# the Monitor's Trades/Insights pages - see trade_diagnostic_report.py's
+# module docstring for the full reasoning.
 #
 # Runs on GitHub Actions specifically (not locally) because audit_trades.py's
 # recompute mechanism is only meaningful when run from the SAME network/venue
 # main.py's live scan used - a local run hits a different Binance venue and
 # produces spurious mismatches. See audit_trades.py's module docstring.
+#
+# NOTE: unlike audit_trades.py, this script has no checkpoint - it
+# recomputes EVERY resolved trade from scratch each run, so cost grows with
+# total journal size. Daily is fine at today's volume (~500 resolved
+# trades, a few minutes on GH Actions); if this starts running long as the
+# journal grows, it needs the same incremental checkpoint pattern
+# audit_trades.py already uses, not a shorter interval.
 on:
+  schedule:
+    # Daily, 04:45 UTC - offset from audit.yml's 04:17 so they don't queue
+    # on the same runner slot.
+    - cron: "45 4 * * *"
   workflow_dispatch: {}
 
 permissions:
