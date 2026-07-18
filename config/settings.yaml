@@ -542,13 +542,16 @@ journal:
   # nothing stopped the sum across all ~150+ scanned symbols from growing
   # unbounded. paper_trading.py's first real run surfaced exactly this
   # gap: 380 trades open simultaneously, ~489% of account equity locked
-  # in at once, since every trade is independently sized at
-  # risk.account_risk_pct with no awareness of how many others are
-  # already open. 20% is a standard "portfolio heat" ceiling (widely used
-  # risk-management convention, not backtested-optimal for this system
-  # specifically) - at risk.account_risk_pct=1.0 below, this caps at 20
-  # concurrent open trades account-wide. Set to null to disable.
-  max_total_open_risk_pct: 20
+  # in at once. Tried at 20% (20 trades at risk.account_risk_pct=1.0
+  # below) - explicitly disabled by user 2026-07-18: a trade count alone
+  # isn't a reason to block a signal that's otherwise still valid: "if
+  # trades are alive and have a possibility, don't kill them... there is
+  # no limit of 20 trades while active scenario." The early-exit
+  # evaluation (scanner/journal.py's _evaluate_early_exit, added same
+  # day) is the actual risk control now - it closes trades that stall or
+  # never develop based on real price action, not a headcount. Set to a
+  # number to re-enable if ever needed.
+  max_total_open_risk_pct: null
 
 # --- Output ---
 output:
