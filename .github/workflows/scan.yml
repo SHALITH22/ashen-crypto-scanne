@@ -64,6 +64,13 @@ jobs:
       - name: Check journal outcomes
         run: python journal_check.py
 
+      - name: Refresh wallet simulation
+        # Full deterministic replay of journal.jsonl (see paper_trading.py's
+        # module docstring) - cheap enough (well under a second at current
+        # journal size) to just re-run every scan rather than track
+        # incremental state. Feeds the Monitor's "Wallet Simulation" panel.
+        run: python paper_trading.py
+
       - name: Commit journal updates
         run: |
           git config user.name "github-actions[bot]"
@@ -76,10 +83,13 @@ jobs:
           # driver (scripts/merge_journal.py, wired via .gitattributes)
           # merges by (symbol, timeframe, detector, logged_at) instead, so
           # a normal overlapping-run race resolves automatically.
+          # paper_account.json/paper_equity_curve.jsonl don't need the same
+          # driver - they're fully regenerated (not appended to) each run,
+          # so a normal merge just takes whichever run committed last.
           git config merge.journal-merge.name "journal.jsonl/failed_trades.jsonl content-aware merge"
           git config merge.journal-merge.driver "python scripts/merge_journal.py %O %A %B"
           touch journal.jsonl failed_trades.jsonl
-          git add journal.jsonl failed_trades.jsonl scan_health.json
+          git add journal.jsonl failed_trades.jsonl scan_health.json paper_account.json paper_equity_curve.jsonl
           git diff --cached --quiet || git commit -m "Update journal [skip ci]"
           # Retry a few times in case another run's push lands in the
           # narrow window between our pull and our push.
