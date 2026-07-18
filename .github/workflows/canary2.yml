@@ -1,0 +1,17 @@
+name: Canary 2
+
+# Disposable diagnostic - see canary1.yml for the full explanation. Same
+# purpose, different clock-minute offset (residue 1 mod 5, vs canary1's
+# residue 0) so the 4 canaries plus Scan.yml (residue 2) together cover
+# every possible minute-offset GitHub's scheduler might treat
+# differently.
+on:
+  schedule:
+    - cron: "1,6,11,16,21,26,31,36,41,46,51,56 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "canary2 fired at $(date -u +%Y-%m-%dT%H:%M:%S)Z"
