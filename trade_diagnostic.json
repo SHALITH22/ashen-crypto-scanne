@@ -7214,7 +7214,7 @@
     "btc_eth_gated": true,
     "btc_agrees": true,
     "eth_agrees": true,
-    "mfe": 0.886,
+    "mfe": 1.534,
     "mae": 1.609
   },
   {
@@ -9033,7 +9033,7 @@
     "btc_agrees": null,
     "eth_agrees": null,
     "mfe": 3.801,
-    "mae": -0.814
+    "mae": 2.364
   },
   {
     "id": 889,
@@ -9050,7 +9050,7 @@
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": -0.487,
+    "mfe": 1.17,
     "mae": 1.642
   }
 ]
