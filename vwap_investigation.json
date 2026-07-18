@@ -300,6 +300,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "ADAUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -1.3598,
+    "confirm_distance_pct": -0.7909,
+    "atr_pct": 2.3077,
+    "structure_distance_pct": 14.1182,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "LTCUSDT",
     "timeframe": "1h",
     "bias": "bullish",
@@ -768,6 +780,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "ICPUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -3.3077,
+    "confirm_distance_pct": -2.6056,
+    "atr_pct": 0.4191,
+    "structure_distance_pct": 0.4688,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "GALAUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -861,6 +885,18 @@
     "confirm_distance_pct": -4.2958,
     "atr_pct": 1.1577,
     "structure_distance_pct": 0.2755,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "DUSKUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -6.8524,
+    "confirm_distance_pct": -6.4916,
+    "atr_pct": 2.4639,
+    "structure_distance_pct": 0.551,
     "htf_trend_matches_bias": true
   },
   {
@@ -1764,6 +1800,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "CHZUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -8.1071,
+    "confirm_distance_pct": -8.1323,
+    "atr_pct": 0.6708,
+    "structure_distance_pct": 2.1583,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "ALGOUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -2613,6 +2661,18 @@
     "confirm_distance_pct": 0.3271,
     "atr_pct": 1.8712,
     "structure_distance_pct": 10.2151,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "TOSHIUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -7.9687,
+    "confirm_distance_pct": -7.9699,
+    "atr_pct": 1.5211,
+    "structure_distance_pct": 3.8068,
     "htf_trend_matches_bias": true
   },
   {
@@ -3492,6 +3552,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "AAVEUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-17T10:55:57.829080",
+    "vwap_distance_pct": -5.076,
+    "confirm_distance_pct": -4.1008,
+    "atr_pct": 0.9564,
+    "structure_distance_pct": 1.0597,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "RENDERUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -4068,6 +4140,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "ETCUSDT",
+    "timeframe": "2h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-17T17:21:11.130231",
+    "vwap_distance_pct": -1.1561,
+    "confirm_distance_pct": -1.4182,
+    "atr_pct": 0.3485,
+    "structure_distance_pct": 1.7291,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "ALGOUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -4101,6 +4185,18 @@
     "confirm_distance_pct": -0.1584,
     "atr_pct": 0.2251,
     "structure_distance_pct": 3.2021,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ONTUSDT",
+    "timeframe": "15m",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-17T18:32:33.234615",
+    "vwap_distance_pct": -2.7354,
+    "confirm_distance_pct": -2.7354,
+    "atr_pct": 0.5301,
+    "structure_distance_pct": 1.6795,
     "htf_trend_matches_bias": true
   },
   {
