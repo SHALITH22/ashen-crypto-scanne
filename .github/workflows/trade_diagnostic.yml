@@ -1,0 +1,50 @@
+name: Trade Diagnostic
+
+# One-off, manually-triggered report: for every resolved (win/loss) journal
+# entry, re-verify rule-following (via audit_trades.py's recompute
+# mechanism), BTC/ETH agreement at entry (for the two gated strategies),
+# and the full MFE/MAE price path. See trade_diagnostic_report.py's module
+# docstring for the full reasoning.
+#
+# Runs on GitHub Actions specifically (not locally) because audit_trades.py's
+# recompute mechanism is only meaningful when run from the SAME network/venue
+# main.py's live scan used - a local run hits a different Binance venue and
+# produces spurious mismatches. See audit_trades.py's module docstring.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # needed to commit trade_diagnostic.json back to the repo
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run trade diagnostic report
+        env:
+          BINANCE_PROXY_URL: ${{ secrets.BINANCE_PROXY_URL }}
+          BINANCE_PROXY_SECRET: ${{ secrets.BINANCE_PROXY_SECRET }}
+        run: python trade_diagnostic_report.py --out trade_diagnostic.json
+
+      - name: Commit diagnostic report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add trade_diagnostic.json
+          git diff --cached --quiet || git commit -m "Update trade diagnostic report [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              break
+            fi
+            echo "push attempt $i failed, retrying in 5s..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
