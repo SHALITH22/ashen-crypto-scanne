@@ -234,6 +234,50 @@ def get_top_pairs_by_volume_lightweight(n: int = 100, universe: set[str] | None 
     return [t["symbol"] for t in rows[:n]]
 
 
+def get_rotating_pair_slice(universe: list[str], slice_size: int, interval_minutes: int) -> tuple[list[str], int, int]:
+    """
+    Deterministic, stateless coverage rotation - used as the static-list
+    fallback's fallback: when even get_top_pairs_by_volume_lightweight's
+    live ticker call is blocked (the common case on GitHub Actions, see
+    that function's docstring), scanning the SAME fixed pairs list every
+    run means the ~371 pairs outside it never get scanned at all. This
+    splits the full universe into disjoint slices of slice_size and
+    returns whichever one "belongs" to the current time window, so a
+    scan.yml cron running every interval_minutes cycles through every
+    slice over interval_minutes * num_slices - each run's slice never
+    overlaps another run's slice from the same cycle.
+
+    Deliberately time-based rather than a persisted "last slice index" -
+    self-heals if a run is skipped, delayed, or runs out of order (the
+    next run just picks up whatever slice the clock says, rather than
+    replaying a stuck index), at the cost of that one slice's turn
+    slipping to the next full cycle instead of an immediate retry.
+
+    Uses wall-clock time (not cron's nominal trigger minute) specifically
+    because GitHub's own scheduler docs warn cron runs are frequently
+    delayed - tying slice selection to "minute of the hour" would put a
+    delayed run in the wrong slice AND cause a discontinuity at each hour
+    boundary; minutes-since-epoch has neither problem.
+
+    universe MUST be pre-sorted by the caller (e.g. sorted(set(...))) -
+    Python's string hashing is randomized per-process by default, so
+    iterating a set directly would put a different, inconsistent slice
+    boundary in each run, silently breaking the "every pair scanned once
+    per full cycle" guarantee this function exists to provide.
+
+    Returns (slice, slot_index, num_slices) - the index/count are for
+    scan_health.json, so which slice ran each cycle is visible rather than
+    inferred.
+    """
+    if not universe:
+        return [], 0, 0
+    num_slices = max(1, -(-len(universe) // slice_size))  # ceil division
+    epoch_minutes = int(time.time() // 60)
+    slot = (epoch_minutes // interval_minutes) % num_slices
+    start = slot * slice_size
+    return universe[start:start + slice_size], slot, num_slices
+
+
 def get_current_price(symbol: str, futures: bool = True, use_proxy: bool = False) -> float | None:
     """
     Live current price - separate from get_klines, which always drops the

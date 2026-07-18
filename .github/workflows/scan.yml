@@ -9,22 +9,32 @@ name: Scan
 # A follow-up commit that actually touches the file resolves it.
 on:
   schedule:
-    # Every 20 minutes, offset from :00/:20/:40 - GitHub's own docs warn
+    # Every 5 minutes, offset from :00/:05/:10... - GitHub's own docs warn
     # on-the-hour schedules hit peak load and are frequently delayed or
-    # dropped. Widened from 15 to 20 minutes when scan_all (~530 pairs,
-    # every USDT perpetual) replaced the 100-pair top-volume list - a full
-    # scan now takes ~18 minutes, which no longer fit inside 15. The wider
-    # coin coverage is what actually fixed near-zero alert delivery (a
-    # 100-pair scan found ~1-4 setups worth logging per run; 530 pairs
-    # found 89, 7 of which cleared every quality gate) - worth the slower
-    # cadence rather than shrinking coverage back down.
+    # dropped. Matches pair_rotation's 4-slice cycle (see
+    # scanner.data.get_rotating_pair_slice and main.py's
+    # top_volume_lightweight fallback): live pair-ranking is blocked on
+    # every GH Actions run in practice, so the static-list fallback now
+    # rotates a disjoint ~157-pair slice of the full ~528-pair universe
+    # each run instead of always scanning the same fixed subset - 4 slices
+    # x 5 minutes = every pair covered once per 20-minute cycle, same
+    # total latency as before, but spread across the whole universe
+    # instead of one fixed 157-pair list. Confirmed locally: a single run
+    # takes ~2-3 minutes end to end (see recent run durations in the
+    # Actions tab), comfortably inside a 5-minute slot.
+    # IMPORTANT: if crypto_universe.json grows past 4 x 157 = 628 pairs,
+    # get_rotating_pair_slice will silently start using 5 slices instead
+    # of 4 (ceil(len/157)), which no longer divides evenly into a 20-minute
+    # cycle at this 5-minute cadence - the comment in that function's
+    # docstring covers this; cron would need to move to every 4 minutes
+    # (5 x 4 = 20) at that point.
     # NOTE: this cadence needs the repo to be public - a private repo only
     # gets 2,000 free Actions minutes/month, and a full scan run takes several
     # minutes, so this would blow through that budget in days. Public
     # repos get unlimited free minutes. (No secrets live in the code - the
     # bot token/chat id are GitHub encrypted secrets referenced via env:
     # below, never committed - so making this public doesn't expose them.)
-    - cron: "3,23,43 * * * *"  # every 20 minutes, UTC
+    - cron: "2-59/5 * * * *"  # every 5 minutes, UTC, offset from :00
   workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab
 
 permissions:

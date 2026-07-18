@@ -341,6 +341,8 @@ def main():
     cfg = load_config()
     used_pair_discovery_fallback = False
     pair_discovery_method = "static"
+    pair_rotation_slot = None
+    pair_rotation_total_slots = None
     if cfg["scan_all"]:
         pairs = get_all_usdt_pairs()
         pair_discovery_method = "full_exchange_info"
@@ -383,10 +385,34 @@ def main():
         pairs = get_top_pairs_by_volume_lightweight(cfg.get("top_n_pairs", 100), universe)
         pair_discovery_method = "top_volume_lightweight"
         if not pairs:
-            print("[warn] could not fetch live volume ranking this run - falling back to static pairs list")
-            pairs = cfg["pairs"]
+            # Live ranking is blocked on every GH Actions run in practice
+            # (confirmed via scan_health.json: used_pair_discovery_fallback
+            # true on every one of the last 15+ runs) - falling back to the
+            # SAME static cfg["pairs"] list every time meant ~371 of
+            # crypto_universe.json's ~528 real pairs were never scanned at
+            # all, silently, for as long as this has been running. Rotates
+            # a disjoint slice of the FULL universe instead (see
+            # get_rotating_pair_slice's docstring) - most of those ~371 are
+            # genuinely not on Binance.US and will still show no_data from
+            # GitHub Actions regardless of rotation (a real exchange-
+            # coverage limit, not a scheduling one), but this at minimum
+            # auto-discovers any pairs Binance.US adds later without a
+            # manual crypto_universe.json/pairs: refresh, and spreads scan
+            # attempts across the whole universe instead of hammering one
+            # fixed subset every single run.
+            full_universe = sorted(universe) if universe else cfg["pairs"]
+            rotation_cfg = cfg.get("pair_rotation", {})
+            pairs, slot, num_slices = get_rotating_pair_slice(
+                full_universe,
+                slice_size=rotation_cfg.get("slice_size", cfg.get("top_n_pairs", 157)),
+                interval_minutes=rotation_cfg.get("interval_minutes", 5),
+            )
+            print(f"[warn] could not fetch live volume ranking this run - "
+                  f"rotating slice {slot + 1}/{num_slices} of the full universe instead")
             used_pair_discovery_fallback = True
-            pair_discovery_method = "static_fallback"
+            pair_discovery_method = "static_fallback_rotating"
+            pair_rotation_slot = slot
+            pair_rotation_total_slots = num_slices
     else:
         pairs = cfg["pairs"]
 
@@ -551,6 +577,12 @@ def main():
         # of pairs", which otherwise look identical in pairs_with_errors alone.
         "used_pair_discovery_fallback": used_pair_discovery_fallback,
         "pair_discovery_method": pair_discovery_method,
+        # Which disjoint slice of the full universe this run scanned, and
+        # how many slices exist in the current rotation cycle - null when
+        # not rotating (live ranking succeeded, or a different pairs_mode
+        # is configured). See scanner.data.get_rotating_pair_slice.
+        "pair_rotation_slot": pair_rotation_slot,
+        "pair_rotation_total_slots": pair_rotation_total_slots,
         # Diagnoses proxy failures that otherwise look identical to
         # ordinary no_data errors - "configured": false means
         # BINANCE_PROXY_URL never reached this run at all (secret not set
