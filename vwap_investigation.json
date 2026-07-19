@@ -1848,6 +1848,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "PUMPUSDT",
+    "timeframe": "6h",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": 14.2778,
+    "confirm_distance_pct": 8.6023,
+    "atr_pct": 4.1178,
+    "structure_distance_pct": 0.6265,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "TIAUSDT",
     "timeframe": "4h",
     "bias": "bullish",
@@ -6249,6 +6261,18 @@
     "confirm_distance_pct": -1.0936,
     "atr_pct": 0.4116,
     "structure_distance_pct": 2.6773,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ALGOUSDT",
+    "timeframe": "2h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-18T22:04:03.556443",
+    "vwap_distance_pct": -1.0738,
+    "confirm_distance_pct": -1.4417,
+    "atr_pct": 0.5056,
+    "structure_distance_pct": 1.5552,
     "htf_trend_matches_bias": true
   },
   {
