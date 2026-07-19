@@ -1,5 +1,23 @@
 [
   {
+    "id": 1,
+    "symbol": "ETCUSDT",
+    "timeframe": "6h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "checked_at": "2026-07-19T05:29:13.438284",
+    "r_multiple": -0.341,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.088,
+    "mae": 0.974
+  },
+  {
     "id": 2,
     "symbol": "BTCUSDT",
     "timeframe": "15m",
@@ -3814,6 +3832,24 @@
     "eth_agrees": false,
     "mfe": 0.895,
     "mae": 1.946
+  },
+  {
+    "id": 279,
+    "symbol": "PUMPUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-19T06:04:36.051898",
+    "r_multiple": -0.295,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": true,
+    "mfe": 0.024,
+    "mae": 0.597
   },
   {
     "id": 281,
@@ -13498,6 +13534,24 @@
     "eth_agrees": false,
     "mfe": -0.06,
     "mae": 3.1
+  },
+  {
+    "id": 919,
+    "symbol": "ALGOUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-18T22:04:03.556443",
+    "checked_at": "2026-07-19T06:02:07.366120",
+    "r_multiple": 0.07,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.684,
+    "mae": 0.908
   },
   {
     "id": 920,
