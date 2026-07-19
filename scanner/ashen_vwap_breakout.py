@@ -47,6 +47,20 @@ _DEFAULT_CFG = {
     "atr_period": 14,
     "atr_multiplier": 1.0,      # stop = entry candle low/high -+ ATR * this
     "reward_risk_ratio": 1.5,
+    # Minimum distance (%) the close must already sit beyond the broken
+    # structure level before this fires - found via vwap_bearish_investigation.py:
+    # losses cluster right at the structure boundary (avg 3.49% clearance)
+    # where the level still has enough life to bounce price back; wins
+    # average 5.04% clearance, already decisively past it. Confirmed with a
+    # threshold sweep against 525 real historical trades
+    # (vwap_structure_clearance_sweep.py): bearish win rate climbs from
+    # 55.0% (unfiltered) to a peak of 63.6% at this exact threshold
+    # (n=118, expectancy +0.375R -> +0.589R), plateauing/wobbling beyond it
+    # with shrinking samples - not the top of an unbounded trend, a real
+    # sweet spot. Bullish stays deeply negative at every threshold tested
+    # (already excluded by the live auto-blacklist regardless), so this
+    # applies uniformly rather than needing a per-direction value.
+    "min_structure_clearance_pct": 6.5,
 }
 
 
@@ -97,6 +111,7 @@ def detect_signals(df: pd.DataFrame, htf_df: pd.DataFrame | None, cfg: dict) -> 
     atr_period = vcfg.get("atr_period", _DEFAULT_CFG["atr_period"])
     atr_mult = vcfg.get("atr_multiplier", _DEFAULT_CFG["atr_multiplier"])
     reward_risk = vcfg.get("reward_risk_ratio", _DEFAULT_CFG["reward_risk_ratio"])
+    min_clearance = vcfg.get("min_structure_clearance_pct", _DEFAULT_CFG["min_structure_clearance_pct"])
 
     if len(htf_df) < swing_lookback + 5 or len(df) < vwap_window + 5:
         return []
@@ -121,13 +136,17 @@ def detect_signals(df: pd.DataFrame, htf_df: pd.DataFrame | None, cfg: dict) -> 
     if (structure["bullish"]
             and prior_candle["close"] > vwap.iloc[-2]
             and close > vwap.iloc[-1]):
+        clearance = abs(close - structure["swing_high"]) / close * 100
+        if clearance < min_clearance:
+            return []
         stop = float(entry_candle["low"]) - atr_val * atr_mult
         target = close + (close - stop) * reward_risk
         return [{
             "name": "vwap_breakout_ashen",
             "direction": "bullish",
             "detail": (f"HTF uptrend (structure high {structure['swing_high']:.6g}), "
-                       f"LTF closed above rolling VWAP with ATR-based stop"),
+                       f"LTF closed above rolling VWAP with ATR-based stop "
+                       f"({clearance:.1f}% clear of structure)"),
             "stop": stop,
             "target": target,
         }]
@@ -135,13 +154,17 @@ def detect_signals(df: pd.DataFrame, htf_df: pd.DataFrame | None, cfg: dict) -> 
     if (not structure["bullish"]
             and prior_candle["close"] < vwap.iloc[-2]
             and close < vwap.iloc[-1]):
+        clearance = abs(close - structure["swing_low"]) / close * 100
+        if clearance < min_clearance:
+            return []
         stop = float(entry_candle["high"]) + atr_val * atr_mult
         target = close - (stop - close) * reward_risk
         return [{
             "name": "vwap_breakout_ashen",
             "direction": "bearish",
             "detail": (f"HTF downtrend (structure low {structure['swing_low']:.6g}), "
-                       f"LTF closed below rolling VWAP with ATR-based stop"),
+                       f"LTF closed below rolling VWAP with ATR-based stop "
+                       f"({clearance:.1f}% clear of structure)"),
             "stop": stop,
             "target": target,
         }]
