@@ -432,6 +432,24 @@
     "mae": 1.186
   },
   {
+    "id": 29,
+    "symbol": "DASHUSDT",
+    "timeframe": "6h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "checked_at": "2026-07-22T01:10:04.886494",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.359,
+    "mae": 1.158
+  },
+  {
     "id": 30,
     "symbol": "AAVEUSDT",
     "timeframe": "2h",
@@ -2808,6 +2826,24 @@
     "mae": 0.38
   },
   {
+    "id": 188,
+    "symbol": "XTZUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-21T16:52:13.217193",
+    "r_multiple": -0.483,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.805,
+    "mae": 0.483
+  },
+  {
     "id": 189,
     "symbol": "XTZUSDT",
     "timeframe": "6h",
@@ -2824,6 +2860,42 @@
     "eth_agrees": null,
     "mfe": 0.355,
     "mae": 0.091
+  },
+  {
+    "id": 190,
+    "symbol": "XTZUSDT",
+    "timeframe": "6h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-21T18:22:23.211071",
+    "r_multiple": -0.462,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": true,
+    "eth_agrees": false,
+    "mfe": 0.771,
+    "mae": 0.462
+  },
+  {
+    "id": 191,
+    "symbol": "XTZUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-21T16:52:13.217193",
+    "r_multiple": -0.418,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": true,
+    "eth_agrees": false,
+    "mfe": 0.697,
+    "mae": 0.418
   },
   {
     "id": 193,
@@ -3780,6 +3852,24 @@
     "mae": 1.116
   },
   {
+    "id": 261,
+    "symbol": "DOTUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-22T01:10:04.886494",
+    "r_multiple": -0.015,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.576,
+    "mae": 0.371
+  },
+  {
     "id": 262,
     "symbol": "TRUMPUSDT",
     "timeframe": "4h",
@@ -4644,6 +4734,24 @@
     "mae": 0.306
   },
   {
+    "id": 314,
+    "symbol": "FETUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-22T01:10:04.886494",
+    "r_multiple": 0.216,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.54,
+    "mae": 0.087
+  },
+  {
     "id": 315,
     "symbol": "JTOUSDT",
     "timeframe": "1h",
@@ -4896,6 +5004,24 @@
     "mae": 0.338
   },
   {
+    "id": 331,
+    "symbol": "SKYUSDT",
+    "timeframe": "8h",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": -1.0,
+    "rule_check": "fail",
+    "rule_reason": "stop mismatch: stored 0.0624 vs recomputed 0.0616025 (1.278% apart, tolerance 0.1%)",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.185,
+    "mae": 1.72
+  },
+  {
     "id": 332,
     "symbol": "SKYUSDT",
     "timeframe": "8h",
@@ -5091,7 +5217,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.906,
-    "mae": -0.472
+    "mae": -0.415
   },
   {
     "id": 346,
@@ -5415,7 +5541,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.738,
-    "mae": 0.676
+    "mae": 1.69
   },
   {
     "id": 366,
@@ -8244,6 +8370,24 @@
     "mae": 0.0
   },
   {
+    "id": 554,
+    "symbol": "COTIUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-22T01:10:04.886494",
+    "r_multiple": 1.22,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 1.127,
+    "mae": 0.0
+  },
+  {
     "id": 556,
     "symbol": "POLYXUSDT",
     "timeframe": "8h",
@@ -8583,7 +8727,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 1.905,
-    "mae": 0.012
+    "mae": 0.515
   },
   {
     "id": 578,
@@ -10548,6 +10692,24 @@
     "mae": 1.118
   },
   {
+    "id": 691,
+    "symbol": "XRPUSDT",
+    "timeframe": "8h",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.37,
+    "mae": 1.572
+  },
+  {
     "id": 692,
     "symbol": "THETAUSDT",
     "timeframe": "1h",
@@ -10701,8 +10863,8 @@
     "logged_at": "2026-07-17T00:18:22.772597",
     "checked_at": "2026-07-17T06:26:17.610653",
     "r_multiple": 1.275,
-    "rule_check": "pass",
-    "rule_reason": "detector fired with matching direction and stop",
+    "rule_check": "fail",
+    "rule_reason": "ma_cross_ashen did not fire bearish against the reconstructed candles",
     "btc_eth_gated": true,
     "btc_agrees": true,
     "eth_agrees": true,
@@ -10743,7 +10905,7 @@
     "btc_agrees": null,
     "eth_agrees": null,
     "mfe": 0.411,
-    "mae": 1.357
+    "mae": 1.786
   },
   {
     "id": 705,
@@ -14688,6 +14850,24 @@
     "mae": 0.0
   },
   {
+    "id": 936,
+    "symbol": "BCHUSDT",
+    "timeframe": "1d",
+    "based_on": "b2b_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-20T00:18:55.376564",
+    "checked_at": "2026-07-22T01:10:04.886494",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": -0.494,
+    "mae": 1.803
+  },
+  {
     "id": 937,
     "symbol": "DOTUSDT",
     "timeframe": "1h",
@@ -14739,7 +14919,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.0,
-    "mae": 14.706
+    "mae": 25.735
   },
   {
     "id": 942,
@@ -14794,6 +14974,24 @@
     "eth_agrees": false,
     "mfe": 1.582,
     "mae": 0.271
+  },
+  {
+    "id": 945,
+    "symbol": "AXSUSDT",
+    "timeframe": "4h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-20T04:12:59.663649",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": 0.853,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": true,
+    "eth_agrees": false,
+    "mfe": 6.923,
+    "mae": 3.056
   },
   {
     "id": 946,
@@ -14866,6 +15064,24 @@
     "eth_agrees": null,
     "mfe": 1.142,
     "mae": -1.942
+  },
+  {
+    "id": 950,
+    "symbol": "AXSUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-20T10:31:33.082867",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": 0.861,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 7.023,
+    "mae": 3.128
   },
   {
     "id": 952,
@@ -14994,6 +15210,24 @@
     "mae": -0.289
   },
   {
+    "id": 961,
+    "symbol": "DOTUSDT",
+    "timeframe": "8h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-20T19:01:29.502426",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.276,
+    "mae": 9.181
+  },
+  {
     "id": 962,
     "symbol": "PAXGUSDT",
     "timeframe": "2h",
@@ -15009,7 +15243,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.0,
-    "mae": 4.528
+    "mae": 5.014
   },
   {
     "id": 963,
@@ -15027,6 +15261,42 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.209,
-    "mae": 3.694
+    "mae": 4.505
+  },
+  {
+    "id": 964,
+    "symbol": "GUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-20T23:09:07.072757",
+    "checked_at": "2026-07-21T09:18:04.113418",
+    "r_multiple": 0.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.0,
+    "mae": 0.0
+  },
+  {
+    "id": 966,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h",
+    "based_on": "b2b_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-21T18:22:22.678558",
+    "checked_at": "2026-07-21T22:25:30.987724",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": -0.033,
+    "mae": 1.0
   }
 ]
