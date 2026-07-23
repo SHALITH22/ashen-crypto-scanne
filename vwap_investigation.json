@@ -1,18 +1,6 @@
 [
   {
     "symbol": "BTCUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T17:26:27.401871",
-    "vwap_distance_pct": -0.7192,
-    "confirm_distance_pct": -0.2379,
-    "atr_pct": 0.3274,
-    "structure_distance_pct": 0.5338,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "BTCUSDT",
     "timeframe": "1d",
     "bias": "bearish",
     "status": "win",
@@ -108,6 +96,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "COMPUSDT",
+    "timeframe": "1d",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "vwap_distance_pct": -19.8409,
+    "confirm_distance_pct": -22.7223,
+    "atr_pct": 4.8144,
+    "structure_distance_pct": 14.5123,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "AVNTUSDT",
     "timeframe": "6h",
     "bias": "bearish",
@@ -153,18 +153,6 @@
     "confirm_distance_pct": 2.1433,
     "atr_pct": 1.262,
     "structure_distance_pct": 5.9154,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "HYPEUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T17:26:27.401871",
-    "vwap_distance_pct": -4.8126,
-    "confirm_distance_pct": -3.5612,
-    "atr_pct": 0.4388,
-    "structure_distance_pct": 2.0398,
     "htf_trend_matches_bias": true
   },
   {
@@ -417,6 +405,18 @@
     "confirm_distance_pct": -0.7909,
     "atr_pct": 2.3077,
     "structure_distance_pct": 14.1182,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ADAUSDT",
+    "timeframe": "1d",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -17.045,
+    "confirm_distance_pct": -17.2029,
+    "atr_pct": 5.9434,
+    "structure_distance_pct": 16.1669,
     "htf_trend_matches_bias": true
   },
   {
@@ -721,18 +721,6 @@
   },
   {
     "symbol": "AVAXUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": -1.3528,
-    "confirm_distance_pct": -0.7673,
-    "atr_pct": 0.2212,
-    "structure_distance_pct": 0.0,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "AVAXUSDT",
     "timeframe": "8h",
     "bias": "bullish",
     "status": "loss",
@@ -853,18 +841,6 @@
   },
   {
     "symbol": "SOLUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": -1.6184,
-    "confirm_distance_pct": -1.1782,
-    "atr_pct": 0.3542,
-    "structure_distance_pct": 0.1324,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "SOLUSDT",
     "timeframe": "1h",
     "bias": "bearish",
     "status": "win",
@@ -933,18 +909,6 @@
     "confirm_distance_pct": -1.5368,
     "atr_pct": 1.516,
     "structure_distance_pct": 0.4643,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ONDOUSDT",
-    "timeframe": "15m",
-    "bias": "bullish",
-    "status": "loss",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": 3.0378,
-    "confirm_distance_pct": 3.0378,
-    "atr_pct": 0.5229,
-    "structure_distance_pct": 0.9485,
     "htf_trend_matches_bias": true
   },
   {
@@ -1405,18 +1369,6 @@
   },
   {
     "symbol": "ZECUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": -3.4927,
-    "confirm_distance_pct": -2.2542,
-    "atr_pct": 0.6472,
-    "structure_distance_pct": 0.6379,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ZECUSDT",
     "timeframe": "2h",
     "bias": "bullish",
     "status": "loss",
@@ -1449,6 +1401,30 @@
     "confirm_distance_pct": 19.0987,
     "atr_pct": 3.642,
     "structure_distance_pct": 8.0882,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ZECUSDT",
+    "timeframe": "8h",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": 19.676,
+    "confirm_distance_pct": 22.4417,
+    "atr_pct": 3.8748,
+    "structure_distance_pct": 5.7497,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ZECUSDT",
+    "timeframe": "1d",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": 15.0282,
+    "confirm_distance_pct": 14.0344,
+    "atr_pct": 7.5822,
+    "structure_distance_pct": 20.9362,
     "htf_trend_matches_bias": true
   },
   {
@@ -1605,6 +1581,18 @@
     "confirm_distance_pct": 2.9786,
     "atr_pct": 2.0783,
     "structure_distance_pct": 4.63,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "SUIUSDT",
+    "timeframe": "8h",
+    "bias": "bullish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": 3.5212,
+    "confirm_distance_pct": 2.0093,
+    "atr_pct": 2.4468,
+    "structure_distance_pct": 3.9346,
     "htf_trend_matches_bias": true
   },
   {
@@ -2005,18 +1993,6 @@
   },
   {
     "symbol": "PUMPUSDT",
-    "timeframe": "15m",
-    "bias": "bullish",
-    "status": "win",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": 1.9533,
-    "confirm_distance_pct": 2.2133,
-    "atr_pct": 0.7978,
-    "structure_distance_pct": 4.1686,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "PUMPUSDT",
     "timeframe": "1h",
     "bias": "bullish",
     "status": "win",
@@ -2193,18 +2169,6 @@
     "confirm_distance_pct": 3.147,
     "atr_pct": 1.9822,
     "structure_distance_pct": 58.5873,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "PENGUUSDT",
-    "timeframe": "15m",
-    "bias": "bullish",
-    "status": "loss",
-    "logged_at": "2026-07-16T18:03:07.428173",
-    "vwap_distance_pct": 0.6204,
-    "confirm_distance_pct": 1.6344,
-    "atr_pct": 0.5509,
-    "structure_distance_pct": 1.9366,
     "htf_trend_matches_bias": true
   },
   {
@@ -2469,6 +2433,18 @@
     "confirm_distance_pct": -0.3023,
     "atr_pct": 3.7417,
     "structure_distance_pct": 10.3064,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ANKRUSDT",
+    "timeframe": "1d",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -21.4689,
+    "confirm_distance_pct": -24.889,
+    "atr_pct": 11.5095,
+    "structure_distance_pct": 67.5676,
     "htf_trend_matches_bias": true
   },
   {
@@ -4752,18 +4728,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "KAITOUSDT",
-    "timeframe": "15m",
-    "bias": "bullish",
-    "status": "win",
-    "logged_at": "2026-07-16T19:38:56.567697",
-    "vwap_distance_pct": 7.91,
-    "confirm_distance_pct": 7.91,
-    "atr_pct": 0.6319,
-    "structure_distance_pct": 3.1664,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "ICPUSDT",
     "timeframe": "8h",
     "bias": "bearish",
@@ -5088,18 +5052,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "AUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-16T20:36:36.819412",
-    "vwap_distance_pct": -3.7874,
-    "confirm_distance_pct": -1.9336,
-    "atr_pct": 0.2317,
-    "structure_distance_pct": 2.2284,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "QNTUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -5280,18 +5232,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "DOGEUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T23:06:23.024297",
-    "vwap_distance_pct": -1.0694,
-    "confirm_distance_pct": -0.8715,
-    "atr_pct": 0.2725,
-    "structure_distance_pct": 0.0138,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "BNBUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -5301,30 +5241,6 @@
     "confirm_distance_pct": -0.2741,
     "atr_pct": 0.3205,
     "structure_distance_pct": 1.9617,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "NEARUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T23:06:23.024297",
-    "vwap_distance_pct": -1.7474,
-    "confirm_distance_pct": -2.0106,
-    "atr_pct": 0.3762,
-    "structure_distance_pct": 0.0502,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "XLMUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-16T23:06:23.024297",
-    "vwap_distance_pct": -0.6661,
-    "confirm_distance_pct": -0.5095,
-    "atr_pct": 0.4474,
-    "structure_distance_pct": 1.0105,
     "htf_trend_matches_bias": true
   },
   {
@@ -5431,7 +5347,7 @@
     "logged_at": "2026-07-17T08:58:16.848487",
     "vwap_distance_pct": -2.6908,
     "confirm_distance_pct": -2.1117,
-    "atr_pct": 0.5028,
+    "atr_pct": 0.5027,
     "structure_distance_pct": 0.0833,
     "htf_trend_matches_bias": true
   },
@@ -6115,7 +6031,7 @@
     "logged_at": "2026-07-17T12:18:54.971669",
     "vwap_distance_pct": -1.395,
     "confirm_distance_pct": -1.5871,
-    "atr_pct": 0.3188,
+    "atr_pct": 0.3187,
     "structure_distance_pct": 0.4587,
     "htf_trend_matches_bias": true
   },
@@ -6948,6 +6864,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "SUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-20T00:18:55.376564",
+    "vwap_distance_pct": -4.8256,
+    "confirm_distance_pct": -4.8256,
+    "atr_pct": 0.5104,
+    "structure_distance_pct": 11.4733,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "EIGENUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -7065,6 +6993,18 @@
     "confirm_distance_pct": -4.5724,
     "atr_pct": 0.506,
     "structure_distance_pct": 0.7353,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "IOSTUSDT",
+    "timeframe": "6h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-20T12:56:58.191951",
+    "vwap_distance_pct": -11.6173,
+    "confirm_distance_pct": -11.6173,
+    "atr_pct": 0.5102,
+    "structure_distance_pct": 0.0,
     "htf_trend_matches_bias": true
   },
   {
