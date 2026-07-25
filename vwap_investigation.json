@@ -504,6 +504,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "CRVUSDT",
+    "timeframe": "8h",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": 1.9996,
+    "confirm_distance_pct": 1.7487,
+    "atr_pct": 3.1953,
+    "structure_distance_pct": 13.4045,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "POLUSDT",
     "timeframe": "1h",
     "bias": "bullish",
@@ -6429,42 +6441,6 @@
     "confirm_distance_pct": -0.1439,
     "atr_pct": 0.3841,
     "structure_distance_pct": 1.3937,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "AVNTUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-18T18:53:57.524926",
-    "vwap_distance_pct": -2.0087,
-    "confirm_distance_pct": -0.459,
-    "atr_pct": 0.3491,
-    "structure_distance_pct": 0.565,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ONDOUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-18T19:19:01.305393",
-    "vwap_distance_pct": -3.4213,
-    "confirm_distance_pct": -3.4213,
-    "atr_pct": 0.5088,
-    "structure_distance_pct": 4.0958,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "SEIUSDT",
-    "timeframe": "15m",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-18T19:34:38.530525",
-    "vwap_distance_pct": -0.3453,
-    "confirm_distance_pct": -0.2609,
-    "atr_pct": 0.511,
-    "structure_distance_pct": 1.8478,
     "htf_trend_matches_bias": true
   },
   {
