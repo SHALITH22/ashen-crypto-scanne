@@ -73,6 +73,55 @@ def classify_funding(rate: float | None, bias: str) -> str | None:
     return "neutral"
 
 
+def classify_fear_greed(classification: str | None, bias: str) -> str | None:
+    """
+    Whether the current Fear & Greed Index reading reflects the broad
+    market's mood WITH or AGAINST a trade's direction. None if the reading
+    is unavailable. Uses alternative.me's own "Extreme Fear"/"Extreme
+    Greed" classification directly rather than re-deriving numeric
+    thresholds - same reasoning as classify_funding, but NOT assumed to
+    resolve the same direction: fear_greed_backtest.py tests this
+    independently before any live filter gets built on top of it, since
+    this is a market-wide macro signal rather than a per-symbol
+    derivatives one and there's no reason to assume it behaves the same way.
+    """
+    if classification is None:
+        return None
+    if classification == "Extreme Greed":
+        return "with_crowd" if bias == "bullish" else "against_crowd"
+    if classification == "Extreme Fear":
+        return "with_crowd" if bias == "bearish" else "against_crowd"
+    return "neutral"
+
+
+LONG_SHORT_SKEW_THRESHOLD = 0.2  # ratio must sit 20% above/below its own rolling baseline to count as "skewed"
+
+
+def classify_long_short_skew(ratio: float | None, rolling_mean: float | None, bias: str) -> str | None:
+    """
+    Whether the account long/short ratio is skewed WITH or AGAINST a
+    trade's direction. Unlike funding (one absolute threshold works across
+    symbols), raw long/short ratio has a wildly different natural baseline
+    per symbol (BTC commonly sits ~1.5-2.5, thin altcoins can sit above 5)
+    - so this compares the CURRENT ratio against that same symbol's own
+    recent rolling mean instead of a fixed number, same self-relative
+    approach oi_long_short_backtest.py uses to compute rolling_mean without
+    lookahead (only past data at eval time).
+
+    NOT yet backed by a walk-forward backtest at the scale funding/fear_greed
+    have (Binance only retains ~30 days of this history) - see
+    oi_long_short_backtest.py for what evidence exists so far.
+    """
+    if ratio is None or rolling_mean is None or rolling_mean <= 0:
+        return None
+    deviation = (ratio - rolling_mean) / rolling_mean
+    if deviation > LONG_SHORT_SKEW_THRESHOLD:
+        return "with_crowd" if bias == "bullish" else "against_crowd"
+    if deviation < -LONG_SHORT_SKEW_THRESHOLD:
+        return "with_crowd" if bias == "bearish" else "against_crowd"
+    return "neutral"
+
+
 def _structural_levels_valid(s: dict, close: float) -> bool:
     """
     Structural patterns (triangle/wedge/H&S/flag) fit a trendline through a

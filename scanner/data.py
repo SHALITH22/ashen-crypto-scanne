@@ -286,6 +286,36 @@ def get_funding_rate(symbol: str, limit: int = 100) -> pd.DataFrame | None:
         return None
 
 
+def get_fear_greed_history(limit: int = 0) -> pd.DataFrame | None:
+    """
+    Crypto Fear & Greed Index (alternative.me) - a daily 0-100 macro
+    sentiment reading across the whole crypto market (not Binance-specific,
+    no API key, no rate limit posted). Unlike funding/OI/long-short (all
+    Binance-derivative-only), history here goes back to the index's 2018
+    launch, so unlike open interest/long-short ratio this CAN get a real
+    multi-year walk-forward backtest at the same rigor as everything else
+    in this codebase. limit=0 means "all available history" (the API's own
+    convention, not a Binance one). Returns a DataFrame with date/value/
+    classification (Extreme Fear/Fear/Neutral/Greed/Extreme Greed), oldest
+    row first, or None on failure.
+    """
+    try:
+        resp = requests.get("https://api.alternative.me/fng/",
+                            params={"limit": limit, "format": "json"}, timeout=15)
+        if not resp.ok:
+            return None
+        data = resp.json().get("data")
+        if not data:
+            return None
+        df = pd.DataFrame(data)
+        df["value"] = pd.to_numeric(df["value"])
+        df["date"] = pd.to_datetime(pd.to_numeric(df["timestamp"]), unit="s")
+        df = df.rename(columns={"value_classification": "classification"})
+        return df[["date", "value", "classification"]].sort_values("date").reset_index(drop=True)
+    except requests.RequestException:
+        return None
+
+
 def get_open_interest_hist(symbol: str, period: str = "4h", limit: int = 180) -> pd.DataFrame | None:
     """
     Historical open interest - only ~30 days retained by Binance regardless
