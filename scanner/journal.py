@@ -398,8 +398,12 @@ def check_open_entries(path: Path = JOURNAL_PATH, horizon_candles: int = 20,
             current_price = float(after["close"].iloc[-1])
             should_close, reason = _evaluate_early_exit(e, after, current_price, datetime.fromisoformat(now))
             if should_close:
+                # >= 0, not > 0: an exact flat close (current_price == entry,
+                # seen on ~10 real journal entries) is not a loss - nothing
+                # was lost - so it must not be forced into the "loss" bucket
+                # just because the strict inequality excludes zero.
                 favorable = ((current_price - e["entry"]) if e["bias"] == "bullish"
-                            else (e["entry"] - current_price)) > 0
+                            else (e["entry"] - current_price)) >= 0
                 outcome, outcome_price = ("win" if favorable else "loss"), current_price
                 exit_reason = reason
 
