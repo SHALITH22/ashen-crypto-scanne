@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-26T16:09:11.900396+00:00",
+  "generated_at": "2026-07-26T16:14:29.932669+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
-  "pairs_with_errors": 0,
+  "pairs_with_errors": 30,
   "used_pair_discovery_fallback": true,
   "pair_discovery_method": "static_fallback",
   "proxy_stats": {
@@ -13,5 +13,186 @@
     "last_status": null,
     "last_error": null
   },
-  "errors": {}
+  "errors": {
+    "AVAXUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "LINKUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "BCHUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "FILUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ONDOUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "LTCUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "HBARUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ETCUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "FETUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "PAXGUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ATOMUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "BLURUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "SNXUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "POLUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "SANDUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "AUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ENSUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "AVNTUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ALICEUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "STORJUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "1INCHUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "XTZUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "PROMUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "AIXBTUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "RLCUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ASTRUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "KSMUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "CTSIUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "MEWUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "POLYXUSDT": [
+      {
+        "timeframe": "15m",
+        "reason": "no_data"
+      }
+    ]
+  }
 }
