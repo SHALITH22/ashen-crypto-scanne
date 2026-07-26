@@ -316,6 +316,33 @@ _UNPROVEN_MARKET_FILTER_EXCLUSIONS = {
 }
 MARKET_FILTER_NAMES = (STRUCTURAL_NAMES | {"ema_stack"}) - _UNPROVEN_MARKET_FILTER_EXCLUSIONS
 
+# marubozu_ashen is excluded from MARKET_FILTER_NAMES above (same-timeframe
+# BTC/ETH agreement came back genuinely mixed for it), but ashen_realistic_
+# backtest.py's separate BTC DAILY macro-regime tag (a slower signal - "is
+# BTC in a broad daily uptrend/downtrend", not the trade's own timeframe)
+# found a real, consistent, large-sample edge SPECIFICALLY for this
+# strategy: bullish -0.114R trading with BTC's daily trend vs -0.239R
+# against it (n=912/137); bearish +0.050R with vs -0.090R against
+# (n=105/818) - the bearish "with" bucket is the only genuinely positive
+# bucket found for marubozu_ashen at all. The SAME macro tag tested
+# negative for vwap_breakout_ashen and ma_cross_ashen (trading AGAINST
+# BTC's daily trend did better for those two) - opposite effect, so this
+# is deliberately scoped to marubozu_ashen only, not added to
+# MARKET_FILTER_NAMES which would apply it everywhere.
+MACRO_FILTER_NAMES = {"marubozu_ashen"}
+
+
+def macro_trend_ok(direction: str, btc_macro_bullish: bool | None) -> bool:
+    """
+    Live filter for MACRO_FILTER_NAMES members: only trade WITH BTC's own
+    daily trend (see MACRO_FILTER_NAMES comment for the backtest behind
+    this). True (allowed) when the macro reading is unavailable, same
+    fail-open convention as classify_funding(None, ...).
+    """
+    if btc_macro_bullish is None:
+        return True
+    return btc_macro_bullish if direction == "bullish" else not btc_macro_bullish
+
 
 def setup_risk_plan(signals: list[dict], bias: str, close: float,
                     min_risk_reward: float = 1.0, avg_returns: dict | None = None,
@@ -465,6 +492,7 @@ def setup_risk_plans(signals: list[dict], close: float,
                      funding_ok_by_direction: dict | None = None,
                      fear_greed_ok_by_direction: dict | None = None,
                      long_short_ok_by_direction: dict | None = None,
+                     macro_trend_ok_by_direction: dict | None = None,
                      target_fraction: float = 1.0,
                      min_stop_pct: float = 0.5) -> list[dict]:
     """
@@ -494,16 +522,18 @@ def setup_risk_plans(signals: list[dict], close: float,
     min_risk_reward - see _resolve_min_rr for the per-strategy override
     this can now carry, stop_pct clears min_stop_pct, not in `unreliable`,
     MARKET_FILTER_NAMES members need market_disagrees True, funding_ok,
-    fear_greed_ok, and long_short_ok) - see each filter function's
-    docstring for why it exists and what backs it. The only difference is
-    there's no "pick the tightest stop" step: every signal that clears its
-    own bar becomes its own plan.
+    fear_greed_ok, and long_short_ok; MACRO_FILTER_NAMES members
+    [currently just marubozu_ashen] need macro_trend_ok) - see each filter
+    function's docstring for why it exists and what backs it. The only
+    difference is there's no "pick the tightest stop" step: every signal
+    that clears its own bar becomes its own plan.
     """
     unreliable = unreliable or set()
     market_disagrees_by_direction = market_disagrees_by_direction or {}
     funding_ok_by_direction = funding_ok_by_direction or {}
     fear_greed_ok_by_direction = fear_greed_ok_by_direction or {}
     long_short_ok_by_direction = long_short_ok_by_direction or {}
+    macro_trend_ok_by_direction = macro_trend_ok_by_direction or {}
     avg_returns = avg_returns or {}
 
     def effective_target(s):
@@ -526,6 +556,9 @@ def setup_risk_plans(signals: list[dict], close: float,
             if not fear_greed_ok_by_direction.get(direction, True):
                 continue
             if not long_short_ok_by_direction.get(direction, True):
+                continue
+        if s["name"] in MACRO_FILTER_NAMES:
+            if not macro_trend_ok_by_direction.get(direction, True):
                 continue
 
         risk = abs(close - s["stop"])

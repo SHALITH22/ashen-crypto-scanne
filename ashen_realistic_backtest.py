@@ -37,6 +37,23 @@ live market_disagrees/funding_ok filter is bypassed during generation
 (True for both directions) specifically so this can measure whether that
 filter WOULD help, rather than assuming it and filtering data selectively.
 
+Also tags every trade with BTC's own DAILY trend (btc_macro_bullish) -
+deliberately a DIFFERENT signal than btc_agrees above, which compares
+against BTC's trend on the TRADE'S OWN timeframe (e.g. a 15m trade checks
+BTC's 15m trend). A 15m-scale "trend" can flip within hours; the macro
+tag instead asks "is BTC in a broad daily uptrend or downtrend right
+now", a slower regime read, looked up via nearest-prior-day (not exact
+match, since daily bars don't line up with intraday trade timestamps -
+same searchsorted pattern fear_greed_backtest.py uses for its daily
+signal). Built to test the live wallet's real, live-observed pattern
+(2026-07 journal): vwap_breakout_ashen's bullish/bearish edge FLIPPED
+SIGN between the live journal (one continuous Fear regime) and this
+much wider multi-regime dataset - strong evidence "bullish is weak" is a
+regime effect, not a fixed strategy flaw, and that a MACRO regime gate
+(not just same-timeframe agreement, which this script's own separate
+btc_agrees breakdown showed doesn't reliably help) is the more promising
+next signal to test.
+
 Results are MERGED into realistic_backtest_results.json - ashen_* entries
 are added/replaced, jayantha_*/retired-detector entries are left
 untouched. This is the SAME file main.py already reads
@@ -56,6 +73,7 @@ from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 from realistic_backtest import load_config, validate_trade, WARMUP
@@ -75,13 +93,39 @@ def trend_lookup(df: pd.DataFrame) -> dict:
     return dict(zip(enriched["open_time"], enriched["close"] > enriched["ema20"]))
 
 
+def macro_trend_arrays(daily_df: pd.DataFrame | None) -> tuple:
+    """
+    Raw (times, bulls) numpy arrays for BTC's own daily trend, not a
+    closure - closures aren't picklable for ProcessPoolExecutor (Windows
+    uses spawn), same reasoning as the *_arrays helpers in
+    funding_rate_backtest.py/fear_greed_backtest.py.
+    """
+    if daily_df is None or daily_df.empty:
+        return (np.array([], dtype="datetime64[ns]"), np.array([], dtype=bool))
+    enriched = daily_df.copy()
+    enriched["ema20"] = enriched["close"].ewm(span=20, adjust=False).mean()
+    bulls = (enriched["close"] > enriched["ema20"]).to_numpy()
+    return (enriched["open_time"].to_numpy(), bulls)
+
+
+def lookup_macro_trend(times: np.ndarray, bulls: np.ndarray, ts) -> bool | None:
+    """Nearest-prior-day lookup - daily bars don't line up with intraday trade timestamps."""
+    if len(times) == 0:
+        return None
+    idx = np.searchsorted(times, np.datetime64(ts), side="right") - 1
+    if idx < 0:
+        return None
+    return bool(bulls[idx])
+
+
 def _truncate_to_time(df: pd.DataFrame, cutoff) -> pd.DataFrame:
     """Same no-lookahead truncation audit_trades.py uses - keep only candles whose close_time is <= cutoff."""
     return df[df["close_time"] <= cutoff].reset_index(drop=True)
 
 
 def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
-                     btc_trend: dict, eth_trend: dict) -> list[dict]:
+                     btc_trend: dict, eth_trend: dict,
+                     btc_macro_times: np.ndarray, btc_macro_bulls: np.ndarray) -> list[dict]:
     df = get_klines(symbol, tf, 1000)
     if df is None or len(df) < WARMUP + horizon_candles + 10:
         return []
@@ -140,6 +184,7 @@ def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
         open_time = window["open_time"].iloc[-1]
         btc_bull = btc_trend.get(open_time)
         eth_bull = eth_trend.get(open_time)
+        btc_macro_bull = lookup_macro_trend(btc_macro_times, btc_macro_bulls, open_time)
 
         for risk in plans:
             key = risk["based_on"]
@@ -149,6 +194,8 @@ def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
 
             btc_agrees = btc_bull if bias == "bullish" else (not btc_bull if btc_bull is not None else None)
             eth_agrees = eth_bull if bias == "bullish" else (not eth_bull if eth_bull is not None else None)
+            macro_agrees = (btc_macro_bull if bias == "bullish"
+                            else (not btc_macro_bull if btc_macro_bull is not None else None))
 
             outcome, outcome_price, resolved_at = None, None, None
             end = min(i + 1 + horizon_candles, len(df))
@@ -180,6 +227,7 @@ def simulate_pair_tf(symbol: str, tf: str, cfg: dict, horizon_candles: int,
                 "outcome": outcome,
                 "outcome_pct": round((outcome_price - risk["entry"]) / risk["entry"] * 100, 3),
                 "btc_agrees": btc_agrees, "eth_agrees": eth_agrees,
+                "btc_macro_bullish": btc_macro_bull, "macro_agrees": macro_agrees,
             }
             trade["validation_error"] = validate_trade(trade)
             trades.append(trade)
@@ -214,6 +262,14 @@ def main():
         btc_trends[tf] = trend_lookup(btc_df) if btc_df is not None else {}
         eth_trends[tf] = trend_lookup(eth_df) if eth_df is not None else {}
 
+    print("Fetching BTC daily trend reference (single macro-regime series, shared across all pairs/timeframes)...",
+          flush=True)
+    btc_daily_df = get_klines("BTCUSDT", "1d", 1000)
+    btc_macro_times, btc_macro_bulls = macro_trend_arrays(btc_daily_df)
+    print(f"  {len(btc_macro_times)} daily bars, "
+          f"{btc_macro_times.min() if len(btc_macro_times) else 'n/a'} to "
+          f"{btc_macro_times.max() if len(btc_macro_times) else 'n/a'}", flush=True)
+
     jobs = [(s, tf) for tf in timeframes for s in pairs]
 
     print(f"Simulating 4 Ashen strategies across up to {len(pairs)} pairs x {len(timeframes)} timeframes "
@@ -226,7 +282,8 @@ def main():
 
     with ProcessPoolExecutor(max_workers=args.workers) as executor:
         futures = {executor.submit(simulate_pair_tf, s, tf, cfg, args.horizon,
-                                   btc_trends[tf], eth_trends[tf]): (s, tf) for s, tf in jobs}
+                                   btc_trends[tf], eth_trends[tf],
+                                   btc_macro_times, btc_macro_bulls): (s, tf) for s, tf in jobs}
         done = 0
         for future in as_completed(futures):
             s, tf = futures[future]
@@ -304,6 +361,17 @@ def main():
         report("  BTC disagrees with trade direction", [t for t in ts if t["btc_agrees"] is False])
         report("  ETH agrees with trade direction", [t for t in ts if t["eth_agrees"] is True])
         report("  ETH disagrees with trade direction", [t for t in ts if t["eth_agrees"] is False])
+
+    # --- BTC DAILY macro-regime breakdown (measurement only) - see module
+    # docstring for why this is a different, slower signal than the
+    # same-timeframe btc_agrees breakdown above. ---
+    print("\n=== BTC DAILY macro-regime breakdown, per Ashen strategy/direction ===")
+    print("(measurement only - a bullish trade with macro_agrees=True means BTC's DAILY trend is bullish)")
+    for key, ts in sorted(groups.items(), key=lambda kv: -len(kv[1])):
+        name = f"{key[0]}/{key[1]}"
+        print(f"\n-- {name} --")
+        report("  macro regime agrees with trade direction", [t for t in ts if t["macro_agrees"] is True])
+        report("  macro regime disagrees with trade direction", [t for t in ts if t["macro_agrees"] is False])
 
     # Merge into the existing file rather than overwrite it: ashen_* keys
     # are unique (never collide with jayantha_*/retired-detector names),

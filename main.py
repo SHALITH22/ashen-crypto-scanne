@@ -44,7 +44,8 @@ from scanner.ashen_detectors import run_ashen_detectors
 from scanner.mtf import annotate_htf
 from scanner.notify import notify_report
 from scanner.risk import (attach_atr_risk, setup_risk_plans, classify_funding,
-                          fear_greed_ok, long_short_skew_ok, LONG_SHORT_ROLLING_WINDOW)
+                          fear_greed_ok, long_short_skew_ok, LONG_SHORT_ROLLING_WINDOW,
+                          macro_trend_ok)
 from scanner.journal import log_signals, detector_recent_form, mark_notified, detector_expectancy, detector_avg_return, detector_reliability
 from scanner.regime import regime_label
 
@@ -213,7 +214,8 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
              avg_returns: dict | None = None, unreliable: set | None = None,
              btc_trend: dict | None = None, eth_trend: dict | None = None,
              win_rates: dict | None = None, use_proxy: bool = False,
-             fear_greed_reading: str | None = None) -> dict:
+             fear_greed_reading: str | None = None,
+             btc_macro_bullish: bool | None = None) -> dict:
     win_rates = win_rates or {}
     result = {"symbol": symbol, "timeframes": {}, "errors": []}
     # One live-price call shared across all timeframes for this symbol - the
@@ -318,6 +320,10 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
             # a per-direction verdict for every filter it checks.
             fear_greed_ok_by_direction = {}
             long_short_ok_by_direction = {}
+            # macro_trend_ok IS genuinely direction-dependent (unlike the
+            # two above) - a bullish trade needs BTC's daily trend bullish,
+            # a bearish trade needs it bearish. See risk.macro_trend_ok.
+            macro_trend_ok_by_direction = {}
             for direction in ("bullish", "bearish"):
                 if is_market_leader:
                     market_disagrees_by_direction[direction] = True
@@ -334,11 +340,13 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
                 funding_ok_by_direction[direction] = classify_funding(current_funding, direction) != "against_crowd"
                 fear_greed_ok_by_direction[direction] = fear_greed_ok(fear_greed_reading)
                 long_short_ok_by_direction[direction] = long_short_skew_ok(current_ls_ratio, ls_rolling_mean)
+                macro_trend_ok_by_direction[direction] = macro_trend_ok(direction, btc_macro_bullish)
             risk_plans = setup_risk_plans(signals, close, min_risk_reward,
                                           avg_returns, risk_cfg.get("min_calibrated_move_pct", 0.3),
                                           risk_cfg.get("account_size"), risk_cfg.get("account_risk_pct", 1.0),
                                           unreliable, market_disagrees_by_direction, funding_ok_by_direction,
                                           fear_greed_ok_by_direction, long_short_ok_by_direction,
+                                          macro_trend_ok_by_direction,
                                           risk_cfg.get("target_fraction", 1.0),
                                           risk_cfg.get("min_stop_pct", 0.5))
             for plan in risk_plans:
@@ -480,6 +488,20 @@ def main():
         print(f"Fear & Greed Index: {fear_greed_reading}"
               + (" (MARKET_FILTER_NAMES trades are blocked, both directions)" if fear_greed_reading == "Extreme Fear" else "") + "\n")
 
+    # BTC's own DAILY trend - a slower macro-regime signal than btc_trend
+    # above (which is evaluated on each trade's OWN timeframe). Fetched
+    # once and shared across every pair's scan, same pattern as
+    # btc_trend/eth_trend. See risk.MACRO_FILTER_NAMES for what this feeds
+    # (currently just marubozu_ashen) and ashen_realistic_backtest.py for
+    # the evidence behind it.
+    btc_daily_df = get_klines("BTCUSDT", "1d", 60)
+    btc_macro_bullish = None
+    if btc_daily_df is not None and len(btc_daily_df) >= 20:
+        ema20 = btc_daily_df["close"].ewm(span=20, adjust=False).mean()
+        btc_macro_bullish = bool(btc_daily_df["close"].iloc[-1] > ema20.iloc[-1])
+        print(f"BTC daily macro trend: {'bullish' if btc_macro_bullish else 'bearish'} "
+              f"(gates marubozu_ashen only - see risk.MACRO_FILTER_NAMES)\n")
+
     total_pair_count = len(pairs) + len(long_tail_pairs)
     print(f"Scanning {len(pairs)} pairs x {len(timeframes)} timeframes"
           + (f", plus {len(long_tail_pairs)} long-tail pairs x {len(long_tail_timeframes)} timeframes via proxy"
@@ -515,7 +537,8 @@ def main():
         try:
             return symbol, scan_pair(symbol, tfs, cfg, weights, avg_returns, unreliable,
                                      btc_trend, eth_trend, win_rates, use_proxy=use_proxy,
-                                     fear_greed_reading=fear_greed_reading)
+                                     fear_greed_reading=fear_greed_reading,
+                                     btc_macro_bullish=btc_macro_bullish)
         except Exception as e:
             print(f"  [error] {symbol}: {e}")
             return symbol, None
