@@ -240,30 +240,51 @@ _TIMEFRAME_HOURS = {
     "1d": 24, "1w": 168, "1M": 720,
 }
 
+# Trailing stop/target parameters (design confirmed with user 2026-07-25,
+# validated against 901 real historical trades via trailing_stop_backtest.py
+# before deploying live). Once price reaches TRAIL_TRIGGER_PROGRESS of the
+# way from entry to the ORIGINAL target, the stop moves to breakeven +
+# TRAIL_BUFFER_PCT and the target extends by TRAIL_EXTENSION_FRACTION of
+# the original reward distance - a one-time adjustment, not continuous
+# trailing, applied uniformly across all 5 strategies.
+#
+# The full trigger sweep showed avg_R monotonically improving all the way
+# down to ~1-2% progress (plateauing around -0.021R vs the -0.060R
+# baseline), which would mean adjusting at the very first tick of
+# favorable movement - deliberately NOT deployed at that extreme (real but
+# likely partly overfit to this exact historical sample). 10% captures
+# most of the measured benefit (-0.0289R) while staying meaningfully more
+# conservative. IMPORTANT: this materially reduces average losses but does
+# NOT by itself make the system net profitable (still negative at every
+# setting tested) - the structurally weak bullish variants remain the
+# larger problem; this is real, complementary risk-management, not a fix
+# for that on its own.
+TRAIL_TRIGGER_PROGRESS = 0.1
+TRAIL_BUFFER_PCT = 0.05
+TRAIL_EXTENSION_FRACTION = 0.75
+
 
 def _evaluate_early_exit(entry: dict, after: "pd.DataFrame", current_price: float,
                          now: datetime) -> tuple[bool, str | None]:
     """
-    Whether a still-open trade (didn't hit stop/target/horizon-expiry this
-    check) should be closed early instead of left to drag on. Two real,
-    price-action-based rules - not a time cutoff alone, which would just
-    mass-close everything indiscriminately given how young this journal's
-    open positions currently are (median under 2 days):
+    Whether a still-open trade that trailing hasn't already adjusted
+    should be closed early instead of left to drag on indefinitely.
 
-    1. PROFIT LOCK: reached at least halfway to target at some point, but
-       has since given back more than half of that peak favorable move -
-       the setup worked, then stalled/reversed. Locks in what's left
-       rather than risk it round-tripping all the way to the stop while
-       waiting for a horizon_candles expiry that, on a 1w/1M timeframe, is
-       effectively never (60 candles = ~14 months / 5 years - no
-       practical backstop at all on slow timeframes).
-    2. NEVER DEVELOPED: essentially no favorable move at all, despite
-       being open at least 10 candles' worth of real elapsed time (not 60,
-       and using actual hours so a 1M trade doesn't get 5 years to prove
-       itself before this check even applies) - the setup's immediate
-       thesis clearly isn't playing out.
+    NEVER DEVELOPED: essentially no favorable move at all, despite being
+    open at least 10 candles' worth of real elapsed time (not
+    horizon_candles' raw 60, which is ~14 months on a 1w timeframe - no
+    practical backstop at all on slow timeframes) - the setup's immediate
+    thesis clearly isn't playing out.
 
-    Both compute MFE from the same `after` candle slice check_open_entries
+    A prior "PROFIT LOCK" rule (reached >=50% progress then stalled) was
+    retired once the trailing mechanism above went live: trailing already
+    moves the stop to near-breakeven at just 10% progress, so a stall/
+    reversal from there gets caught by the ordinary active-stop check
+    instead - earlier and validated as the better mechanism by
+    trailing_stop_backtest.py, rather than a separate special-case rule
+    duplicating the same job less effectively.
+
+    Computes MFE from the same `after` candle slice check_open_entries
     already fetched for the stop/target check - no extra API calls.
     """
     target_dist = abs(entry["target"] - entry["entry"])
@@ -273,14 +294,9 @@ def _evaluate_early_exit(entry: dict, after: "pd.DataFrame", current_price: floa
     if entry["bias"] == "bullish":
         best = float(after["high"].max())
         mfe = (best - entry["entry"]) / target_dist
-        current_progress = (current_price - entry["entry"]) / target_dist
     else:
         best = float(after["low"].min())
         mfe = (entry["entry"] - best) / target_dist
-        current_progress = (entry["entry"] - current_price) / target_dist
-
-    if mfe >= 0.5 and current_progress <= mfe * 0.5:
-        return True, f"closed early - reached {mfe:.0%} of the way to target, then stalled/reversed - locked in the remaining gain instead of risking a full round-trip back to the stop"
 
     hours_open = (now - datetime.fromisoformat(entry["logged_at"])).total_seconds() / 3600
     tf_hours = _TIMEFRAME_HOURS.get(entry["timeframe"], 24)
@@ -334,27 +350,51 @@ def check_open_entries(path: Path = JOURNAL_PATH, horizon_candles: int = 20,
             continue
 
         outcome, outcome_price = None, None
+        trail_adjusted = False
+        active_stop, active_target = e["stop"], e["target"]
+        original_risk = abs(e["entry"] - e["stop"])
+        original_reward = abs(e["target"] - e["entry"])
         for _, candle in after.iterrows():
             if e["bias"] == "bullish":
-                if candle["low"] <= e["stop"]:
-                    outcome, outcome_price = "loss", e["stop"]
+                if candle["low"] <= active_stop:
+                    outcome, outcome_price = ("win" if active_stop > e["entry"] else "loss"), active_stop
                     break
-                if candle["high"] >= e["target"]:
-                    outcome, outcome_price = "win", e["target"]
+                if candle["high"] >= active_target:
+                    outcome, outcome_price = "win", active_target
                     break
+                if not trail_adjusted and original_reward > 0:
+                    progress = (candle["high"] - e["entry"]) / original_reward
+                    if progress >= TRAIL_TRIGGER_PROGRESS:
+                        active_stop = e["entry"] * (1 + TRAIL_BUFFER_PCT / 100)
+                        active_target = e["target"] + original_reward * TRAIL_EXTENSION_FRACTION
+                        trail_adjusted = True
             else:
-                if candle["high"] >= e["stop"]:
-                    outcome, outcome_price = "loss", e["stop"]
+                if candle["high"] >= active_stop:
+                    outcome, outcome_price = ("win" if active_stop < e["entry"] else "loss"), active_stop
                     break
-                if candle["low"] <= e["target"]:
-                    outcome, outcome_price = "win", e["target"]
+                if candle["low"] <= active_target:
+                    outcome, outcome_price = "win", active_target
                     break
+                if not trail_adjusted and original_reward > 0:
+                    progress = (e["entry"] - candle["low"]) / original_reward
+                    if progress >= TRAIL_TRIGGER_PROGRESS:
+                        active_stop = e["entry"] * (1 - TRAIL_BUFFER_PCT / 100)
+                        active_target = e["target"] - original_reward * TRAIL_EXTENSION_FRACTION
+                        trail_adjusted = True
 
         if outcome is None and len(after) >= horizon_candles:
             outcome, outcome_price = "expired", float(after["close"].iloc[-1])
 
         exit_reason = None
-        if outcome is None:
+        if outcome is None and not trail_adjusted:
+            # Once a trade has been trailed, the stop itself already sits at
+            # (near) breakeven - a stall/reversal from here gets caught by
+            # the active_stop check above, same protective effect the old
+            # "profit lock" early-exit rule existed for, just arrived at
+            # earlier (10% progress vs 50%) and validated as the better
+            # mechanism by trailing_stop_backtest.py. Only the "never
+            # developed" rule still applies to trades trailing hasn't
+            # touched yet.
             current_price = float(after["close"].iloc[-1])
             should_close, reason = _evaluate_early_exit(e, after, current_price, datetime.fromisoformat(now))
             if should_close:
@@ -371,6 +411,11 @@ def check_open_entries(path: Path = JOURNAL_PATH, horizon_candles: int = 20,
             if exit_reason:
                 e["closed_early"] = True
                 e["exit_reason"] = exit_reason
+            if trail_adjusted:
+                e["trail_adjusted"] = True
+                e["trail_note"] = (f"stop moved to breakeven+{TRAIL_BUFFER_PCT}% and target extended "
+                                   f"{TRAIL_EXTENSION_FRACTION:.0%} further once price reached "
+                                   f"{TRAIL_TRIGGER_PROGRESS:.0%} of the way to the original target")
             resolved_entries.append(e)
 
     if resolved_entries:
