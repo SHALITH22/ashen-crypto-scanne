@@ -79,11 +79,16 @@ def classify_fear_greed(classification: str | None, bias: str) -> str | None:
     market's mood WITH or AGAINST a trade's direction. None if the reading
     is unavailable. Uses alternative.me's own "Extreme Fear"/"Extreme
     Greed" classification directly rather than re-deriving numeric
-    thresholds - same reasoning as classify_funding, but NOT assumed to
-    resolve the same direction: fear_greed_backtest.py tests this
-    independently before any live filter gets built on top of it, since
-    this is a market-wide macro signal rather than a per-symbol
-    derivatives one and there's no reason to assume it behaves the same way.
+    thresholds - same reasoning as classify_funding.
+
+    Diagnostic/reporting only - NOT what the live filter (fear_greed_ok,
+    below) actually gates on. fear_greed_backtest.py (n=6014) found BOTH
+    with_crowd (-0.126R) and against_crowd (-0.285R) underperformed
+    neutral (+0.053R) during Extreme Fear - i.e. extreme sentiment itself
+    hurt regardless of which side of it a trade was on, not a "which side
+    of the crowd" effect this with/against framing implies. Kept for
+    reporting since it's still useful to see, but see fear_greed_ok for
+    what's deployed.
     """
     if classification is None:
         return None
@@ -94,7 +99,25 @@ def classify_fear_greed(classification: str | None, bias: str) -> str | None:
     return "neutral"
 
 
+def fear_greed_ok(classification: str | None) -> bool:
+    """
+    Live filter: block trades (either direction) during an "Extreme Fear"
+    reading specifically. Confirmed via fear_greed_backtest.py (n=6014):
+    both with_crowd and against_crowd trades underperformed neutral during
+    Extreme Fear, so the deployed rule blocks on the RAW reading rather
+    than reusing classify_fear_greed's with/against-crowd framing above.
+
+    "Extreme Greed" is deliberately NOT blocked here - that backtest run
+    never saw a single Extreme Greed sample (get_klines's fetch depth
+    meant the whole walk-forward window landed inside one continuous real
+    Fear regime), so there's zero evidence either way for it yet. Revisit
+    once fear_greed_backtest.py has actually seen a Greed market.
+    """
+    return classification != "Extreme Fear"
+
+
 LONG_SHORT_SKEW_THRESHOLD = 0.2  # ratio must sit 20% above/below its own rolling baseline to count as "skewed"
+LONG_SHORT_ROLLING_WINDOW = 30  # periods used to compute that rolling baseline (~5 days on 4h bars, matches oi_long_short_backtest.py)
 
 
 def classify_long_short_skew(ratio: float | None, rolling_mean: float | None, bias: str) -> str | None:
@@ -108,9 +131,14 @@ def classify_long_short_skew(ratio: float | None, rolling_mean: float | None, bi
     approach oi_long_short_backtest.py uses to compute rolling_mean without
     lookahead (only past data at eval time).
 
-    NOT yet backed by a walk-forward backtest at the scale funding/fear_greed
-    have (Binance only retains ~30 days of this history) - see
-    oi_long_short_backtest.py for what evidence exists so far.
+    Diagnostic/reporting only - NOT what the live filter (long_short_skew_ok,
+    below) actually gates on. oi_long_short_backtest.py (n=904, replayed
+    against real live journal.jsonl trades, not synthetic ones - see that
+    script's docstring for why) found BOTH skewed_long (-0.114R) and
+    skewed_short (-0.224R) underperformed balanced readings (-0.043R) -
+    symmetric, not a "which side of the crowd" effect this with/against
+    framing implies. Kept for reporting; see long_short_skew_ok for what's
+    deployed.
     """
     if ratio is None or rolling_mean is None or rolling_mean <= 0:
         return None
@@ -120,6 +148,25 @@ def classify_long_short_skew(ratio: float | None, rolling_mean: float | None, bi
     if deviation < -LONG_SHORT_SKEW_THRESHOLD:
         return "with_crowd" if bias == "bearish" else "against_crowd"
     return "neutral"
+
+
+def long_short_skew_ok(ratio: float | None, rolling_mean: float | None) -> bool:
+    """
+    Live filter: block trades (either direction) when the long/short
+    account ratio is skewed away from its own rolling baseline. Confirmed
+    via oi_long_short_backtest.py (n=904, real live trades): both
+    directions of skew underperformed balanced readings, so this blocks
+    on the raw deviation rather than reusing classify_long_short_skew's
+    with/against-crowd framing above - see that function's docstring for
+    the numbers.
+
+    True (allowed) whenever ratio/rolling_mean data is unavailable, same
+    fail-open convention as classify_funding(None, ...).
+    """
+    if ratio is None or rolling_mean is None or rolling_mean <= 0:
+        return True
+    deviation = (ratio - rolling_mean) / rolling_mean
+    return abs(deviation) <= LONG_SHORT_SKEW_THRESHOLD
 
 
 def _structural_levels_valid(s: dict, close: float) -> bool:
@@ -416,6 +463,8 @@ def setup_risk_plans(signals: list[dict], close: float,
                      unreliable: set | None = None,
                      market_disagrees_by_direction: dict | None = None,
                      funding_ok_by_direction: dict | None = None,
+                     fear_greed_ok_by_direction: dict | None = None,
+                     long_short_ok_by_direction: dict | None = None,
                      target_fraction: float = 1.0,
                      min_stop_pct: float = 0.5) -> list[dict]:
     """
@@ -430,23 +479,31 @@ def setup_risk_plans(signals: list[dict], close: float,
     same symbol/timeframe both qualify independently if each clears its own
     bar - there's no shared `bias` here to filter candidates against.
 
-    market_disagrees_by_direction / funding_ok_by_direction are
+    market_disagrees_by_direction / funding_ok_by_direction /
+    fear_greed_ok_by_direction / long_short_ok_by_direction are
     {"bullish": bool|None, "bearish": bool|None} - the market-leader-
-    disagreement and funding filters need to be evaluated per candidate's
+    disagreement and sentiment filters need to be evaluated per candidate's
     OWN direction now, not once for a single shared bias, since two
-    candidates here can legitimately point opposite ways.
+    candidates here can legitimately point opposite ways (fear_greed/
+    long_short happen to resolve the same for both directions today - see
+    risk.fear_greed_ok / risk.long_short_skew_ok - but are threaded through
+    per-direction for the same reason funding is, and in case a future
+    signal ever IS direction-dependent).
 
     Same qualification bars as setup_risk_plan (own R:R clears
     min_risk_reward - see _resolve_min_rr for the per-strategy override
     this can now carry, stop_pct clears min_stop_pct, not in `unreliable`,
-    MARKET_FILTER_NAMES members need market_disagrees True and funding_ok)
-    - see that function's docstring for why each bar exists. The only
-    difference is there's no "pick the tightest stop" step: every signal
-    that clears its own bar becomes its own plan.
+    MARKET_FILTER_NAMES members need market_disagrees True, funding_ok,
+    fear_greed_ok, and long_short_ok) - see each filter function's
+    docstring for why it exists and what backs it. The only difference is
+    there's no "pick the tightest stop" step: every signal that clears its
+    own bar becomes its own plan.
     """
     unreliable = unreliable or set()
     market_disagrees_by_direction = market_disagrees_by_direction or {}
     funding_ok_by_direction = funding_ok_by_direction or {}
+    fear_greed_ok_by_direction = fear_greed_ok_by_direction or {}
+    long_short_ok_by_direction = long_short_ok_by_direction or {}
     avg_returns = avg_returns or {}
 
     def effective_target(s):
@@ -465,6 +522,10 @@ def setup_risk_plans(signals: list[dict], close: float,
             if market_disagrees_by_direction.get(direction) is not True:
                 continue
             if not funding_ok_by_direction.get(direction, True):
+                continue
+            if not fear_greed_ok_by_direction.get(direction, True):
+                continue
+            if not long_short_ok_by_direction.get(direction, True):
                 continue
 
         risk = abs(close - s["stop"])

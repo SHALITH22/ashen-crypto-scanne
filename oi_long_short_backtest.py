@@ -40,9 +40,8 @@ from concurrent.futures import ThreadPoolExecutor
 import numpy as np
 
 from scanner.data import get_long_short_ratio, get_open_interest_hist
-from scanner.risk import classify_long_short_skew
+from scanner.risk import classify_long_short_skew, LONG_SHORT_ROLLING_WINDOW as ROLLING_WINDOW
 
-ROLLING_WINDOW = 30   # ~5 days of 4h bars, for the long/short skew baseline
 OI_LOOKBACK = 6        # ~1 day of 4h bars, for the OI momentum read
 OI_MOVE_THRESHOLD = 5.0  # % change over OI_LOOKBACK to count as "rising"/"falling" rather than "flat"
 

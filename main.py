@@ -31,7 +31,7 @@ for _stream in (sys.stdout, sys.stderr):
 
 from scanner.data import (get_klines, get_all_usdt_pairs, get_top_pairs_by_volume,
                           get_top_pairs_by_volume_lightweight, get_current_price, get_funding_rate,
-                          get_proxy_stats)
+                          get_proxy_stats, get_fear_greed_history, get_long_short_ratio)
 from scanner.indicators import enrich
 # Jayantha strategy (B2B pullback entry + confirmation-before-conviction)
 # replaces the old generic multi-pattern detector set as the live signal
@@ -43,7 +43,8 @@ from scanner.jayantha_detectors import run_jayantha_detectors
 from scanner.ashen_detectors import run_ashen_detectors
 from scanner.mtf import annotate_htf
 from scanner.notify import notify_report
-from scanner.risk import attach_atr_risk, setup_risk_plans, classify_funding
+from scanner.risk import (attach_atr_risk, setup_risk_plans, classify_funding,
+                          fear_greed_ok, long_short_skew_ok, LONG_SHORT_ROLLING_WINDOW)
 from scanner.journal import log_signals, detector_recent_form, mark_notified, detector_expectancy, detector_avg_return, detector_reliability
 from scanner.regime import regime_label
 
@@ -211,7 +212,8 @@ def get_market_trend(symbol: str, timeframes: list[str], cfg: dict) -> dict[str,
 def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
              avg_returns: dict | None = None, unreliable: set | None = None,
              btc_trend: dict | None = None, eth_trend: dict | None = None,
-             win_rates: dict | None = None, use_proxy: bool = False) -> dict:
+             win_rates: dict | None = None, use_proxy: bool = False,
+             fear_greed_reading: str | None = None) -> dict:
     win_rates = win_rates or {}
     result = {"symbol": symbol, "timeframes": {}, "errors": []}
     # One live-price call shared across all timeframes for this symbol - the
@@ -228,9 +230,18 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
     # same as if funding were checked and came back neutral, not a special
     # case needing extra code.
     current_funding = None
+    current_ls_ratio, ls_rolling_mean = None, None
     if not use_proxy:
         fr_df = get_funding_rate(symbol, limit=1)
         current_funding = float(fr_df["fundingRate"].iloc[-1]) if fr_df is not None and not fr_df.empty else None
+        # Same no-proxy-route constraint as funding above (perpetuals-only
+        # Binance futures endpoint, no Binance.US/proxy equivalent) - see
+        # risk.long_short_skew_ok for what this feeds and
+        # oi_long_short_backtest.py for the evidence behind it.
+        ls_df = get_long_short_ratio(symbol, period="4h", limit=LONG_SHORT_ROLLING_WINDOW + 1)
+        if ls_df is not None and len(ls_df) > LONG_SHORT_ROLLING_WINDOW:
+            current_ls_ratio = float(ls_df["longShortRatio"].iloc[-1])
+            ls_rolling_mean = float(ls_df["longShortRatio"].iloc[:-1].mean())
 
     # Fetched into a dict first (rather than processed inline per timeframe,
     # as before Ashen's vwap_breakout was added) so that detector can look
@@ -299,6 +310,14 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
             eth_bull = None if is_market_leader else (eth_trend or {}).get(tf)
             market_disagrees_by_direction = {}
             funding_ok_by_direction = {}
+            # fear_greed_ok/long_short_skew_ok are direction-independent
+            # today (both directions underperformed on the "bad" side in
+            # their respective backtests - see risk.py docstrings), but
+            # still evaluated per-direction into their own dicts for the
+            # same reason funding is: setup_risk_plans' signature expects
+            # a per-direction verdict for every filter it checks.
+            fear_greed_ok_by_direction = {}
+            long_short_ok_by_direction = {}
             for direction in ("bullish", "bearish"):
                 if is_market_leader:
                     market_disagrees_by_direction[direction] = True
@@ -313,10 +332,13 @@ def scan_pair(symbol: str, timeframes: list[str], cfg: dict, weights: dict,
                 # opposite of the classic "fade the crowd" assumption - so only
                 # that specific bucket is excluded (see risk.classify_funding).
                 funding_ok_by_direction[direction] = classify_funding(current_funding, direction) != "against_crowd"
+                fear_greed_ok_by_direction[direction] = fear_greed_ok(fear_greed_reading)
+                long_short_ok_by_direction[direction] = long_short_skew_ok(current_ls_ratio, ls_rolling_mean)
             risk_plans = setup_risk_plans(signals, close, min_risk_reward,
                                           avg_returns, risk_cfg.get("min_calibrated_move_pct", 0.3),
                                           risk_cfg.get("account_size"), risk_cfg.get("account_risk_pct", 1.0),
                                           unreliable, market_disagrees_by_direction, funding_ok_by_direction,
+                                          fear_greed_ok_by_direction, long_short_ok_by_direction,
                                           risk_cfg.get("target_fraction", 1.0),
                                           risk_cfg.get("min_stop_pct", 0.5))
             for plan in risk_plans:
@@ -448,6 +470,16 @@ def main():
     btc_trend = get_market_trend("BTCUSDT", timeframes, cfg)
     eth_trend = get_market_trend("ETHUSDT", timeframes, cfg)
 
+    # Market-wide, not per-symbol - fetched once and shared across every
+    # pair's scan, same pattern as btc_trend/eth_trend above. See
+    # risk.fear_greed_ok for what this feeds and fear_greed_backtest.py for
+    # the evidence behind it.
+    fg_df = get_fear_greed_history(limit=1)
+    fear_greed_reading = str(fg_df["classification"].iloc[-1]) if fg_df is not None and not fg_df.empty else None
+    if fear_greed_reading:
+        print(f"Fear & Greed Index: {fear_greed_reading}"
+              + (" (MARKET_FILTER_NAMES trades are blocked, both directions)" if fear_greed_reading == "Extreme Fear" else "") + "\n")
+
     total_pair_count = len(pairs) + len(long_tail_pairs)
     print(f"Scanning {len(pairs)} pairs x {len(timeframes)} timeframes"
           + (f", plus {len(long_tail_pairs)} long-tail pairs x {len(long_tail_timeframes)} timeframes via proxy"
@@ -482,7 +514,8 @@ def main():
         symbol, tfs, use_proxy = job
         try:
             return symbol, scan_pair(symbol, tfs, cfg, weights, avg_returns, unreliable,
-                                     btc_trend, eth_trend, win_rates, use_proxy=use_proxy)
+                                     btc_trend, eth_trend, win_rates, use_proxy=use_proxy,
+                                     fear_greed_reading=fear_greed_reading)
         except Exception as e:
             print(f"  [error] {symbol}: {e}")
             return symbol, None
