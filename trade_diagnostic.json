@@ -612,6 +612,24 @@
     "mae": 0.001
   },
   {
+    "id": 36,
+    "symbol": "GALAUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T17:26:27.401871",
+    "checked_at": "2026-07-26T17:29:14.181259",
+    "r_multiple": -0.133,
+    "rule_check": "fail",
+    "rule_reason": "vwap_breakout_ashen did not fire bearish against the reconstructed candles",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": -0.078,
+    "mae": 0.439
+  },
+  {
     "id": 37,
     "symbol": "POLUSDT",
     "timeframe": "1h",
@@ -1220,7 +1238,7 @@
     "btc_eth_gated": true,
     "btc_agrees": false,
     "eth_agrees": false,
-    "mfe": 0.477,
+    "mfe": 0.507,
     "mae": 0.266
   },
   {
@@ -1383,7 +1401,7 @@
     "btc_agrees": null,
     "eth_agrees": null,
     "mfe": 0.177,
-    "mae": 0.657
+    "mae": 0.69
   },
   {
     "id": 87,
@@ -1454,7 +1472,7 @@
     "btc_eth_gated": true,
     "btc_agrees": false,
     "eth_agrees": false,
-    "mfe": 0.487,
+    "mfe": 0.493,
     "mae": 0.167
   },
   {
@@ -1832,7 +1850,7 @@
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.499,
+    "mfe": 0.546,
     "mae": 0.043
   },
   {
@@ -2988,6 +3006,24 @@
     "mae": 0.0
   },
   {
+    "id": 181,
+    "symbol": "YFIUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-26T18:04:07.958847",
+    "r_multiple": 0.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.826,
+    "mae": 0.0
+  },
+  {
     "id": 182,
     "symbol": "DUSKUSDT",
     "timeframe": "1h",
@@ -3578,7 +3614,7 @@
     "btc_eth_gated": true,
     "btc_agrees": true,
     "eth_agrees": true,
-    "mfe": 0.652,
+    "mfe": 0.82,
     "mae": 0.654
   },
   {
@@ -3958,6 +3994,24 @@
     "eth_agrees": true,
     "mfe": 0.0,
     "mae": 0.015
+  },
+  {
+    "id": 240,
+    "symbol": "VIRTUALUSDT",
+    "timeframe": "1w",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": -0.424,
+    "mae": 4.839
   },
   {
     "id": 241,
@@ -6066,6 +6120,24 @@
     "mae": 1.69
   },
   {
+    "id": 365,
+    "symbol": "SNXUSDT",
+    "timeframe": "1w",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 1.413,
+    "mae": 1.762
+  },
+  {
     "id": 366,
     "symbol": "ALGOUSDT",
     "timeframe": "2h",
@@ -6822,6 +6894,24 @@
     "mae": 0.0
   },
   {
+    "id": 413,
+    "symbol": "AXLUSDT",
+    "timeframe": "1w",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 1.442,
+    "mae": 1.471
+  },
+  {
     "id": 414,
     "symbol": "BICOUSDT",
     "timeframe": "6h",
@@ -6853,6 +6943,24 @@
     "rule_reason": "detector fired with matching direction and stop",
     "btc_eth_gated": true,
     "btc_agrees": true,
+    "eth_agrees": false,
+    "mfe": 0.0,
+    "mae": 0.0
+  },
+  {
+    "id": 416,
+    "symbol": "BICOUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-26T18:04:07.958847",
+    "r_multiple": 0.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.0,
     "mae": 0.0
@@ -7036,6 +7144,24 @@
     "eth_agrees": false,
     "mfe": 3.312,
     "mae": 3.659
+  },
+  {
+    "id": 427,
+    "symbol": "NEIROUSDT",
+    "timeframe": "1w",
+    "based_on": "marubozu_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -1.0,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 2.237,
+    "mae": 1.959
   },
   {
     "id": 428,
@@ -7935,7 +8061,7 @@
     "btc_agrees": false,
     "eth_agrees": false,
     "mfe": 0.324,
-    "mae": 0.153
+    "mae": 0.563
   },
   {
     "id": 482,
@@ -8080,6 +8206,24 @@
     "eth_agrees": false,
     "mfe": 0.188,
     "mae": 1.196
+  },
+  {
+    "id": 490,
+    "symbol": "NEOUSDT",
+    "timeframe": "1d",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-26T18:04:07.958847",
+    "r_multiple": -0.034,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.065,
+    "mae": 0.549
   },
   {
     "id": 493,
@@ -9034,6 +9178,24 @@
     "eth_agrees": false,
     "mfe": 1.127,
     "mae": 0.0
+  },
+  {
+    "id": 555,
+    "symbol": "COTIUSDT",
+    "timeframe": "1w",
+    "based_on": "marubozu_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -1.0,
+    "rule_check": "fail",
+    "rule_reason": "stop mismatch: stored 0.007344 vs recomputed 0.00814185 (10.864% apart, tolerance 0.1%)",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": -0.692,
+    "mae": 1.732
   },
   {
     "id": 556,
@@ -10391,7 +10553,7 @@
     "timeframe": "4h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-16T20:36:36.819412",
     "checked_at": "2026-07-18T17:23:55.870000",
     "r_multiple": 0.0,
@@ -11698,6 +11860,24 @@
     "eth_agrees": null,
     "mfe": 1.057,
     "mae": 1.459
+  },
+  {
+    "id": 708,
+    "symbol": "ASTERUSDT",
+    "timeframe": "1d",
+    "based_on": "b2b_ashen",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-07-17T00:18:22.772597",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": -0.699,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.036,
+    "mae": 0.921
   },
   {
     "id": 709,
@@ -15467,7 +15647,7 @@
     "timeframe": "4h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-19T00:03:00.313936",
     "checked_at": "2026-07-20T16:50:34.227157",
     "r_multiple": 0.0,
@@ -15485,7 +15665,7 @@
     "timeframe": "4h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-19T00:03:00.313936",
     "checked_at": "2026-07-20T16:50:34.227157",
     "r_multiple": 0.0,
@@ -15575,7 +15755,7 @@
     "timeframe": "6h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-19T18:40:43.397621",
     "checked_at": "2026-07-22T07:22:51.208441",
     "r_multiple": 0.0,
@@ -15593,7 +15773,7 @@
     "timeframe": "6h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-19T18:40:43.397621",
     "checked_at": "2026-07-22T07:22:51.208441",
     "r_multiple": 0.0,
@@ -15737,7 +15917,7 @@
     "timeframe": "6h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-20T00:18:55.376564",
     "checked_at": "2026-07-22T14:17:10.214452",
     "r_multiple": 0.0,
@@ -15755,7 +15935,7 @@
     "timeframe": "8h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-20T00:18:55.376564",
     "checked_at": "2026-07-23T09:45:31.036665",
     "r_multiple": 0.0,
@@ -16007,7 +16187,7 @@
     "timeframe": "6h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-20T12:56:58.191951",
     "checked_at": "2026-07-23T01:17:02.230424",
     "r_multiple": 0.0,
@@ -16030,7 +16210,7 @@
     "checked_at": "2026-07-20T20:37:20.410731",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "vwap_breakout_ashen did not fire bearish against the reconstructed candles",
+    "rule_reason": "not enough historical candles to reconstruct (55 available before logged_at)",
     "btc_eth_gated": true,
     "btc_agrees": false,
     "eth_agrees": false,
@@ -16043,12 +16223,12 @@
     "timeframe": "15m",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-20T15:20:23.647969",
     "checked_at": "2026-07-20T21:49:49.478175",
     "r_multiple": 0.0,
     "rule_check": "fail",
-    "rule_reason": "vwap_breakout_ashen did not fire bearish against the reconstructed candles",
+    "rule_reason": "not enough historical candles to reconstruct (55 available before logged_at)",
     "btc_eth_gated": true,
     "btc_agrees": false,
     "eth_agrees": false,
@@ -16169,7 +16349,7 @@
     "timeframe": "1h",
     "based_on": "vwap_breakout_ashen",
     "bias": "bearish",
-    "status": "loss",
+    "status": "win",
     "logged_at": "2026-07-20T23:09:07.072757",
     "checked_at": "2026-07-21T09:18:04.113418",
     "r_multiple": 0.0,
@@ -16486,5 +16666,23 @@
     "eth_agrees": null,
     "mfe": 0.082,
     "mae": 1.0
+  },
+  {
+    "id": 982,
+    "symbol": "ATOMUSDT",
+    "timeframe": "8h",
+    "based_on": "b2b_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-24T18:26:22.239598",
+    "checked_at": "2026-07-27T01:20:01.756691",
+    "r_multiple": 0.023,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.392,
+    "mae": 0.452
   }
 ]
