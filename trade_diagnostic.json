@@ -15390,6 +15390,24 @@
     "mae": -0.413
   },
   {
+    "id": 910,
+    "symbol": "SLPUSDT",
+    "timeframe": "1d",
+    "based_on": "b2b_ashen",
+    "bias": "bullish",
+    "status": "loss",
+    "logged_at": "2026-07-18T03:40:54.726945",
+    "checked_at": "2026-07-28T03:44:43.639926",
+    "r_multiple": -0.707,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.0,
+    "mae": 0.707
+  },
+  {
     "id": 911,
     "symbol": "AVNTUSDT",
     "timeframe": "15m",
@@ -16210,12 +16228,12 @@
     "checked_at": "2026-07-20T20:37:20.410731",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (55 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 0.0,
-    "mae": 2.334
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 957,
@@ -16228,12 +16246,12 @@
     "checked_at": "2026-07-20T21:49:49.478175",
     "r_multiple": 0.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (55 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 0.0,
-    "mae": 0.0
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 958,
