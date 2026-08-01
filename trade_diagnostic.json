@@ -14482,7 +14482,7 @@
     "checked_at": "2026-07-17T21:05:39.158222",
     "r_multiple": 1.7,
     "rule_check": "fail",
-    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489408 (1.932% apart, tolerance 0.1%)",
+    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489406 (1.933% apart, tolerance 0.1%)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
