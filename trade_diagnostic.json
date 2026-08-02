@@ -14482,7 +14482,7 @@
     "checked_at": "2026-07-17T21:05:39.158222",
     "r_multiple": 1.7,
     "rule_check": "fail",
-    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489406 (1.933% apart, tolerance 0.1%)",
+    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489405 (1.933% apart, tolerance 0.1%)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -15190,6 +15190,24 @@
     "eth_agrees": null,
     "mfe": 1.162,
     "mae": -0.425
+  },
+  {
+    "id": 898,
+    "symbol": "RVNUSDT",
+    "timeframe": "1d",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-18T00:15:04.858488",
+    "checked_at": "2026-08-02T01:04:07.215221",
+    "r_multiple": 1.526,
+    "rule_check": "fail",
+    "rule_reason": "stop mismatch: stored 0.00477611 vs recomputed 0.00478105 (0.103% apart, tolerance 0.1%)",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 4.151,
+    "mae": -0.097
   },
   {
     "id": 899,
