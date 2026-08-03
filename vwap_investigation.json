@@ -360,6 +360,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "BNBUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -22.6802,
+    "confirm_distance_pct": -20.3361,
+    "atr_pct": 12.3813,
+    "structure_distance_pct": 12.0485,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "ARBUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -777,6 +789,18 @@
     "confirm_distance_pct": 1.4583,
     "atr_pct": 2.146,
     "structure_distance_pct": 2.042,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "COMPUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -64.6545,
+    "confirm_distance_pct": -63.9481,
+    "atr_pct": 26.0567,
+    "structure_distance_pct": 19.0058,
     "htf_trend_matches_bias": true
   },
   {
@@ -1500,6 +1524,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "DOGEUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -68.3122,
+    "confirm_distance_pct": -65.8216,
+    "atr_pct": 21.602,
+    "structure_distance_pct": 4.398,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "ZECUSDT",
     "timeframe": "2h",
     "bias": "bullish",
@@ -1653,6 +1689,18 @@
     "confirm_distance_pct": 11.7808,
     "atr_pct": 6.9663,
     "structure_distance_pct": 22.522,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "UNIUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -57.487,
+    "confirm_distance_pct": -62.9001,
+    "atr_pct": 22.7873,
+    "structure_distance_pct": 35.9371,
     "htf_trend_matches_bias": true
   },
   {
@@ -3309,6 +3357,18 @@
     "confirm_distance_pct": -20.7992,
     "atr_pct": 5.9132,
     "structure_distance_pct": 11.2353,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "VETUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -84.8363,
+    "confirm_distance_pct": -85.153,
+    "atr_pct": 28.7427,
+    "structure_distance_pct": 11.5662,
     "htf_trend_matches_bias": true
   },
   {
