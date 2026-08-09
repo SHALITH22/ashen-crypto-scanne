@@ -12970,7 +12970,7 @@
     "checked_at": "2026-07-17T10:55:58.224033",
     "r_multiple": 1.095,
     "rule_check": "fail",
-    "rule_reason": "stop mismatch: stored 0.773537 vs recomputed 0.777025 (0.451% apart, tolerance 0.1%)",
+    "rule_reason": "stop mismatch: stored 0.773537 vs recomputed 0.777024 (0.451% apart, tolerance 0.1%)",
     "btc_eth_gated": true,
     "btc_agrees": true,
     "eth_agrees": true,
@@ -14644,7 +14644,7 @@
     "checked_at": "2026-07-17T21:05:39.158222",
     "r_multiple": 1.7,
     "rule_check": "fail",
-    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489399 (1.934% apart, tolerance 0.1%)",
+    "rule_reason": "stop mismatch: stored 0.0499052 vs recomputed 0.0489404 (1.933% apart, tolerance 0.1%)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -16884,6 +16884,24 @@
     "mae": 0.452
   },
   {
+    "id": 983,
+    "symbol": "BNBUSDT",
+    "timeframe": "1d",
+    "based_on": "jayantha_b2b",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-08-02T04:32:58.714430",
+    "checked_at": "2026-08-09T02:23:12.350237",
+    "r_multiple": -1.0,
+    "rule_check": "fail",
+    "rule_reason": "stop mismatch: stored 607.737 vs recomputed 606.65 (0.179% apart, tolerance 0.1%)",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.065,
+    "mae": 1.17
+  },
+  {
     "id": 984,
     "symbol": "FILUSDT",
     "timeframe": "6h",
@@ -18700,5 +18718,23 @@
     "eth_agrees": null,
     "mfe": 0.482,
     "mae": 1.44
+  },
+  {
+    "id": 1090,
+    "symbol": "LINKUSDT",
+    "timeframe": "1h",
+    "based_on": "b2b_ashen",
+    "bias": "bullish",
+    "status": "win",
+    "logged_at": "2026-08-08T10:00:11.772159",
+    "checked_at": "2026-08-08T13:06:27.399217",
+    "r_multiple": -1.158,
+    "rule_check": "fail",
+    "rule_reason": "b2b_ashen did not fire bullish against the reconstructed candles",
+    "btc_eth_gated": false,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": 0.923,
+    "mae": -0.314
   }
 ]
