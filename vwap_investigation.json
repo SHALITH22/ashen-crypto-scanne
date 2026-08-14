@@ -5916,30 +5916,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "DOTUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-20T00:18:55.376564",
-    "vwap_distance_pct": -3.0375,
-    "confirm_distance_pct": -3.0375,
-    "atr_pct": 0.3391,
-    "structure_distance_pct": 1.3398,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ATOMUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-20T00:18:55.376564",
-    "vwap_distance_pct": -1.125,
-    "confirm_distance_pct": -1.125,
-    "atr_pct": 0.2337,
-    "structure_distance_pct": 1.5354,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "SNXUSDT",
     "timeframe": "8h",
     "bias": "bearish",
@@ -5988,18 +5964,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "ONDOUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-20T04:12:59.663649",
-    "vwap_distance_pct": -4.912,
-    "confirm_distance_pct": -4.1518,
-    "atr_pct": 0.523,
-    "structure_distance_pct": 3.874,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "CAKEUSDT",
     "timeframe": "4h",
     "bias": "bearish",
@@ -6021,18 +5985,6 @@
     "confirm_distance_pct": -1.4004,
     "atr_pct": 0.5268,
     "structure_distance_pct": 4.9356,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "SANDUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-20T04:12:59.663649",
-    "vwap_distance_pct": -7.4557,
-    "confirm_distance_pct": -7.4557,
-    "atr_pct": 0.5066,
-    "structure_distance_pct": 0.6593,
     "htf_trend_matches_bias": true
   },
   {
@@ -6103,7 +6055,7 @@
     "logged_at": "2026-07-20T12:56:58.191951",
     "vwap_distance_pct": -4.5724,
     "confirm_distance_pct": -4.5724,
-    "atr_pct": 0.5059,
+    "atr_pct": 0.5057,
     "structure_distance_pct": 0.7353,
     "htf_trend_matches_bias": true
   },
@@ -6127,7 +6079,7 @@
     "logged_at": "2026-07-20T16:50:33.754594",
     "vwap_distance_pct": -2.9046,
     "confirm_distance_pct": -2.9046,
-    "atr_pct": 0.3409,
+    "atr_pct": 0.3408,
     "structure_distance_pct": 0.9852,
     "htf_trend_matches_bias": true
   },
