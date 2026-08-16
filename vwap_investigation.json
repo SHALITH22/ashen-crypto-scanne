@@ -3732,6 +3732,18 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "BANDUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -80.3936,
+    "confirm_distance_pct": -83.0452,
+    "atr_pct": 35.5138,
+    "structure_distance_pct": 30.9551,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "ORCAUSDT",
     "timeframe": "1d",
     "bias": "bearish",
@@ -4545,6 +4557,18 @@
     "confirm_distance_pct": -21.92,
     "atr_pct": 2.9734,
     "structure_distance_pct": 16.4345,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "KNCUSDT",
+    "timeframe": "1w",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-07-16T18:03:07.428173",
+    "vwap_distance_pct": -75.3106,
+    "confirm_distance_pct": -75.1721,
+    "atr_pct": 29.8467,
+    "structure_distance_pct": 16.3569,
     "htf_trend_matches_bias": true
   },
   {
