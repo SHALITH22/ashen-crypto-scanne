@@ -6154,5 +6154,77 @@
     "atr_pct": 1.7533,
     "structure_distance_pct": 10.4004,
     "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "WAXPUSDT",
+    "timeframe": "2h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T03:09:34.919718",
+    "vwap_distance_pct": -0.7356,
+    "confirm_distance_pct": -0.8238,
+    "atr_pct": 0.51,
+    "structure_distance_pct": 12.938,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ONEUSDT",
+    "timeframe": "15m",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T05:47:26.942684",
+    "vwap_distance_pct": -3.6449,
+    "confirm_distance_pct": -3.5811,
+    "atr_pct": 0.513,
+    "structure_distance_pct": 24.5283,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "SUSHIUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-08-17T08:06:51.119737",
+    "vwap_distance_pct": -1.4082,
+    "confirm_distance_pct": -1.4082,
+    "atr_pct": 0.5542,
+    "structure_distance_pct": 9.3168,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "JUPUSDT",
+    "timeframe": "2h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-08-17T10:02:57.570724",
+    "vwap_distance_pct": -6.2918,
+    "confirm_distance_pct": -6.2918,
+    "atr_pct": 0.5266,
+    "structure_distance_pct": 18.6519,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "KAITOUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T16:38:31.969136",
+    "vwap_distance_pct": -6.8521,
+    "confirm_distance_pct": -6.9345,
+    "atr_pct": 0.887,
+    "structure_distance_pct": 7.5671,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "BICOUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T17:04:49.009085",
+    "vwap_distance_pct": -18.773,
+    "confirm_distance_pct": -18.773,
+    "atr_pct": 0.5313,
+    "structure_distance_pct": 10.4344,
+    "htf_trend_matches_bias": true
   }
 ]
