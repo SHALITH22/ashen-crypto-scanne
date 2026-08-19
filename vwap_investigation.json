@@ -6204,6 +6204,30 @@
     "htf_trend_matches_bias": true
   },
   {
+    "symbol": "BTCUSDT",
+    "timeframe": "1d",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-08-17T16:00:14.509479",
+    "vwap_distance_pct": -4.4983,
+    "confirm_distance_pct": -4.2842,
+    "atr_pct": 1.892,
+    "structure_distance_pct": 8.0915,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T16:38:31.969136",
+    "vwap_distance_pct": -6.198,
+    "confirm_distance_pct": -4.9177,
+    "atr_pct": 0.5432,
+    "structure_distance_pct": 7.6271,
+    "htf_trend_matches_bias": true
+  },
+  {
     "symbol": "KAITOUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -6225,6 +6249,54 @@
     "confirm_distance_pct": -18.773,
     "atr_pct": 0.5313,
     "structure_distance_pct": 10.4344,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "KSMUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-17T20:36:56.258492",
+    "vwap_distance_pct": -1.3776,
+    "confirm_distance_pct": -1.7315,
+    "atr_pct": 0.5238,
+    "structure_distance_pct": 7.7966,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "TURBOUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-18T08:49:06.748529",
+    "vwap_distance_pct": -0.0329,
+    "confirm_distance_pct": -0.0329,
+    "atr_pct": 0.5135,
+    "structure_distance_pct": 7.6155,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "BRETTUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-18T19:35:08.446114",
+    "vwap_distance_pct": -17.6977,
+    "confirm_distance_pct": -17.6977,
+    "atr_pct": 0.5307,
+    "structure_distance_pct": 16.4932,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-08-18T23:01:19.337683",
+    "vwap_distance_pct": -5.8866,
+    "confirm_distance_pct": -5.8866,
+    "atr_pct": 0.3711,
+    "structure_distance_pct": 7.7388,
     "htf_trend_matches_bias": true
   }
 ]
