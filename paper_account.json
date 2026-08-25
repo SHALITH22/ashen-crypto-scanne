@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-25T11:51:04.124990",
+  "generated_at": "2026-08-25T13:04:40.340278",
   "starting_balance": 1000.0,
   "risk_pct": 1.0,
-  "balance": 298.59,
+  "balance": 289.89,
   "peak_balance": 1175.84,
   "max_drawdown_pct": 76.29,
-  "total_return_pct": -70.14,
-  "trades_closed": 1447,
-  "trades_currently_open": 154,
-  "open_risk_dollars": 563.11,
-  "open_risk_pct_of_balance": 188.59
+  "total_return_pct": -71.01,
+  "trades_closed": 1451,
+  "trades_currently_open": 152,
+  "open_risk_dollars": 557.3,
+  "open_risk_pct_of_balance": 192.25
 }
