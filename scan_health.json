@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-08T09:00:28.569925+00:00",
+  "generated_at": "2026-09-08T13:32:30.630378+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
-  "pairs_with_errors": 1,
+  "pairs_with_errors": 0,
   "used_pair_discovery_fallback": true,
   "pair_discovery_method": "static_fallback",
   "proxy_stats": {
@@ -13,12 +13,5 @@
     "last_status": null,
     "last_error": null
   },
-  "errors": {
-    "PAXGUSDT": [
-      {
-        "timeframe": "*",
-        "reason": "exception"
-      }
-    ]
-  }
+  "errors": {}
 }
