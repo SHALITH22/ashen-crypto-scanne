@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-16T00:35:57.223940+00:00",
+  "generated_at": "2026-09-16T05:19:19.418769+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
-  "pairs_with_errors": 4,
+  "pairs_with_errors": 0,
   "used_pair_discovery_fallback": true,
   "pair_discovery_method": "static_fallback",
   "proxy_stats": {
@@ -13,30 +13,5 @@
     "last_status": null,
     "last_error": null
   },
-  "errors": {
-    "SUIUSDT": [
-      {
-        "timeframe": "*",
-        "reason": "exception"
-      }
-    ],
-    "PUMPUSDT": [
-      {
-        "timeframe": "*",
-        "reason": "exception"
-      }
-    ],
-    "XTZUSDT": [
-      {
-        "timeframe": "*",
-        "reason": "exception"
-      }
-    ],
-    "KSMUSDT": [
-      {
-        "timeframe": "*",
-        "reason": "exception"
-      }
-    ]
-  }
+  "errors": {}
 }
