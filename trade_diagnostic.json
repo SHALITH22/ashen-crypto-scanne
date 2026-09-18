@@ -15976,7 +15976,7 @@
     "checked_at": "2026-08-02T01:04:07.215221",
     "r_multiple": 1.526,
     "rule_check": "fail",
-    "rule_reason": "stop mismatch: stored 0.00477611 vs recomputed 0.00478105 (0.103% apart, tolerance 0.1%)",
+    "rule_reason": "stop mismatch: stored 0.00477611 vs recomputed 0.00478106 (0.104% apart, tolerance 0.1%)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -16628,8 +16628,8 @@
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 1.647,
-    "mae": 0.8
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 935,
@@ -17096,8 +17096,8 @@
     "btc_eth_gated": true,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 4.727,
-    "mae": -0.289
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 961,
@@ -17128,12 +17128,12 @@
     "checked_at": "2026-07-21T06:38:45.478786",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (1 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 0.0,
-    "mae": 5.014
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 963,
@@ -17182,11 +17182,11 @@
     "checked_at": "2026-07-22T07:22:51.208441",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (9 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.462,
+    "mfe": 0.0,
     "mae": 2.647
   },
   {
@@ -17254,7 +17254,7 @@
     "checked_at": "2026-07-22T18:48:59.947941",
     "r_multiple": 0.267,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (22 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (10 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -17326,7 +17326,7 @@
     "checked_at": "2026-07-23T04:43:33.401399",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (26 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (14 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -17344,7 +17344,7 @@
     "checked_at": "2026-07-23T04:43:33.401399",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (26 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (14 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -17362,7 +17362,7 @@
     "checked_at": "2026-07-23T16:15:19.713695",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (26 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (14 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -17398,7 +17398,7 @@
     "checked_at": "2026-07-24T16:54:05.621552",
     "r_multiple": 1.778,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (37 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (25 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -17416,7 +17416,7 @@
     "checked_at": "2026-07-24T12:52:13.352667",
     "r_multiple": 0.87,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (42 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (30 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -23756,8 +23756,8 @@
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.221,
-    "mae": 0.112
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1334,
@@ -23774,8 +23774,8 @@
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.345,
-    "mae": 0.132
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1335,
@@ -23792,8 +23792,8 @@
     "btc_eth_gated": true,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.0,
-    "mae": 0.0
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1336,
@@ -23842,12 +23842,12 @@
     "checked_at": "2026-08-19T08:50:17.174794",
     "r_multiple": 0.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (1 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 0.0,
-    "mae": 0.0
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1339,
@@ -23860,12 +23860,12 @@
     "checked_at": "2026-08-19T09:43:33.216124",
     "r_multiple": 0.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (2 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
-    "mfe": 0.021,
-    "mae": 0.207
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1340,
@@ -23968,12 +23968,12 @@
     "checked_at": "2026-08-19T16:40:34.987450",
     "r_multiple": 0.872,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (14 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 8.838,
-    "mae": 0.0
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": null,
+    "mae": null
   },
   {
     "id": 1346,
@@ -24058,11 +24058,11 @@
     "checked_at": "2026-08-19T22:01:35.116337",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (19 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (0 available before logged_at)",
     "btc_eth_gated": true,
-    "btc_agrees": false,
-    "eth_agrees": false,
-    "mfe": 0.0,
+    "btc_agrees": null,
+    "eth_agrees": null,
+    "mfe": -16.844,
     "mae": 14.648
   },
   {
@@ -24130,10 +24130,10 @@
     "checked_at": "2026-08-20T12:02:42.266565",
     "r_multiple": 0.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (28 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (4 available before logged_at)",
     "btc_eth_gated": true,
     "btc_agrees": false,
-    "eth_agrees": false,
+    "eth_agrees": true,
     "mfe": 0.0,
     "mae": 0.0
   },
@@ -24166,10 +24166,10 @@
     "checked_at": "2026-08-20T13:07:15.198654",
     "r_multiple": -1.0,
     "rule_check": "fail",
-    "rule_reason": "not enough historical candles to reconstruct (33 available before logged_at)",
+    "rule_reason": "not enough historical candles to reconstruct (9 available before logged_at)",
     "btc_eth_gated": true,
     "btc_agrees": false,
-    "eth_agrees": false,
+    "eth_agrees": true,
     "mfe": 0.0,
     "mae": 11.749
   },
@@ -31581,8 +31581,8 @@
     "logged_at": "2026-08-28T11:35:55.341112",
     "checked_at": "2026-08-28T21:33:11.345334",
     "r_multiple": -1.0,
-    "rule_check": "pass",
-    "rule_reason": "detector fired with matching direction and stop",
+    "rule_check": "fail",
+    "rule_reason": "jayantha_b2b did not fire bullish against the reconstructed candles",
     "btc_eth_gated": false,
     "btc_agrees": null,
     "eth_agrees": null,
@@ -32884,5 +32884,41 @@
     "eth_agrees": null,
     "mfe": 0.864,
     "mae": 0.567
+  },
+  {
+    "id": 1855,
+    "symbol": "ENJUSDT",
+    "timeframe": "1h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-17T10:28:18.595474",
+    "checked_at": "2026-09-17T15:20:57.715301",
+    "r_multiple": -0.872,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.0,
+    "mae": 0.0
+  },
+  {
+    "id": 1856,
+    "symbol": "SPXUSDT",
+    "timeframe": "2h",
+    "based_on": "vwap_breakout_ashen",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-17T19:09:26.134351",
+    "checked_at": "2026-09-17T22:19:21.367292",
+    "r_multiple": -0.861,
+    "rule_check": "pass",
+    "rule_reason": "detector fired with matching direction and stop",
+    "btc_eth_gated": true,
+    "btc_agrees": false,
+    "eth_agrees": false,
+    "mfe": 0.0,
+    "mae": 0.0
   }
 ]
