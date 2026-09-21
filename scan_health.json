@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-20T23:36:57.670870+00:00",
+  "generated_at": "2026-09-21T01:43:57.400601+00:00",
   "total_pairs": 157,
   "fast_pairs": 157,
   "long_tail_pairs": 0,
-  "pairs_with_errors": 0,
+  "pairs_with_errors": 20,
   "used_pair_discovery_fallback": true,
   "pair_discovery_method": "static_fallback",
   "proxy_stats": {
@@ -13,5 +13,126 @@
     "last_status": null,
     "last_error": null
   },
-  "errors": {}
+  "errors": {
+    "LDOUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "SKYUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ICPUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "CHZUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "POLUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "VETUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "USELESSUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "NEIROUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "COMPUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "MASKUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "STORJUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "MEUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "CELOUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "WAXPUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "BANDUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "XTZUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ANIMEUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "RLCUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "ONTUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ],
+    "KSMUSDT": [
+      {
+        "timeframe": "*",
+        "reason": "exception"
+      }
+    ]
+  }
 }
