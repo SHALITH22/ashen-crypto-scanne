@@ -8602,5 +8602,29 @@
     "atr_pct": 0.5094,
     "structure_distance_pct": 7.5949,
     "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "STORJUSDT",
+    "timeframe": "8h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-28T06:41:24.182886",
+    "vwap_distance_pct": -11.6099,
+    "confirm_distance_pct": -10.4907,
+    "atr_pct": 5.3447,
+    "structure_distance_pct": 21.1538,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "JTOUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-28T14:31:21.556527",
+    "vwap_distance_pct": -4.5911,
+    "confirm_distance_pct": -4.4448,
+    "atr_pct": 0.5202,
+    "structure_distance_pct": 9.0582,
+    "htf_trend_matches_bias": true
   }
 ]
