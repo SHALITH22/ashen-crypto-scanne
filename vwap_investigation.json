@@ -8626,5 +8626,29 @@
     "atr_pct": 0.5202,
     "structure_distance_pct": 9.0582,
     "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "BRETTUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-29T13:59:58.976569",
+    "vwap_distance_pct": -23.6966,
+    "confirm_distance_pct": -23.6966,
+    "atr_pct": 0.5153,
+    "structure_distance_pct": 13.8448,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ZENUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-29T19:19:10.652958",
+    "vwap_distance_pct": -1.2424,
+    "confirm_distance_pct": -1.2475,
+    "atr_pct": 0.5707,
+    "structure_distance_pct": 7.6271,
+    "htf_trend_matches_bias": true
   }
 ]
