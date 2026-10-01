@@ -6319,7 +6319,7 @@
     "logged_at": "2026-08-24T10:09:25.146508",
     "vwap_distance_pct": -19.905,
     "confirm_distance_pct": -19.905,
-    "atr_pct": 6.9682,
+    "atr_pct": 6.9683,
     "structure_distance_pct": 9.9143,
     "htf_trend_matches_bias": true
   },
@@ -8649,6 +8649,18 @@
     "confirm_distance_pct": -1.2475,
     "atr_pct": 0.5707,
     "structure_distance_pct": 7.6271,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-09-30T15:21:22.632831",
+    "vwap_distance_pct": -2.0862,
+    "confirm_distance_pct": -2.4348,
+    "atr_pct": 1.2382,
+    "structure_distance_pct": 12.0354,
     "htf_trend_matches_bias": true
   }
 ]
