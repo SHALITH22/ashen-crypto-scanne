@@ -6319,7 +6319,7 @@
     "logged_at": "2026-08-24T10:09:25.146508",
     "vwap_distance_pct": -19.905,
     "confirm_distance_pct": -19.905,
-    "atr_pct": 6.9682,
+    "atr_pct": 6.9683,
     "structure_distance_pct": 9.9143,
     "htf_trend_matches_bias": true
   },
@@ -8697,6 +8697,30 @@
     "confirm_distance_pct": -2.3429,
     "atr_pct": 0.5371,
     "structure_distance_pct": 6.8524,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "AUSDT",
+    "timeframe": "2h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-10-02T08:42:35.587917",
+    "vwap_distance_pct": -3.8825,
+    "confirm_distance_pct": -3.8825,
+    "atr_pct": 0.5601,
+    "structure_distance_pct": 15.7949,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ALPINEUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-10-02T08:42:35.587917",
+    "vwap_distance_pct": -1.6121,
+    "confirm_distance_pct": -1.6121,
+    "atr_pct": 0.5364,
+    "structure_distance_pct": 11.4613,
     "htf_trend_matches_bias": true
   }
 ]
