@@ -5028,18 +5028,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "JUPUSDT",
-    "timeframe": "2h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-08-17T10:02:57.570724",
-    "vwap_distance_pct": -6.2918,
-    "confirm_distance_pct": -6.2918,
-    "atr_pct": 0.5265,
-    "structure_distance_pct": 18.6519,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "BTCUSDT",
     "timeframe": "1d",
     "bias": "bearish",
@@ -5227,7 +5215,7 @@
     "logged_at": "2026-08-20T10:54:36.978949",
     "vwap_distance_pct": -8.4648,
     "confirm_distance_pct": -9.9011,
-    "atr_pct": 1.2794,
+    "atr_pct": 1.2793,
     "structure_distance_pct": 10.1713,
     "htf_trend_matches_bias": true
   },
@@ -7915,7 +7903,7 @@
     "logged_at": "2026-08-26T22:22:21.876210",
     "vwap_distance_pct": -32.0151,
     "confirm_distance_pct": -32.0151,
-    "atr_pct": 6.2882,
+    "atr_pct": 6.2881,
     "structure_distance_pct": 6.6441,
     "htf_trend_matches_bias": true
   },
@@ -8769,6 +8757,30 @@
     "confirm_distance_pct": -12.0479,
     "atr_pct": 0.5467,
     "structure_distance_pct": 7.5036,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "BICOUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "loss",
+    "logged_at": "2026-10-06T09:10:21.439725",
+    "vwap_distance_pct": -5.1721,
+    "confirm_distance_pct": -5.1721,
+    "atr_pct": 0.5703,
+    "structure_distance_pct": 12.2126,
+    "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "GUSDT",
+    "timeframe": "4h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-10-06T09:10:21.439725",
+    "vwap_distance_pct": -21.3407,
+    "confirm_distance_pct": -35.0961,
+    "atr_pct": 0.5319,
+    "structure_distance_pct": 17.0124,
     "htf_trend_matches_bias": true
   }
 ]
