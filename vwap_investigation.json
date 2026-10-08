@@ -5215,7 +5215,7 @@
     "logged_at": "2026-08-20T10:54:36.978949",
     "vwap_distance_pct": -8.4648,
     "confirm_distance_pct": -9.9011,
-    "atr_pct": 1.2793,
+    "atr_pct": 1.2792,
     "structure_distance_pct": 10.1713,
     "htf_trend_matches_bias": true
   },
@@ -6091,7 +6091,7 @@
     "logged_at": "2026-08-24T07:14:54.883883",
     "vwap_distance_pct": -12.3528,
     "confirm_distance_pct": -12.3528,
-    "atr_pct": 13.0584,
+    "atr_pct": 13.0583,
     "structure_distance_pct": 8.2,
     "htf_trend_matches_bias": true
   },
