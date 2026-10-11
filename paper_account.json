@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T22:48:10.012522",
+  "generated_at": "2026-10-11T01:49:33.452641",
   "starting_balance": 1000.0,
   "risk_pct": 1.0,
   "balance": 131.27,
@@ -7,7 +7,7 @@
   "max_drawdown_pct": 88.84,
   "total_return_pct": -86.87,
   "trades_closed": 1915,
-  "trades_currently_open": 5,
-  "open_risk_dollars": 11.13,
-  "open_risk_pct_of_balance": 8.48
+  "trades_currently_open": 8,
+  "open_risk_dollars": 15.07,
+  "open_risk_pct_of_balance": 11.48
 }
