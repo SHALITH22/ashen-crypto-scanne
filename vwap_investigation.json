@@ -3876,42 +3876,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "CHZUSDT",
-    "timeframe": "4h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-07-18T20:04:24.055312",
-    "vwap_distance_pct": -8.6709,
-    "confirm_distance_pct": -8.6709,
-    "atr_pct": 0.5105,
-    "structure_distance_pct": 4.1481,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "BANDUSDT",
-    "timeframe": "4h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-19T00:03:00.313936",
-    "vwap_distance_pct": -7.6331,
-    "confirm_distance_pct": -7.6331,
-    "atr_pct": 0.4996,
-    "structure_distance_pct": 21.0127,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "IOSTUSDT",
-    "timeframe": "4h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-07-19T00:03:00.313936",
-    "vwap_distance_pct": -11.6173,
-    "confirm_distance_pct": -11.6173,
-    "atr_pct": 0.5001,
-    "structure_distance_pct": 0.0,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "ASTERUSDT",
     "timeframe": "4h",
     "bias": "bearish",
@@ -3919,7 +3883,7 @@
     "logged_at": "2026-07-19T17:42:48.486704",
     "vwap_distance_pct": -0.7687,
     "confirm_distance_pct": -0.7731,
-    "atr_pct": 0.333,
+    "atr_pct": 0.3341,
     "structure_distance_pct": 2.1054,
     "htf_trend_matches_bias": true
   },
@@ -3967,7 +3931,7 @@
     "logged_at": "2026-07-19T21:03:04.694340",
     "vwap_distance_pct": -3.3522,
     "confirm_distance_pct": -2.0116,
-    "atr_pct": 0.5083,
+    "atr_pct": 0.5076,
     "structure_distance_pct": 6.8447,
     "htf_trend_matches_bias": true
   },
@@ -4015,7 +3979,7 @@
     "logged_at": "2026-07-20T04:12:59.663649",
     "vwap_distance_pct": -0.7095,
     "confirm_distance_pct": -1.7372,
-    "atr_pct": 0.5257,
+    "atr_pct": 0.5255,
     "structure_distance_pct": 8.2504,
     "htf_trend_matches_bias": true
   },
