@@ -6595,7 +6595,7 @@
     "logged_at": "2026-09-17T19:09:26.134351",
     "vwap_distance_pct": -4.1745,
     "confirm_distance_pct": -4.2597,
-    "atr_pct": 0.5131,
+    "atr_pct": 0.513,
     "structure_distance_pct": 7.2739,
     "htf_trend_matches_bias": true
   },
