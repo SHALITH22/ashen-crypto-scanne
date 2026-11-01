@@ -7510,5 +7510,17 @@
     "atr_pct": 0.5083,
     "structure_distance_pct": 11.7573,
     "htf_trend_matches_bias": true
+  },
+  {
+    "symbol": "ENAUSDT",
+    "timeframe": "1h",
+    "bias": "bearish",
+    "status": "win",
+    "logged_at": "2026-10-31T21:25:24.172974",
+    "vwap_distance_pct": -2.9414,
+    "confirm_distance_pct": -2.9414,
+    "atr_pct": 0.5051,
+    "structure_distance_pct": 11.1746,
+    "htf_trend_matches_bias": true
   }
 ]
