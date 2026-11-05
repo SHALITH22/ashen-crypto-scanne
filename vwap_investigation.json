@@ -6619,7 +6619,7 @@
     "logged_at": "2026-09-17T19:09:26.134351",
     "vwap_distance_pct": -4.1745,
     "confirm_distance_pct": -4.2597,
-    "atr_pct": 0.5129,
+    "atr_pct": 0.5127,
     "structure_distance_pct": 7.2739,
     "htf_trend_matches_bias": true
   },
@@ -6888,18 +6888,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "ALGOUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-10-10T15:17:27.354240",
-    "vwap_distance_pct": -5.2148,
-    "confirm_distance_pct": -7.4721,
-    "atr_pct": 0.835,
-    "structure_distance_pct": 7.1247,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "CHZUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -6909,18 +6897,6 @@
     "confirm_distance_pct": -5.9632,
     "atr_pct": 0.5676,
     "structure_distance_pct": 8.707,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "IOTAUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-10T19:24:42.836120",
-    "vwap_distance_pct": -2.1533,
-    "confirm_distance_pct": -2.1533,
-    "atr_pct": 0.51,
-    "structure_distance_pct": 6.7568,
     "htf_trend_matches_bias": true
   },
   {
@@ -6960,42 +6936,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "ZECUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-10-11T01:49:31.506383",
-    "vwap_distance_pct": -1.3929,
-    "confirm_distance_pct": -1.5497,
-    "atr_pct": 0.6688,
-    "structure_distance_pct": 8.9755,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "UNIUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-11T01:49:31.506383",
-    "vwap_distance_pct": -3.1884,
-    "confirm_distance_pct": -3.3433,
-    "atr_pct": 0.5794,
-    "structure_distance_pct": 7.4011,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "IMXUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-11T01:49:31.506383",
-    "vwap_distance_pct": -0.6148,
-    "confirm_distance_pct": -0.6148,
-    "atr_pct": 0.5664,
-    "structure_distance_pct": 15.5263,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "GTCUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -7003,7 +6943,7 @@
     "logged_at": "2026-10-11T15:08:09.705269",
     "vwap_distance_pct": -1.5549,
     "confirm_distance_pct": -1.5549,
-    "atr_pct": 0.5454,
+    "atr_pct": 0.542,
     "structure_distance_pct": 10.1868,
     "htf_trend_matches_bias": true
   },
