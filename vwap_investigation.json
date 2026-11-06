@@ -6619,7 +6619,7 @@
     "logged_at": "2026-09-17T19:09:26.134351",
     "vwap_distance_pct": -4.1745,
     "confirm_distance_pct": -4.2597,
-    "atr_pct": 0.5127,
+    "atr_pct": 0.5121,
     "structure_distance_pct": 7.2739,
     "htf_trend_matches_bias": true
   },
@@ -6933,18 +6933,6 @@
     "confirm_distance_pct": -6.4454,
     "atr_pct": 0.5609,
     "structure_distance_pct": 21.9315,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "GTCUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-10-11T15:08:09.705269",
-    "vwap_distance_pct": -1.5549,
-    "confirm_distance_pct": -1.5549,
-    "atr_pct": 0.542,
-    "structure_distance_pct": 10.1868,
     "htf_trend_matches_bias": true
   },
   {
