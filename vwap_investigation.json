@@ -6636,18 +6636,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "LAYERUSDT",
-    "timeframe": "2h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-09-19T06:04:38.899610",
-    "vwap_distance_pct": -14.3326,
-    "confirm_distance_pct": -14.3326,
-    "atr_pct": 0.516,
-    "structure_distance_pct": 8.525,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "BRETTUSDT",
     "timeframe": "2h",
     "bias": "bearish",
