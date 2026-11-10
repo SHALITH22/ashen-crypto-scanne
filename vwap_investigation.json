@@ -6636,30 +6636,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "YFIUSDT",
-    "timeframe": "2h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-09-20T19:24:44.597090",
-    "vwap_distance_pct": -1.9491,
-    "confirm_distance_pct": -1.9491,
-    "atr_pct": 0.5054,
-    "structure_distance_pct": 8.2909,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ASTRUSDT",
-    "timeframe": "2h",
-    "bias": "bearish",
-    "status": "loss",
-    "logged_at": "2026-09-20T23:36:57.682468",
-    "vwap_distance_pct": -7.3135,
-    "confirm_distance_pct": -7.3135,
-    "atr_pct": 0.5112,
-    "structure_distance_pct": 7.829,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "STORJUSDT",
     "timeframe": "2h",
     "bias": "bearish",
@@ -6909,54 +6885,6 @@
     "confirm_distance_pct": -3.292,
     "atr_pct": 0.5718,
     "structure_distance_pct": 16.3543,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "ENAUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-16T04:46:50.761323",
-    "vwap_distance_pct": -5.8097,
-    "confirm_distance_pct": -5.4057,
-    "atr_pct": 0.5024,
-    "structure_distance_pct": 7.883,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "CHZUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-16T04:46:50.761323",
-    "vwap_distance_pct": -0.0677,
-    "confirm_distance_pct": -0.0677,
-    "atr_pct": 0.5652,
-    "structure_distance_pct": 13.7491,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "BLURUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-16T04:46:50.761323",
-    "vwap_distance_pct": -11.6782,
-    "confirm_distance_pct": -11.6782,
-    "atr_pct": 0.5672,
-    "structure_distance_pct": 8.3333,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "JUPUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-16T09:40:31.298896",
-    "vwap_distance_pct": -4.3522,
-    "confirm_distance_pct": -4.3522,
-    "atr_pct": 0.5534,
-    "structure_distance_pct": 7.1246,
     "htf_trend_matches_bias": true
   },
   {
