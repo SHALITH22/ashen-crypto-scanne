@@ -6643,7 +6643,7 @@
     "logged_at": "2026-09-27T15:20:48.424033",
     "vwap_distance_pct": -3.2171,
     "confirm_distance_pct": -3.2171,
-    "atr_pct": 0.5094,
+    "atr_pct": 0.5099,
     "structure_distance_pct": 7.5949,
     "htf_trend_matches_bias": true
   },
@@ -6912,18 +6912,6 @@
     "htf_trend_matches_bias": true
   },
   {
-    "symbol": "TUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-18T05:44:59.770034",
-    "vwap_distance_pct": -4.9287,
-    "confirm_distance_pct": -4.9287,
-    "atr_pct": 0.5556,
-    "structure_distance_pct": 12.1331,
-    "htf_trend_matches_bias": true
-  },
-  {
     "symbol": "VIRTUALUSDT",
     "timeframe": "1h",
     "bias": "bearish",
@@ -6931,7 +6919,7 @@
     "logged_at": "2026-10-19T00:08:54.918321",
     "vwap_distance_pct": -7.4834,
     "confirm_distance_pct": -11.1465,
-    "atr_pct": 0.5645,
+    "atr_pct": 0.5644,
     "structure_distance_pct": 9.0798,
     "htf_trend_matches_bias": true
   },
