@@ -6643,7 +6643,7 @@
     "logged_at": "2026-09-27T15:20:48.424033",
     "vwap_distance_pct": -3.2171,
     "confirm_distance_pct": -3.2171,
-    "atr_pct": 0.5099,
+    "atr_pct": 0.509,
     "structure_distance_pct": 7.5949,
     "htf_trend_matches_bias": true
   },
@@ -6909,18 +6909,6 @@
     "confirm_distance_pct": -1.6031,
     "atr_pct": 0.5659,
     "structure_distance_pct": 6.9331,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "VIRTUALUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-19T00:08:54.918321",
-    "vwap_distance_pct": -7.4834,
-    "confirm_distance_pct": -11.1465,
-    "atr_pct": 0.5644,
-    "structure_distance_pct": 9.0798,
     "htf_trend_matches_bias": true
   },
   {
