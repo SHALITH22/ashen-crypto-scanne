@@ -967,7 +967,7 @@
     "logged_at": "2026-07-16T18:03:07.428173",
     "vwap_distance_pct": -13.3337,
     "confirm_distance_pct": -13.3337,
-    "atr_pct": 3.1339,
+    "atr_pct": 3.134,
     "structure_distance_pct": 12.5792,
     "htf_trend_matches_bias": true
   },
@@ -4027,7 +4027,7 @@
     "logged_at": "2026-08-17T08:06:51.119737",
     "vwap_distance_pct": -1.4082,
     "confirm_distance_pct": -1.4082,
-    "atr_pct": 0.5543,
+    "atr_pct": 0.5542,
     "structure_distance_pct": 9.3168,
     "htf_trend_matches_bias": true
   },
@@ -4231,7 +4231,7 @@
     "logged_at": "2026-08-20T16:15:33.959787",
     "vwap_distance_pct": -4.4251,
     "confirm_distance_pct": -4.4251,
-    "atr_pct": 0.5093,
+    "atr_pct": 0.5092,
     "structure_distance_pct": 18.1655,
     "htf_trend_matches_bias": true
   },
@@ -4531,7 +4531,7 @@
     "logged_at": "2026-08-24T03:13:11.333829",
     "vwap_distance_pct": -11.2593,
     "confirm_distance_pct": -11.2593,
-    "atr_pct": 1.3763,
+    "atr_pct": 1.3762,
     "structure_distance_pct": 8.0,
     "htf_trend_matches_bias": true
   },
@@ -6679,7 +6679,7 @@
     "logged_at": "2026-10-01T05:39:31.676229",
     "vwap_distance_pct": -3.5289,
     "confirm_distance_pct": -4.1787,
-    "atr_pct": 0.5755,
+    "atr_pct": 0.5754,
     "structure_distance_pct": 15.3067,
     "htf_trend_matches_bias": true
   },
@@ -6715,7 +6715,7 @@
     "logged_at": "2026-10-02T08:42:35.587917",
     "vwap_distance_pct": -3.8825,
     "confirm_distance_pct": -3.8825,
-    "atr_pct": 0.56,
+    "atr_pct": 0.5601,
     "structure_distance_pct": 15.7949,
     "htf_trend_matches_bias": true
   },
@@ -6751,7 +6751,7 @@
     "logged_at": "2026-10-04T15:00:58.313335",
     "vwap_distance_pct": -1.1774,
     "confirm_distance_pct": -1.7491,
-    "atr_pct": 0.5669,
+    "atr_pct": 0.567,
     "structure_distance_pct": 8.2303,
     "htf_trend_matches_bias": true
   },
@@ -7267,7 +7267,7 @@
     "logged_at": "2026-10-25T05:21:07.331387",
     "vwap_distance_pct": -47.4939,
     "confirm_distance_pct": -46.9447,
-    "atr_pct": 0.5326,
+    "atr_pct": 0.5325,
     "structure_distance_pct": 10.2564,
     "htf_trend_matches_bias": true
   },
