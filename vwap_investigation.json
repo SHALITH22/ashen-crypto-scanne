@@ -967,7 +967,7 @@
     "logged_at": "2026-07-16T18:03:07.428173",
     "vwap_distance_pct": -13.3337,
     "confirm_distance_pct": -13.3337,
-    "atr_pct": 3.134,
+    "atr_pct": 3.1339,
     "structure_distance_pct": 12.5792,
     "htf_trend_matches_bias": true
   },
@@ -4183,7 +4183,7 @@
     "logged_at": "2026-08-19T17:03:53.945849",
     "vwap_distance_pct": -4.2803,
     "confirm_distance_pct": -7.0172,
-    "atr_pct": 1.469,
+    "atr_pct": 1.4691,
     "structure_distance_pct": 6.9409,
     "htf_trend_matches_bias": true
   },
@@ -4531,7 +4531,7 @@
     "logged_at": "2026-08-24T03:13:11.333829",
     "vwap_distance_pct": -11.2593,
     "confirm_distance_pct": -11.2593,
-    "atr_pct": 1.3762,
+    "atr_pct": 1.3763,
     "structure_distance_pct": 8.0,
     "htf_trend_matches_bias": true
   },
@@ -6679,7 +6679,7 @@
     "logged_at": "2026-10-01T05:39:31.676229",
     "vwap_distance_pct": -3.5289,
     "confirm_distance_pct": -4.1787,
-    "atr_pct": 0.5754,
+    "atr_pct": 0.5753,
     "structure_distance_pct": 15.3067,
     "htf_trend_matches_bias": true
   },
@@ -6703,7 +6703,7 @@
     "logged_at": "2026-10-02T02:09:55.842047",
     "vwap_distance_pct": -0.0973,
     "confirm_distance_pct": -2.3429,
-    "atr_pct": 0.537,
+    "atr_pct": 0.5367,
     "structure_distance_pct": 6.8524,
     "htf_trend_matches_bias": true
   },
@@ -6715,7 +6715,7 @@
     "logged_at": "2026-10-02T08:42:35.587917",
     "vwap_distance_pct": -3.8825,
     "confirm_distance_pct": -3.8825,
-    "atr_pct": 0.5601,
+    "atr_pct": 0.5599,
     "structure_distance_pct": 15.7949,
     "htf_trend_matches_bias": true
   },
@@ -6751,7 +6751,7 @@
     "logged_at": "2026-10-04T15:00:58.313335",
     "vwap_distance_pct": -1.1774,
     "confirm_distance_pct": -1.7491,
-    "atr_pct": 0.567,
+    "atr_pct": 0.5669,
     "structure_distance_pct": 8.2303,
     "htf_trend_matches_bias": true
   },
@@ -7257,18 +7257,6 @@
     "confirm_distance_pct": -6.4592,
     "atr_pct": 0.5575,
     "structure_distance_pct": 7.6423,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "DOODUSDT",
-    "timeframe": "1h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-25T05:21:07.331387",
-    "vwap_distance_pct": -47.4939,
-    "confirm_distance_pct": -46.9447,
-    "atr_pct": 0.5325,
-    "structure_distance_pct": 10.2564,
     "htf_trend_matches_bias": true
   },
   {
