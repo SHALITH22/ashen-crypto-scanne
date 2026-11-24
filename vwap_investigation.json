@@ -283,7 +283,7 @@
     "logged_at": "2026-07-16T18:03:07.428173",
     "vwap_distance_pct": -1.3598,
     "confirm_distance_pct": -0.7909,
-    "atr_pct": 2.3077,
+    "atr_pct": 2.3078,
     "structure_distance_pct": 14.1182,
     "htf_trend_matches_bias": true
   },
@@ -1735,7 +1735,7 @@
     "logged_at": "2026-07-16T18:03:07.428173",
     "vwap_distance_pct": -5.5824,
     "confirm_distance_pct": -7.4309,
-    "atr_pct": 0.9014,
+    "atr_pct": 0.9013,
     "structure_distance_pct": 7.1429,
     "htf_trend_matches_bias": true
   },
@@ -1783,7 +1783,7 @@
     "logged_at": "2026-07-16T18:03:07.428173",
     "vwap_distance_pct": 1.3071,
     "confirm_distance_pct": 1.0215,
-    "atr_pct": 0.8114,
+    "atr_pct": 0.8113,
     "structure_distance_pct": 2.0202,
     "htf_trend_matches_bias": true
   },
@@ -4027,7 +4027,7 @@
     "logged_at": "2026-08-17T08:06:51.119737",
     "vwap_distance_pct": -1.4082,
     "confirm_distance_pct": -1.4082,
-    "atr_pct": 0.5545,
+    "atr_pct": 0.5538,
     "structure_distance_pct": 9.3168,
     "htf_trend_matches_bias": true
   },
@@ -4099,7 +4099,7 @@
     "logged_at": "2026-08-18T08:49:06.748529",
     "vwap_distance_pct": -0.0329,
     "confirm_distance_pct": -0.0329,
-    "atr_pct": 0.5133,
+    "atr_pct": 0.5134,
     "structure_distance_pct": 7.6155,
     "htf_trend_matches_bias": true
   },
@@ -4183,7 +4183,7 @@
     "logged_at": "2026-08-19T17:03:53.945849",
     "vwap_distance_pct": -4.2803,
     "confirm_distance_pct": -7.0172,
-    "atr_pct": 1.4693,
+    "atr_pct": 1.4687,
     "structure_distance_pct": 6.9409,
     "htf_trend_matches_bias": true
   },
@@ -4531,7 +4531,7 @@
     "logged_at": "2026-08-24T03:13:11.333829",
     "vwap_distance_pct": -11.2593,
     "confirm_distance_pct": -11.2593,
-    "atr_pct": 1.3763,
+    "atr_pct": 1.3759,
     "structure_distance_pct": 8.0,
     "htf_trend_matches_bias": true
   },
@@ -4843,7 +4843,7 @@
     "logged_at": "2026-08-24T03:13:11.333829",
     "vwap_distance_pct": -10.4216,
     "confirm_distance_pct": -10.4216,
-    "atr_pct": 1.2285,
+    "atr_pct": 1.2286,
     "structure_distance_pct": 44.9514,
     "htf_trend_matches_bias": true
   },
@@ -4939,7 +4939,7 @@
     "logged_at": "2026-08-24T03:13:11.333829",
     "vwap_distance_pct": -13.4419,
     "confirm_distance_pct": -24.0492,
-    "atr_pct": 9.8031,
+    "atr_pct": 9.803,
     "structure_distance_pct": 97.9592,
     "htf_trend_matches_bias": true
   },
@@ -5635,7 +5635,7 @@
     "logged_at": "2026-08-25T20:02:14.603667",
     "vwap_distance_pct": -20.4504,
     "confirm_distance_pct": -13.3897,
-    "atr_pct": 8.8607,
+    "atr_pct": 8.8606,
     "structure_distance_pct": 97.7778,
     "htf_trend_matches_bias": true
   },
@@ -5827,7 +5827,7 @@
     "logged_at": "2026-08-26T04:08:46.155659",
     "vwap_distance_pct": -2.9046,
     "confirm_distance_pct": -2.9046,
-    "atr_pct": 2.8143,
+    "atr_pct": 2.8142,
     "structure_distance_pct": 12.0275,
     "htf_trend_matches_bias": true
   },
@@ -6705,18 +6705,6 @@
     "confirm_distance_pct": -1.2975,
     "atr_pct": 0.3949,
     "structure_distance_pct": 21.0526,
-    "htf_trend_matches_bias": true
-  },
-  {
-    "symbol": "KSMUSDT",
-    "timeframe": "2h",
-    "bias": "bearish",
-    "status": "win",
-    "logged_at": "2026-10-05T15:01:13.274455",
-    "vwap_distance_pct": -2.099,
-    "confirm_distance_pct": -1.7183,
-    "atr_pct": 0.534,
-    "structure_distance_pct": 12.6953,
     "htf_trend_matches_bias": true
   },
   {
